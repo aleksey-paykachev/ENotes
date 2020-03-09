@@ -15,14 +15,14 @@ class DemoDataManager {
 	/// Adds demo data to application on first startup
 	///
 	static func addDemoDataToApplication() {
-		copyDemoNotebookIntoDocumentDirectory(from: "TextNoteNotebook")
-		copyDemoNotebookIntoDocumentDirectory(from: "PhotoNoteNotebook")
+		copyDemoFileToDocumentDirectory(from: File(name: "TextNoteNotebook", ext: "json"))
+		copyDemoFileToDocumentDirectory(from: File(name: "PhotoNoteNotebook", ext: "json"))
 	}
 	
-	private static func copyDemoNotebookIntoDocumentDirectory(from fileName: String, fileExtension: String = "json") {
-		guard let sourceUrl = Bundle.main.url(forResource: fileName, withExtension: fileExtension) else { return }
+	private static func copyDemoFileToDocumentDirectory(from file: File) {
+		guard let sourceUrl = Bundle.main.url(forResource: file.name, withExtension: file.ext) else { return }
 
-		let destinationUrl = FileManager.documentDirectory.url(for: fileName, fileExtension: fileExtension)
+		let destinationUrl = FileManager.documentDirectory.url(for: file)
 
 		// Copy demo notebook file into document directory only if there is no one already
 		guard !FileManager.default.fileExists(atPath: destinationUrl.path) else { return }
@@ -30,7 +30,7 @@ class DemoDataManager {
 		do {
 			try FileManager.default.copyItem(at: sourceUrl, to: destinationUrl)
 		} catch {
-			print("Could not copy demo data from file \(fileName).\(fileExtension)")
+			print("Could not copy demo data from file \(file)")
 		}
 	}
 }

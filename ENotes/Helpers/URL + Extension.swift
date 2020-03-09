@@ -15,9 +15,17 @@ extension URL {
 	/// - Parameters:
 	///   - fileName: File name.
 	///   - fileExtension: File extension.
-	/// - Returns: URL of the file.
+	/// - Returns: URL of the file relative to initial URL.
 	///
 	func url(for fileName: String, fileExtension: String) -> URL {
-		return appendingPathComponent(fileName).appendingPathExtension(fileExtension)
+		appendingPathComponent(fileName).appendingPathExtension(fileExtension)
+	}
+
+	/// Forms and returns an URL of the given file relative to current URL
+	/// - Parameter file: Given file.
+	/// - Returns: URL of the file relative to initial URL.
+	///
+	func url(for file: File) -> URL {
+		url(for: file.name, fileExtension: file.ext)
 	}
 }
