@@ -13,9 +13,11 @@ struct TextNote: Note {
 	
 	/// An empty instance of text note without a title and content.
 	static var empty: TextNote {
-		return TextNote(title: "", content: "")
+		TextNote(title: "", content: "")
 	}
-	
+
+	private static let defaultColor = HSBColor.white
+
 	// Variables
 	let uid: String
 	let title: String
@@ -38,7 +40,7 @@ struct TextNote: Note {
 		self.uid = uid ?? UUID().uuidString
 		self.title = title
 		self.content = content
-		self.color = color ?? .white
+		self.color = color ?? Self.defaultColor
 		self.selfDestructionDate = selfDestructionDate
 	}
 
@@ -72,7 +74,7 @@ struct TextNote: Note {
 		json["uid"] = uid
 		json["title"] = title
 		json["content"] = content
-		json["color"] = color == .white ? nil : color.colorComponents
+		json["color"] = color == Self.defaultColor ? nil : color.colorComponents
 		json["selfDestructionDate"] = selfDestructionDate?.timeIntervalSince1970
 		
 		return json
