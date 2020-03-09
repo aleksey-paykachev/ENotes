@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditTextNoteViewController" customModule="ENotes" customModuleProvider="target">
+            <connections>
+                <outlet property="contentWraperScrollView" destination="mq8-hX-Tzx" id="VQ7-5q-D3Q"/>
+                <outlet property="noteContentTextView" destination="XDv-r0-ykr" id="1RV-bS-wrC"/>
+                <outlet property="noteTitleTextField" destination="VPc-as-K8o" id="hfL-kc-Cw0"/>
+                <outlet property="removeAfterDateTextLabel" destination="yUD-lY-nxo" id="jZY-RV-RN6"/>
+                <outlet property="removeAfterDateTextLabelLeadingConstraint" destination="MRM-6O-G0j" id="GKh-5Y-fRd"/>
+                <outlet property="selfDestructionDateDatePicker" destination="Aqy-yl-SoU" id="yNK-kh-CCG"/>
+                <outlet property="selfDestructionDateDatePickerContainerView" destination="MQ3-dX-8Js" id="pYf-kR-HA8"/>
+                <outlet property="selfDestructionDateDatePickerContainerViewHeightConstraint" destination="EbY-mt-p8V" id="zb3-Rx-5em"/>
+                <outlet property="selfDestructionDateDatePickerSwitch" destination="HfE-XB-RGE" id="Tj6-uR-6Qp"/>
+                <outlet property="stackView" destination="sfA-en-0nl" id="Xlh-Yx-YmY"/>
+                <outlet property="view" destination="lRm-fa-54h" id="tVy-ix-Y8x"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="lRm-fa-54h">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mq8-hX-Tzx">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="sfA-en-0nl" userLabel="All Control Elements Stack">
+                            <rect key="frame" x="20" y="20" width="374" height="368.5"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VPc-as-K8o">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="252" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XDv-r0-ykr" customClass="ExtendedTextView" customModule="ENotes" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="48" width="374" height="37.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
+                                </textView>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="kYD-ee-QxU" userLabel="Self-Destruction Date Stack">
+                                    <rect key="frame" x="0.0" y="103.5" width="374" height="31"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHa-0T-3t3" userLabel="Remove After Date Wrapper">
+                                            <rect key="frame" x="0.0" y="0.0" width="185" height="31"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="800" verticalHuggingPriority="251" text="REMOVE_AFTER_DATE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUD-lY-nxo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="185" height="31"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yUD-lY-nxo" firstAttribute="top" secondItem="VHa-0T-3t3" secondAttribute="top" id="K2v-eT-Erf"/>
+                                                <constraint firstItem="yUD-lY-nxo" firstAttribute="leading" secondItem="VHa-0T-3t3" secondAttribute="leading" id="MRM-6O-G0j"/>
+                                                <constraint firstAttribute="trailing" secondItem="yUD-lY-nxo" secondAttribute="trailing" id="aRo-uw-8Do"/>
+                                                <constraint firstAttribute="bottom" secondItem="yUD-lY-nxo" secondAttribute="bottom" id="eYE-vu-pTF"/>
+                                            </constraints>
+                                        </view>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HfE-XB-RGE">
+                                            <rect key="frame" x="207" y="0.0" width="169" height="31"/>
+                                            <connections>
+                                                <action selector="selfDestructionDateSwitchPressed:" destination="-1" eventType="valueChanged" id="JJW-rV-Wha"/>
+                                            </connections>
+                                        </switch>
+                                    </subviews>
+                                </stackView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQ3-dX-8Js">
+                                    <rect key="frame" x="0.0" y="152.5" width="374" height="216"/>
+                                    <subviews>
+                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Aqy-yl-SoU">
+                                            <rect key="frame" x="27" y="0.0" width="320" height="216"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="216" id="7hc-jV-4wf"/>
+                                            </constraints>
+                                            <date key="date" timeIntervalSinceReferenceDate="584474516.84415102">
+                                                <!--2019-07-10 18:01:56 +0000-->
+                                            </date>
+                                        </datePicker>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="216" id="EbY-mt-p8V"/>
+                                        <constraint firstItem="Aqy-yl-SoU" firstAttribute="centerX" secondItem="MQ3-dX-8Js" secondAttribute="centerX" id="Ytq-bo-jON"/>
+                                        <constraint firstItem="Aqy-yl-SoU" firstAttribute="centerY" secondItem="MQ3-dX-8Js" secondAttribute="centerY" id="zJb-HA-4K3"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="sfA-en-0nl" secondAttribute="trailing" constant="20" id="0J8-dH-3EL"/>
+                        <constraint firstItem="sfA-en-0nl" firstAttribute="width" secondItem="mq8-hX-Tzx" secondAttribute="width" constant="-40" id="9xo-5Y-UqO"/>
+                        <constraint firstItem="sfA-en-0nl" firstAttribute="top" secondItem="mq8-hX-Tzx" secondAttribute="top" constant="20" id="IEw-I6-GzS"/>
+                        <constraint firstAttribute="bottom" secondItem="sfA-en-0nl" secondAttribute="bottom" constant="20" id="VU7-3N-d7P"/>
+                        <constraint firstItem="sfA-en-0nl" firstAttribute="leading" secondItem="mq8-hX-Tzx" secondAttribute="leading" constant="20" id="wH3-ac-cG8"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="pBi-tO-uTy" firstAttribute="bottom" secondItem="mq8-hX-Tzx" secondAttribute="bottom" id="djK-4g-JZk"/>
+                <constraint firstItem="mq8-hX-Tzx" firstAttribute="leading" secondItem="pBi-tO-uTy" secondAttribute="leading" id="eg0-3R-c8Z"/>
+                <constraint firstItem="pBi-tO-uTy" firstAttribute="trailing" secondItem="mq8-hX-Tzx" secondAttribute="trailing" id="gPe-El-0kY"/>
+                <constraint firstItem="mq8-hX-Tzx" firstAttribute="top" secondItem="pBi-tO-uTy" secondAttribute="top" id="ubX-Sw-Ic9"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="pBi-tO-uTy"/>
+        </view>
+    </objects>
+</document>
