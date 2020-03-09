@@ -14,20 +14,16 @@ class MainTabBarController: UITabBarController {
 		super.viewDidLoad()
 		
 		// Text notes
-//		let textNotesNavigationViewController = UINavigationController()
 		let textNotebook = Notebook<TextNote>()
 		let textNotesViewController = TextNotesTableViewController(notebook: textNotebook)
-//		textNotesNavigationViewController.pushViewController(textNotesViewController, animated: true)
-		let textNotesNavigationViewController = UINavigationController(rootViewController: textNotesViewController)
+		let textNotesNavigationController = UINavigationController(rootViewController: textNotesViewController)
 		
 		// Photo notes
-//		let photoNotesNavigationViewController = UINavigationController()
 		let photoNotebook = Notebook<PhotoNote>()
 		let photoNotesViewController = PhotoNotesCollectionViewController(notebook: photoNotebook)
-//		photoNotesNavigationViewController.pushViewController(photoNotesViewController, animated: true)
-		let photoNotesNavigationViewController = UINavigationController(rootViewController: photoNotesViewController)
+		let photoNotesNavigationController = UINavigationController(rootViewController: photoNotesViewController)
 
 		// Tab bar
-		setViewControllers([textNotesNavigationViewController, photoNotesNavigationViewController], animated: false)
+		viewControllers = [textNotesNavigationController, photoNotesNavigationController]
 	}
 }

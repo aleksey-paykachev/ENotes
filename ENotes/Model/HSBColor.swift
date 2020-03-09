@@ -8,7 +8,7 @@
 
 import UIKit
 
-// We have to use a custom representation of a color because of task 3.9 of the Yandex course which ask us to save and restore position of all color selectors (Hue-Saturation selector and Brightness slider). We can't use standard UIColor because of its automatic conversion into different color schemes and lack of information about all three H-S-B components.
+// We have to use a custom representation of a color because of the task 3.9 from the Yandex course, which ask us to save and restore position of all color selectors (Hue-Saturation selector and Brightness slider). We can't use standard UIColor because of its automatic conversion into different color schemes and lack of information about all three H-S-B components.
 
 
 /// Custom color object specified in an extended color space.
@@ -34,6 +34,7 @@ struct HSBColor: Equatable {
 	}
 	
 	/// Returns a custom HSB color object created from a given instance of the UIColor class.
+	///
 	init(from uiColor: UIColor) {
 		var hue: CGFloat = 0
 		var saturation: CGFloat = 0
@@ -41,6 +42,7 @@ struct HSBColor: Equatable {
 		var alpha: CGFloat = 0
 
 		uiColor.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+
 		self.init(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
 	}
 	
@@ -63,19 +65,16 @@ struct HSBColor: Equatable {
 	
 	/// The UIColor representation of current HSBColor.
 	var uiColor: UIColor {
-		return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
+		UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
 	}
 	
 	/// The CGColor representation of current HSBColor.
 	var cgColor: CGColor {
-		return uiColor.cgColor
+		uiColor.cgColor
 	}
 	
 	/// Dictionary representation of all color components: hue, saturation, brightness and alpha.
 	var colorComponents: [String: CGFloat] {
-		return ["hue": hue,
-				"saturation": saturation,
-				"brightness": brightness,
-				"alpha": alpha]
+		["hue": hue, "saturation": saturation, "brightness": brightness, "alpha": alpha]
 	}
 }
