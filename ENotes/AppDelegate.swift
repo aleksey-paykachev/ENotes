@@ -17,8 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
 		// Load demo data on first startup
-		copyDemoNotebookIntoDocumentDirectory(from: "TextNoteNotebook")
-		copyDemoNotebookIntoDocumentDirectory(from: "PhotoNoteNotebook")
+		DemoDataManager.addDemoDataToApplication()
 
 		// Create main window
 		window = UIWindow(frame: UIScreen.main.bounds)
@@ -26,20 +25,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		window?.makeKeyAndVisible()
 		
 		return true
-	}
-	
-	private func copyDemoNotebookIntoDocumentDirectory(from fileName: String, fileExtension: String = "json") {
-		guard let sourceUrl = Bundle.main.url(forResource: fileName, withExtension: fileExtension) else { return }
-
-		let destinationUrl = FileManager.documentDirectory.url(for: fileName, fileExtension: fileExtension)
-
-		// Copy demo notebook file into document directory only if there is no one already
-		if !FileManager.default.fileExists(atPath: destinationUrl.path) {
-			do {
-				try FileManager.default.copyItem(at: sourceUrl, to: destinationUrl)
-			} catch {
-				print("Could not copy demo data from file \(fileName).\(fileExtension)")
-			}
-		}
 	}
 }
