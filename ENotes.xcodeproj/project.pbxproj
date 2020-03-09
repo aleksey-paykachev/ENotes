@@ -52,6 +52,7 @@
 		5BD4F51223548257000A4F8B /* NotebookDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4F51123548257000A4F8B /* NotebookDataManager.swift */; };
 		5BD4F5142354826E000A4F8B /* NotebookFileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4F5132354826E000A4F8B /* NotebookFileDataManager.swift */; };
 		5BDBC2EF241687C3000284E0 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDBC2EE241687C3000284E0 /* File.swift */; };
+		5BDBC2F1241689CB000284E0 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDBC2F0241689CB000284E0 /* Bundle.swift */; };
 		5BDC58BA22CDA26900EA9D68 /* Notebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC58B922CDA26900EA9D68 /* Notebook.swift */; };
 		5BE7E32B235AEE3500701311 /* CustomColorSelectorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7E32A235AEE3500701311 /* CustomColorSelectorCollectionViewCell.swift */; };
 		5BEA1FEA22D9C7A6007DDA39 /* CircleSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEA1FE922D9C7A6007DDA39 /* CircleSelectorView.swift */; };
@@ -109,6 +110,7 @@
 		5BD4F51123548257000A4F8B /* NotebookDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookDataManager.swift; sourceTree = "<group>"; };
 		5BD4F5132354826E000A4F8B /* NotebookFileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookFileDataManager.swift; sourceTree = "<group>"; };
 		5BDBC2EE241687C3000284E0 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		5BDBC2F0241689CB000284E0 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		5BDC58B922CDA26900EA9D68 /* Notebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notebook.swift; sourceTree = "<group>"; };
 		5BE7E32A235AEE3500701311 /* CustomColorSelectorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorSelectorCollectionViewCell.swift; sourceTree = "<group>"; };
 		5BEA1FE922D9C7A6007DDA39 /* CircleSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleSelectorView.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			children = (
 				5BBD1A9D22D05C4800BCC111 /* FileManager + Extension.swift */,
 				5BDBC2EE241687C3000284E0 /* File.swift */,
+				5BDBC2F0241689CB000284E0 /* Bundle.swift */,
 				5B88D14E23B1D73C00CBAC22 /* URL + Extension.swift */,
 				5BCA45932375DB6800FA9ABE /* Date + Extension.swift */,
 				5BC601612380C476003A5343 /* UIView + Extension.swift */,
@@ -445,6 +448,7 @@
 				5BA85D49230644FE00ED0CF1 /* HueSaturationSelectionAreaView.swift in Sources */,
 				5BD4F40D22D6B73E00464447 /* ColorSelectorCollectionViewCell.swift in Sources */,
 				5BCA45902375D56700FA9ABE /* CAGradientLayer + Extension.swift in Sources */,
+				5BDBC2F1241689CB000284E0 /* Bundle.swift in Sources */,
 				5B6A541722E2F53500C9205E /* PhotoNoteCollectionViewCell.swift in Sources */,
 				5B49988E22D66175002B30AE /* EditTextNoteViewController.swift in Sources */,
 				5BABD22A22DB4A53006A36A4 /* CGPoint + Extension.swift in Sources */,
