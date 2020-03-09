@@ -8,9 +8,10 @@
 
 import Foundation
 
-/// Notebook represents a data structure for storing differents notes of the same kind.
+/// Notebook represents a data structure for storing multiple notes of the same kind.
 /// Each instance of notebook can store only one type of notes (i.e. text, photo, etc)
 /// and can not mix them.
+///
 class Notebook<T: Note> {
 
 	private var notes: [T] = []
@@ -29,17 +30,17 @@ class Notebook<T: Note> {
 
 	/// Number of notes in current notebook.
 	var count: Int {
-		return notes.count
+		notes.count
 	}
 	
-	/// Returns a note by its index in current notebook.
+	/// Returns a note by its index in current notebook. Crashes if given index doesn't exist.
 	///
 	/// - Complexity: O(1).
 	/// - Parameter index: Index of the note inside current notebook.
 	/// - Returns: Note.
 	///
 	func get(by index: Int) -> T {
-		return notes[index]
+		notes[index]
 	}
 	
 	/// Returns the index of the given note in current notebook.
@@ -49,13 +50,13 @@ class Notebook<T: Note> {
 	/// - Returns: The index of the note in current notebook, or nil if there is no such.
 	///
 	func getIndex(by note: T) -> Int? {
-		return notes.firstIndex { $0.uid == note.uid }
+		notes.firstIndex { $0.uid == note.uid }
 	}
 	
 	/// Adds a note at the end of the notebook.
 	///
-	/// - Complexity: O(n), where n is the number of notes in current notebook. This checks
-	///   are neccessary to preserve identification uniqueness for each note.
+	/// - Complexity: O(n), where n is the number of notes in current notebook. This check
+	///   is neccessary to preserve unique identifiers for each note.
 	/// - Parameter note: The note to add.
 	///
 	func add(_ note: T) {
@@ -89,7 +90,7 @@ class Notebook<T: Note> {
 		postNotification(.removeNote)
 	}
 
-	/// Moves note to new location inside notebook.
+	/// Move note to new location inside notebook.
 	///
 	/// - Complexity: O(n), where n is the number of notes in current notebook.
 	/// - Parameters:
@@ -121,7 +122,7 @@ extension Notebook {
 // MARK: - Notifications
 
 extension Notebook {
-	// Notification mechanism are used to notify an instance of FreeVersionManager of note creation or deletion. We can't use static variables to get all notes count, because of generic type of Notebook class.
+	// Notification mechanism are used to notify an instance of FreeVersionManager about note creation or deletion. We can't use static variables to get all notes count, because of generic type of Notebook class.
 
 	private func postNotification(_ notificationType: FreeVersionManager.NotificationType) {
 		NotificationCenter.default.post(name: notificationType.notificationName, object: nil)
