@@ -1,5 +1,5 @@
 //
-//  Bundle.swift
+//  Bundle + Extensions.swift
 //  ENotes
 //
 //  Created by Aleksey on 09.03.2020.

@@ -16,6 +16,7 @@ struct TextNote: Note {
 		TextNote(title: "", content: "")
 	}
 
+	// Constants
 	private static let defaultColor = HSBColor.white
 
 	// Variables
@@ -67,7 +68,7 @@ struct TextNote: Note {
 		return TextNote(uid: uid, title: title, content: content, color: color, selfDestructionDate: selfDestructionDate)
 	}
 	
-	/// An array of JSON data contained all fields representing a text note.
+	/// An array of JSON data containing all fields representing a text note.
 	var json: [String: Any] {
 
 		var json: [String: Any] = [:]
