@@ -1,5 +1,5 @@
 //
-//  TextNotesTableViewController.swift
+//  TextNotesViewController.swift
 //  ENotes
 //
 //  Created by Aleksey on 18/07/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextNotesTableViewController: UITableViewController {
+class TextNotesViewController: UITableViewController {
 
 	private let notebook: Notebook<TextNote>
 	
@@ -16,9 +16,9 @@ class TextNotesTableViewController: UITableViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	/// Initializes and returns table view controller displaying text notebook notes.
+	/// Initializes and returns view controller displaying text notebook notes.
 	///
-	/// - Parameter notebook: Notebook which notes will be displayed in table view controller.
+	/// - Parameter notebook: Text notebook which notes will be displayed.
 	///
 	init(notebook: Notebook<TextNote>) {
 		self.notebook = notebook
@@ -41,12 +41,12 @@ class TextNotesTableViewController: UITableViewController {
 	}
 	
 	private func setupTableView() {
-		let cellNib = UINib(nibName: TextNoteTableViewCell.className, bundle: nil)
-		tableView.register(cellNib, forCellReuseIdentifier: TextNoteTableViewCell.reuseIdentifier)
+		let cellNib = UINib(nibName: TextNoteCell.className, bundle: nil)
+		tableView.register(cellNib, forCellReuseIdentifier: TextNoteCell.reuseIdentifier)
 
+		tableView.backgroundColor = UIColor(white: 0.95, alpha: 1)
 		tableView.allowsMultipleSelection = false
 		tableView.separatorStyle = .none
-		tableView.backgroundColor = Constants.textNotesListBackgroundColor
 	}
 	
 	@objc private func addNoteButtonDidPressed() {
@@ -74,25 +74,22 @@ class TextNotesTableViewController: UITableViewController {
 		let indexPath = IndexPath(row: index, section: 0)
 		tableView.reloadRows(at: [indexPath], with: .automatic)
 	}
-	
-	private struct Constants {
-		static let textNotesListBackgroundColor = UIColor(white: 0.95, alpha: 1)
-	}
 }
 
 
 // MARK: - self data source
 
-extension TextNotesTableViewController {
+extension TextNotesViewController {
 	
 	// Data source
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return notebook.count
+		notebook.count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: TextNoteTableViewCell.reuseIdentifier, for: indexPath) as! TextNoteTableViewCell
+
+		let cell = tableView.dequeueReusableCell(withIdentifier: TextNoteCell.reuseIdentifier, for: indexPath) as! TextNoteCell
 		cell.note = notebook.get(by: indexPath.row)
 		
 		return cell
@@ -107,23 +104,19 @@ extension TextNotesTableViewController {
 	// Deletion
 	
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
 		if editingStyle == .delete {
 			notebook.remove(at: indexPath.row)
 			tableView.deleteRows(at: [indexPath], with: .fade)
 		}
 	}
-
 }
 
 
 // MARK: - self delegate
 
-extension TextNotesTableViewController {
+extension TextNotesViewController {
 	
-	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return UITableView.automaticDimension
-	}
-
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let note = notebook.get(by: indexPath.row)
 		showEditTextNoteViewController(note: note)
@@ -133,7 +126,8 @@ extension TextNotesTableViewController {
 
 // MARK: - EditTextNoteViewControllerDelegate
 
-extension TextNotesTableViewController: EditTextNoteViewControllerDelegate {
+extension TextNotesViewController: EditTextNoteViewControllerDelegate {
+
 	func didCreateNew(_ note: TextNote) {
 		notebook.add(note)
 		insertNewEntry()

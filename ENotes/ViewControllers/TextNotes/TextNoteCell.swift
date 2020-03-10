@@ -1,5 +1,5 @@
 //
-//  TextNoteTableViewCell.swift
+//  TextNoteCell.swift
 //  ENotes
 //
 //  Created by Aleksey on 18/07/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextNoteTableViewCell: UITableViewCell {
+class TextNoteCell: UITableViewCell {
 	
 	/// Text note to display in current cell.
 	var note: TextNote? { didSet { updateUI() } }

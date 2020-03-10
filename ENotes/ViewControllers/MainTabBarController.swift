@@ -15,7 +15,7 @@ class MainTabBarController: UITabBarController {
 		
 		// Text notes
 		let textNotebook = Notebook<TextNote>()
-		let textNotesViewController = TextNotesTableViewController(notebook: textNotebook)
+		let textNotesViewController = TextNotesViewController(notebook: textNotebook)
 		let textNotesNavigationController = UINavigationController(rootViewController: textNotesViewController)
 		
 		// Photo notes
