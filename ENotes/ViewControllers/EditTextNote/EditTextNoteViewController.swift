@@ -74,44 +74,39 @@ class EditTextNoteViewController: UIViewController {
 	
 	// Activate (show) or deactivate (hide) date picker by changing its height constraint.
 	private func setDatePicker(isEnabled: Bool, animated: Bool = false) {
-		let animationDuration = animated ? Constants.datePickerShowHideAnimationDuration : 0
 
-		UIView.animate(withDuration: animationDuration) {
+		UIView.animate(withDuration: animated ? 0.5 : 0) {
 			self.selfDestructionDateDatePickerContainerViewHeightConstraint.constant = isEnabled ? self.selfDestructionDateDatePicker.intrinsicContentSize.height : 0
 
 			self.view.layoutIfNeeded()
 		}
 	}
 	
-	// Start observing keyboard notification to recalculate main scroll view insets
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
+	// Start observing keyboard notification to recalculate main scrollView insets
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
 		
 		let notificationCenter = NotificationCenter.default
 		notificationCenter.addObserver(self,
-									   selector: #selector(keyboardWillShowOrHide(_:)),
+									   selector: #selector(keyboardWillShowOrHide),
 									   name: UIResponder.keyboardWillShowNotification,
 									   object: nil)
 		notificationCenter.addObserver(self,
-									   selector: #selector(keyboardWillShowOrHide(_:)),
+									   selector: #selector(keyboardWillShowOrHide),
 									   name: UIResponder.keyboardWillHideNotification,
 									   object: nil)
 	}
 	
 	// Stop observing keyboard notification, and save note then "back" button was pressed
-	override func viewWillDisappear(_ animated: Bool) {
-		super.viewWillDisappear(animated)
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
 		
 		NotificationCenter.default.removeObserver(self)
 
-		// "Back" button was pressed
+		// "back" button was pressed
 		if isMovingFromParent {
 			saveNote()
 		}
-	}
-	
-	private struct Constants {
-		static let datePickerShowHideAnimationDuration: TimeInterval = 0.5
 	}
 }
 
@@ -121,45 +116,42 @@ class EditTextNoteViewController: UIViewController {
 extension EditTextNoteViewController {
 	
 	private func setupGeneral() {
-		// Navigation title
+		// navigation title
 		let newNoteLocalizedText = NSLocalizedString("New note", comment: "Shows in the navigation bar when user create a new note.")
 		title = mode == .createNew ? newNoteLocalizedText : note.title
 		
-		// Set UILabel leading alignment relative to UITextView
+		// set UILabel leading alignment relative to UITextView
 		removeAfterDateTextLabelLeadingConstraint.constant = noteContentTextView.textContainer.lineFragmentPadding
 		
-		// Set tap gesture to hide keyboard when user tap on empty space
-		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+		// set tap gesture to hide keyboard when user tap on empty space
+		let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
 		tapGesture.cancelsTouchesInView = false
 		view.addGestureRecognizer(tapGesture)
+		
+		// also dismiss keyboard on dragging down
+		contentWraperScrollView.keyboardDismissMode = .interactive
 	}
 	
 	private func setupTextInputs() {
-//		let noteTitlePlaceholderLocalizedText = NSLocalizedString("Note name", comment: "Text label placeholder for a note name.")
-//		let noteContentPlaceholderLocalizedText = NSLocalizedString("Note content", comment: "Text label placeholder for a note content.")
-
 		noteTitleTextField.placeholder = NSLocalizedString("Note name", comment: "Text label placeholder for a note name.")
 		noteTitleTextField.delegate = self
 
 		noteContentTextView.placeholder = NSLocalizedString("Note content", comment: "Text label placeholder for a note content.")
-		//note.content.isEmpty ? noteContentPlaceholderLocalizedText : nil
 	}
 	
 	private func setupDatePicker() {
 		removeAfterDateTextLabel.text = NSLocalizedString("Remove after date", comment: "Self destruction date of a note. Shows in a label next to date picker.")
 
-//		setDatePicker(isEnabled: note.selfDestructionDate != nil)
 		selfDestructionDateDatePickerContainerView.clipsToBounds = true
 	}
 	
+	// Add color selector view controller as a child to the current view controller
 	private func setupColorSelectorViewController() {
-		// Set color selector view controller as a child of current view controller, and move its view into stack
-
 		colorSelectorViewController.willMove(toParent: self)
 		addChild(colorSelectorViewController)
 
-		let collectionView = colorSelectorViewController.collectionView!
-		stackView.addArrangedSubview(collectionView)
+		let colorSelectorCollectionView = colorSelectorViewController.collectionView!
+		stackView.addArrangedSubview(colorSelectorCollectionView)
 
 		colorSelectorViewController.didMove(toParent: self)
 	}
@@ -186,11 +178,15 @@ extension EditTextNoteViewController {
 	
 	private func saveNote() {
 		var title = noteTitleTextField.text ?? ""
+		let content = noteContentTextView.text ?? ""
+
+		// do not create empty text note (without title or content)
+		guard title.isNotEmpty || content.isNotEmpty else { return }
+		
 		if title.isEmpty {
 			title = NSLocalizedString("No title", comment: "Shows as a note title if user hasn't provide one while editing a note.")
 		}
 
-		let content = noteContentTextView.text ?? ""
 		let color = colorSelectorViewController.selectedColor
 		let selfDestructionDate = selfDestructionDateDatePickerSwitch.isOn ? selfDestructionDateDatePicker.date : nil
 		
@@ -210,19 +206,15 @@ extension EditTextNoteViewController {
 
 extension EditTextNoteViewController {
 	
-	// Recalculate and update main scroll view position then keyboard are being shown or hidden. This function calls by notification.
+	// Recalculate and update main scroll view insets on keyboard show/hide notifications.
 	@objc private func keyboardWillShowOrHide(_ notification: Notification) {
-		guard let userInfo = notification.userInfo, let frameEnd = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
-		
-		let isKeyboardShown = notification.name == UIResponder.keyboardWillShowNotification
-		let bottomInset = isKeyboardShown ? frameEnd.height : 0
+		guard let keyboardInfo = KeyboardNotificationInfo(of: notification) else { return }
+
+		let tabBarHeight = tabBarController?.tabBar.frame.height ?? 0
+		let bottomInset = keyboardInfo.isShowing ? keyboardInfo.height - tabBarHeight : 0
 		
 		contentWraperScrollView.contentInset.bottom = bottomInset
 		contentWraperScrollView.scrollIndicatorInsets.bottom = bottomInset
-	}
-	
-	@objc private func hideKeyboard() {
-		view.endEditing(true)
 	}
 }
 
@@ -232,7 +224,8 @@ extension EditTextNoteViewController {
 extension EditTextNoteViewController: UITextFieldDelegate {
 
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		textField.resignFirstResponder()
+		// after finish entering title, move focus to edit note content
+		noteContentTextView.becomeFirstResponder()
 		return true
 	}
 }

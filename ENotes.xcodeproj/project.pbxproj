@@ -23,6 +23,7 @@
 		5B7055AD22E0B4A700ACF805 /* PhotoNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7055AC22E0B4A700ACF805 /* PhotoNote.swift */; };
 		5B7055AF22E0BBCC00ACF805 /* PhotoViewerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7055AE22E0BBCC00ACF805 /* PhotoViewerPageViewController.swift */; };
 		5B7055B222E0BCAA00ACF805 /* SinglePhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7055B022E0BCAA00ACF805 /* SinglePhotoViewerViewController.swift */; };
+		5B73018624180E81002A9AE8 /* Collection + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B73018524180E81002A9AE8 /* Collection + Extensions.swift */; };
 		5B7BB2B82309C91A00978461 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7BB2B72309C91A00978461 /* MainTabBarController.swift */; };
 		5B7BB2BA2309CB4D00978461 /* TextNoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B7BB2B92309CB4D00978461 /* TextNoteCell.xib */; };
 		5B7DEBDE22E08B2B00509A2E /* TextNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7DEBDD22E08B2B00509A2E /* TextNotesViewController.swift */; };
@@ -44,6 +45,7 @@
 		5BB35337230A0B79005D68AE /* EditTextNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BB35336230A0B79005D68AE /* EditTextNoteViewController.xib */; };
 		5BBA7215241683800049E292 /* DemoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA7214241683800049E292 /* DemoDataManager.swift */; };
 		5BBD1A9E22D05C4800BCC111 /* FileManager + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD1A9D22D05C4800BCC111 /* FileManager + Extension.swift */; };
+		5BBFBA942418370F00A98FB3 /* KeyboardNotificationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFBA932418370F00A98FB3 /* KeyboardNotificationInfo.swift */; };
 		5BC2FC8B22D80C700051B831 /* CGRect + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC2FC8A22D80C700051B831 /* CGRect + Extension.swift */; };
 		5BC601622380C476003A5343 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC601612380C476003A5343 /* UIView + Extension.swift */; };
 		5BCA45902375D56700FA9ABE /* CAGradientLayer + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCA458F2375D56700FA9ABE /* CAGradientLayer + Extension.swift */; };
@@ -82,6 +84,7 @@
 		5B7055AC22E0B4A700ACF805 /* PhotoNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNote.swift; sourceTree = "<group>"; };
 		5B7055AE22E0BBCC00ACF805 /* PhotoViewerPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerPageViewController.swift; sourceTree = "<group>"; };
 		5B7055B022E0BCAA00ACF805 /* SinglePhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePhotoViewerViewController.swift; sourceTree = "<group>"; };
+		5B73018524180E81002A9AE8 /* Collection + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection + Extensions.swift"; sourceTree = "<group>"; };
 		5B7BB2B72309C91A00978461 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5B7BB2B92309CB4D00978461 /* TextNoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextNoteCell.xib; sourceTree = "<group>"; };
 		5B7DEBDD22E08B2B00509A2E /* TextNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNotesViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 		5BB35336230A0B79005D68AE /* EditTextNoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditTextNoteViewController.xib; sourceTree = "<group>"; };
 		5BBA7214241683800049E292 /* DemoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoDataManager.swift; sourceTree = "<group>"; };
 		5BBD1A9D22D05C4800BCC111 /* FileManager + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager + Extension.swift"; sourceTree = "<group>"; };
+		5BBFBA932418370F00A98FB3 /* KeyboardNotificationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotificationInfo.swift; sourceTree = "<group>"; };
 		5BC2FC8A22D80C700051B831 /* CGRect + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect + Extension.swift"; sourceTree = "<group>"; };
 		5BC601612380C476003A5343 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		5BCA458F2375D56700FA9ABE /* CAGradientLayer + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer + Extension.swift"; sourceTree = "<group>"; };
@@ -287,6 +291,8 @@
 				5B93A1752417D0C8004BCD14 /* CALayer + Extensions.swift */,
 				5BCA458F2375D56700FA9ABE /* CAGradientLayer + Extension.swift */,
 				5BFCD7E122D7CB8300ACD4E5 /* ExtendedTextView.swift */,
+				5B73018524180E81002A9AE8 /* Collection + Extensions.swift */,
+				5BBFBA932418370F00A98FB3 /* KeyboardNotificationInfo.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -459,6 +465,7 @@
 				5BD4F40D22D6B73E00464447 /* ColorSelectorCollectionViewCell.swift in Sources */,
 				5BCA45902375D56700FA9ABE /* CAGradientLayer + Extension.swift in Sources */,
 				5BDBC2F1241689CB000284E0 /* Bundle + Extensions.swift in Sources */,
+				5BBFBA942418370F00A98FB3 /* KeyboardNotificationInfo.swift in Sources */,
 				5B6A541722E2F53500C9205E /* PhotoNoteCollectionViewCell.swift in Sources */,
 				5B49988E22D66175002B30AE /* EditTextNoteViewController.swift in Sources */,
 				5BABD22A22DB4A53006A36A4 /* CGPoint + Extension.swift in Sources */,
@@ -475,6 +482,7 @@
 				5B7055B222E0BCAA00ACF805 /* SinglePhotoViewerViewController.swift in Sources */,
 				5B38F21124169472004182CA /* UIImage + Extensions.swift in Sources */,
 				5B812D9422CC412C0075BC8F /* TextNote.swift in Sources */,
+				5B73018624180E81002A9AE8 /* Collection + Extensions.swift in Sources */,
 				5BD4F40B22D6ABB000464447 /* MarkSignView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
