@@ -38,3 +38,16 @@ extension UIColor {
 		return self.withBrightness(brightness).cgColor
 	}
 }
+
+
+extension Optional where Wrapped == UIColor {
+	
+	/// Applys specified alpha component to given color object.
+	/// - Parameters:
+	///   - color: Initial color object.
+	///   - alpha: The opacity of the new color object, specified as a value from 0.0 to 1.0.
+	///
+	static func += (color: inout Optional<UIColor>, alpha: CGFloat) {
+		color = color?.withAlphaComponent(alpha)
+	}
+}
