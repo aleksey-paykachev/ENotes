@@ -14,12 +14,12 @@ class MainTabBarController: UITabBarController {
 		super.viewDidLoad()
 		
 		// Text notes
-		let textNotebook = Notebook<TextNote>()
+		let textNotebook = DataManager.shared.textNotebook
 		let textNotesViewController = TextNotesViewController(notebook: textNotebook)
 		let textNotesNavigationController = UINavigationController(rootViewController: textNotesViewController)
 		
 		// Photo notes
-		let photoNotebook = Notebook<PhotoNote>()
+		let photoNotebook = DataManager.shared.photoNotebook
 		let photoNotesViewController = PhotoNotesCollectionViewController(notebook: photoNotebook)
 		let photoNotesNavigationController = UINavigationController(rootViewController: photoNotesViewController)
 
