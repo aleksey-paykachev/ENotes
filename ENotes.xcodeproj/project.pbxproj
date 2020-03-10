@@ -29,6 +29,7 @@
 		5B812D7422CC40CA0075BC8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B812D7322CC40CA0075BC8F /* AppDelegate.swift */; };
 		5B812D9422CC412C0075BC8F /* TextNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B812D9322CC412C0075BC8F /* TextNote.swift */; };
 		5B88D14F23B1D73C00CBAC22 /* URL + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B88D14E23B1D73C00CBAC22 /* URL + Extension.swift */; };
+		5B93A1762417D0C8004BCD14 /* CALayer + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B93A1752417D0C8004BCD14 /* CALayer + Extensions.swift */; };
 		5B9774F02311B42C00DE525A /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9774EF2311B42C00DE525A /* ImagePickerController.swift */; };
 		5B99DA86235CAC2F003AE003 /* EndFreeTrialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B99DA85235CAC2F003AE003 /* EndFreeTrialViewController.xib */; };
 		5BA85D47230644D100ED0CF1 /* BrightnessSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA85D46230644D100ED0CF1 /* BrightnessSliderView.swift */; };
@@ -88,6 +89,7 @@
 		5B812D7F22CC40CA0075BC8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B812D9322CC412C0075BC8F /* TextNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNote.swift; sourceTree = "<group>"; };
 		5B88D14E23B1D73C00CBAC22 /* URL + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + Extension.swift"; sourceTree = "<group>"; };
+		5B93A1752417D0C8004BCD14 /* CALayer + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer + Extensions.swift"; sourceTree = "<group>"; };
 		5B9774EF2311B42C00DE525A /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		5B99DA85235CAC2F003AE003 /* EndFreeTrialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EndFreeTrialViewController.xib; sourceTree = "<group>"; };
 		5BA85D46230644D100ED0CF1 /* BrightnessSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessSliderView.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				5BCA45952375E22000FA9ABE /* UICollectionViewCell + Extension.swift */,
 				5BC2FC8A22D80C700051B831 /* CGRect + Extension.swift */,
 				5BABD22922DB4A53006A36A4 /* CGPoint + Extension.swift */,
+				5B93A1752417D0C8004BCD14 /* CALayer + Extensions.swift */,
 				5BCA458F2375D56700FA9ABE /* CAGradientLayer + Extension.swift */,
 				5BFCD7E122D7CB8300ACD4E5 /* ExtendedTextView.swift */,
 			);
@@ -458,6 +461,7 @@
 				5BCA45962375E22000FA9ABE /* UICollectionViewCell + Extension.swift in Sources */,
 				5B0EF7B522E178FA004DCD71 /* PhotoNotesCollectionViewController.swift in Sources */,
 				5BC601622380C476003A5343 /* UIView + Extension.swift in Sources */,
+				5B93A1762417D0C8004BCD14 /* CALayer + Extensions.swift in Sources */,
 				5B7DEBE122E08BE000509A2E /* TextNoteCell.swift in Sources */,
 				5B812D7422CC40CA0075BC8F /* AppDelegate.swift in Sources */,
 				5B1697F1234FEF76004115D0 /* SelectedColorView.swift in Sources */,

@@ -21,30 +21,22 @@ class TextNoteCell: UITableViewCell {
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		
+		setupCell()
+	}
+	
+	private func setupCell() {
 		selectionStyle = .none
 		
-		//Background content wrapper setup
-		contentWrapperView.layer.cornerRadius = 5
-		contentWrapperView.layer.shadowColor = UIColor.lightGray.cgColor
-		contentWrapperView.layer.shadowOffset = CGSize(width: 0, height: 3)
-		contentWrapperView.layer.shadowRadius = 3
-		contentWrapperView.layer.shadowOpacity = 0.4
+		// background content wrapper
+		contentWrapperView.layer.setRadius(5, maskToBounds: false)
+		contentWrapperView.layer.setShadow(radius: 3, color: .lightGray, offsetY: 3, alpha: 0.4)
 
-		//TextNote color circle setup
-		colorView.layer.masksToBounds = true
-		colorView.layer.cornerRadius = colorView.bounds.width / 2 //circle
-		colorView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
-		colorView.layer.borderWidth = 1
-		
-		//TextNote color circle gradient setup
-		let gradient = CAGradientLayer()
-		gradient.colors = [
-			UIColor.clear.cgColor,
-			UIColor.darkGray.withAlphaComponent(0.3).cgColor]
-		gradient.setDirection(.fromTopToBottom)
-		gradient.frame = colorView.bounds
-		colorView.layer.addSublayer(gradient)
+		// textNote color circle
+		colorView.layer.setRadius(colorView.bounds.width / 2) //circle
+		colorView.layer.setBorder(width: 1, color: .lightGray, alpha: 0.5)
+		colorView.layer.setGradient(direction: .fromTopToBottom,
+									colors: [.clear, UIColor.darkGray.withAlphaComponent(0.3)])
+
 	}
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {
@@ -60,13 +52,15 @@ class TextNoteCell: UITableViewCell {
 		titleLabel.text = note.title
 		contentLabel.text = note.content
 		colorView.backgroundColor = note.color.uiColor
+		selfDestructionDateLabel.text = getLocalizedDateText(for: note.selfDestructionDate)
+	}
+	
+	private func getLocalizedDateText(for date: Date?) -> String? {
+		guard let formattedDate = date?.shortFormatString else { return nil }
 		
-		if let date = note.selfDestructionDate {
-			let formattedText = NSLocalizedString("until %@", comment: "Shows user self destruction date of the note in format: 'until %date%'.")
-			selfDestructionDateLabel.text = .localizedStringWithFormat(formattedText, date.shortFormatString)
-		} else {
-			selfDestructionDateLabel.text = ""
-		}
+		let formattedText = NSLocalizedString("until %@", comment: "Shows user self destruction date of the note in format: 'until %date%'.")
+
+		return String.localizedStringWithFormat(formattedText, formattedDate)
 	}
 	
 	override func prepareForReuse() {
