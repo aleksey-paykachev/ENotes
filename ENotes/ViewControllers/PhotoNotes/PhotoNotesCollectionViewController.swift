@@ -125,7 +125,7 @@ extension PhotoNotesCollectionViewController {
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoNoteCollectionViewCell.reuseIdentifier, for: indexPath) as! PhotoNoteCollectionViewCell
+		let cell = collectionView.dequeueCell(ofType: PhotoNoteCollectionViewCell.self, for: indexPath)
 		cell.photoNote = notebook.get(by: indexPath.item)
 		cell.isEditMode = isEditing
 		

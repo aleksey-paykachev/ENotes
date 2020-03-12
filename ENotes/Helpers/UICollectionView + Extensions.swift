@@ -16,4 +16,18 @@ extension UICollectionView {
 	func registerCell(ofType cellType: UICollectionViewCell.Type) {
 		register(cellType, forCellWithReuseIdentifier: cellType.reuseIdentifier)
 	}
+	
+	/// Returns a reusable cell object of given cell type located by identifier.
+	/// - Parameters:
+	///   - cellType: Type of the cell.
+	///   - indexPath: The reuse identifier for the specified cell.
+	///
+	func dequeueCell<T: UICollectionViewCell>(ofType cellType: T.Type, for indexPath: IndexPath) -> T {
+		guard let cell = dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath) as? T else {
+			
+			fatalError("Could not dequeue cell with identifier: \(cellType.reuseIdentifier)")
+		}
+
+		return cell
+	}
 }
