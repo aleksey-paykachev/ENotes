@@ -1,5 +1,5 @@
 //
-//  CustomColorSelectorCollectionViewCell.swift
+//  CustomColorSelectorCell.swift
 //  ENotes
 //
 //  Created by Aleksey on 19/10/2019.
@@ -13,7 +13,7 @@ protocol CustomColorSelectorCellDelegate: class {
 	func colorSelectorCellDidAskForColorPicker()
 }
 
-class CustomColorSelectorCollectionViewCell: ColorSelectorCollectionViewCell {
+class CustomColorSelectorCell: ColorSelectorCell {
 	weak var delegate: CustomColorSelectorCellDelegate?
 	
 	private let selectedColorLayer = CAShapeLayer()

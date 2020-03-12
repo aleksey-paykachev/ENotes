@@ -1,5 +1,5 @@
 //
-//  EditTextNoteViewController.swift
+//  TextNoteEditorViewController.swift
 //  ENotes
 //
 //  Created by Aleksey on 10/07/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol EditTextNoteViewControllerDelegate: class {
+protocol TextNoteEditorViewControllerDelegate: class {
 	/// Notifies delegate that user did create new note
 	func didCreateNew(_ note: TextNote)
 
@@ -17,7 +17,7 @@ protocol EditTextNoteViewControllerDelegate: class {
 }
 
 /// Provides user interface for editing existing or creating a new text note.
-class EditTextNoteViewController: UIViewController {
+class TextNoteEditorViewController: UIViewController {
 	
 	private enum Mode {
 		case createNew
@@ -36,9 +36,9 @@ class EditTextNoteViewController: UIViewController {
 	@IBOutlet private var selfDestructionDateDatePickerContainerViewHeightConstraint: NSLayoutConstraint!
 	
 	/// Delegate to notify of note data modification
-	weak var delegate: EditTextNoteViewControllerDelegate?
+	weak var delegate: TextNoteEditorViewControllerDelegate?
 
-	private let colorSelectorViewController = ColorSelectorCollectionViewController()
+	private let colorSelectorViewController = ColorSelectorViewController()
 	private let mode: Mode
 	private var note: TextNote
 
@@ -113,7 +113,7 @@ class EditTextNoteViewController: UIViewController {
 
 // MARK: - setup
 
-extension EditTextNoteViewController {
+extension TextNoteEditorViewController {
 	
 	private func setupGeneral() {
 		// navigation title
@@ -160,7 +160,7 @@ extension EditTextNoteViewController {
 
 // MARK: - note methods
 
-extension EditTextNoteViewController {
+extension TextNoteEditorViewController {
 
 	// Update all UI elements with note data
 	private func populateNote() {
@@ -204,7 +204,7 @@ extension EditTextNoteViewController {
 
 // MARK: - keyboard
 
-extension EditTextNoteViewController {
+extension TextNoteEditorViewController {
 	
 	// Recalculate and update main scroll view insets on keyboard show/hide notifications.
 	@objc private func keyboardWillShowOrHide(_ notification: Notification) {
@@ -221,7 +221,7 @@ extension EditTextNoteViewController {
 
 // MARK: - noteTitleTextField delegate
 
-extension EditTextNoteViewController: UITextFieldDelegate {
+extension TextNoteEditorViewController: UITextFieldDelegate {
 
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		// after finish entering title, move focus to edit note content

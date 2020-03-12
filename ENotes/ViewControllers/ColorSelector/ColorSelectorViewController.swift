@@ -1,5 +1,5 @@
 //
-//  ColorSelectorCollectionViewController.swift
+//  ColorSelectorViewController.swift
 //  ENotes
 //
 //  Created by Aleksey on 16/08/2019.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// Provides user interface for selection of the color.
-class ColorSelectorCollectionViewController: UICollectionViewController {
+class ColorSelectorViewController: UICollectionViewController {
 	
 	private let standardColors: [UIColor] = Constants.standardColors
 	private var selectedCustomColor: HSBColor?
@@ -71,8 +71,8 @@ class ColorSelectorCollectionViewController: UICollectionViewController {
 		collectionView.heightAnchor.constraint(equalToConstant: colorSelectorLayout.itemSize.height).isActive = true
 		
 		// register two type of cells: for standard colors and for custom one
-		collectionView.register(ColorSelectorCollectionViewCell.self, forCellWithReuseIdentifier: ColorSelectorCollectionViewCell.reuseIdentifier)
-		collectionView.register(CustomColorSelectorCollectionViewCell.self, forCellWithReuseIdentifier: CustomColorSelectorCollectionViewCell.reuseIdentifier)
+		collectionView.register(ColorSelectorCell.self, forCellWithReuseIdentifier: ColorSelectorCell.reuseIdentifier)
+		collectionView.register(CustomColorSelectorCell.self, forCellWithReuseIdentifier: CustomColorSelectorCell.reuseIdentifier)
 	}
 	
 	private func selectCustomColor(color: HSBColor) {
@@ -82,7 +82,7 @@ class ColorSelectorCollectionViewController: UICollectionViewController {
 		let indexPath = IndexPath(item: standardColors.count, section: 0)
 		collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .top)
 
-		if let cell = collectionView.cellForItem(at: indexPath) as? CustomColorSelectorCollectionViewCell {
+		if let cell = collectionView.cellForItem(at: indexPath) as? CustomColorSelectorCell {
 			cell.set(selectedCustomColor?.uiColor)
 		}
 	}
@@ -96,7 +96,7 @@ class ColorSelectorCollectionViewController: UICollectionViewController {
 
 // MARK: - self dataSource
 
-extension ColorSelectorCollectionViewController {
+extension ColorSelectorViewController {
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return standardColors.count + 1 //standard colors + custom color
 	}
@@ -105,13 +105,13 @@ extension ColorSelectorCollectionViewController {
 
 		// standard color selector cell
 		if indexPath.item < standardColors.count {
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorSelectorCollectionViewCell.reuseIdentifier, for: indexPath) as! ColorSelectorCollectionViewCell
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorSelectorCell.reuseIdentifier, for: indexPath) as! ColorSelectorCell
 			cell.set(standardColors[indexPath.item])
 			return cell
 		}
 		
 		// custom color selector cell
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomColorSelectorCollectionViewCell.reuseIdentifier, for: indexPath) as! CustomColorSelectorCollectionViewCell
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomColorSelectorCell.reuseIdentifier, for: indexPath) as! CustomColorSelectorCell
 		cell.set(selectedCustomColor?.uiColor)
 		cell.delegate = self
 		return cell
@@ -119,9 +119,9 @@ extension ColorSelectorCollectionViewController {
 }
 
 
-// MARK: - colorSelectorCollectionViewCell delegate
+// MARK: - colorSelectorCell delegate
 
-extension ColorSelectorCollectionViewController: CustomColorSelectorCellDelegate {
+extension ColorSelectorViewController: CustomColorSelectorCellDelegate {
 	func colorSelectorCellDidAskForColorPicker() {
 
 		// show color picker, so user can select any custom color
@@ -134,7 +134,7 @@ extension ColorSelectorCollectionViewController: CustomColorSelectorCellDelegate
 
 // MARK: - ColorPickerProtocol
 
-extension ColorSelectorCollectionViewController: ColorPickerDelegate {
+extension ColorSelectorViewController: ColorPickerDelegate {
 	func didSelectColor(_ color: HSBColor) {
 		selectCustomColor(color: color)
 	}
@@ -143,7 +143,7 @@ extension ColorSelectorCollectionViewController: ColorPickerDelegate {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension ColorSelectorCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension ColorSelectorViewController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
 		return CGSize(width: Constants.cellDiameter, height: Constants.cellDiameter)

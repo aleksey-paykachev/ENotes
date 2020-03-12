@@ -1,5 +1,5 @@
 //
-//  ColorSelectorCollectionViewCell.swift
+//  ColorSelectorCell.swift
 //  ENotes
 //
 //  Created by Aleksey on 11/07/2019.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// Color selector cell for standard color
-class ColorSelectorCollectionViewCell: UICollectionViewCell {
+class ColorSelectorCell: UICollectionViewCell {
 	
 	private var colorCellView: UIView!
 	private let markSignView = MarkSignView()

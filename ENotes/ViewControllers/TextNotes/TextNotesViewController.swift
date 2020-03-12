@@ -54,9 +54,9 @@ class TextNotesViewController: UITableViewController {
 	}
 	
 	private func showEditTextNoteViewController(note: TextNote? = nil) {
-		let editTextNoteViewController = EditTextNoteViewController(note: note)
-		editTextNoteViewController.delegate = self
-		navigationController?.pushViewController(editTextNoteViewController, animated: true)
+		let textNoteEditorViewController = TextNoteEditorViewController(note: note)
+		textNoteEditorViewController.delegate = self
+		navigationController?.pushViewController(textNoteEditorViewController, animated: true)
 	}
 
 	private func insertNewEntry() {
@@ -124,9 +124,9 @@ extension TextNotesViewController {
 }
 
 
-// MARK: - EditTextNoteViewControllerDelegate
+// MARK: - TextNoteEditorViewControllerDelegate
 
-extension TextNotesViewController: EditTextNoteViewControllerDelegate {
+extension TextNotesViewController: TextNoteEditorViewControllerDelegate {
 
 	func didCreateNew(_ note: TextNote) {
 		notebook.add(note)
