@@ -46,7 +46,7 @@ class PhotoNotesCollectionViewController: UICollectionViewController {
 		collectionView.backgroundColor = Constants.photoNotesListBackgroundColor
 		collectionView.contentInsetAdjustmentBehavior = .always
 		collectionView.allowsMultipleSelection = false
-		collectionView.register(PhotoNoteCollectionViewCell.self, forCellWithReuseIdentifier: PhotoNoteCollectionViewCell.reuseIdentifier)
+		collectionView.registerCell(ofType: PhotoNoteCollectionViewCell.self)
     }
 
 	override func setEditing(_ editing: Bool, animated: Bool) {

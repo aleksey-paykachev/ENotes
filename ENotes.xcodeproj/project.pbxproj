@@ -65,6 +65,7 @@
 		5BFCD7E222D7CB8300ACD4E5 /* ExtendedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCD7E122D7CB8300ACD4E5 /* ExtendedTextView.swift */; };
 		5BFCD7E422D7D52700ACD4E5 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCD7E322D7D52700ACD4E5 /* ColorPickerViewController.swift */; };
 		5BFD40032419D2240037B7A1 /* CGSize + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD40022419D2240037B7A1 /* CGSize + Extensions.swift */; };
+		5BFD40052419D55D0037B7A1 /* UICollectionView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD40042419D55D0037B7A1 /* UICollectionView + Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +130,7 @@
 		5BFCD7E122D7CB8300ACD4E5 /* ExtendedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedTextView.swift; sourceTree = "<group>"; };
 		5BFCD7E322D7D52700ACD4E5 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		5BFD40022419D2240037B7A1 /* CGSize + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize + Extensions.swift"; sourceTree = "<group>"; };
+		5BFD40042419D55D0037B7A1 /* UICollectionView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView + Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +290,7 @@
 				5B38F21024169472004182CA /* UIImage + Extensions.swift */,
 				5BABD22722DB465D006A36A4 /* UIColor + Extension.swift */,
 				5BCA45912375D9EC00FA9ABE /* UITableViewCell + Extension.swift */,
+				5BFD40042419D55D0037B7A1 /* UICollectionView + Extensions.swift */,
 				5BCA45952375E22000FA9ABE /* UICollectionViewCell + Extension.swift */,
 				5BABD22922DB4A53006A36A4 /* CGPoint + Extension.swift */,
 				5BFD40022419D2240037B7A1 /* CGSize + Extensions.swift */,
@@ -467,6 +470,7 @@
 				5B6A541522E2CA9400C9205E /* Note.swift in Sources */,
 				5BA85D49230644FE00ED0CF1 /* HueSaturationSelectionAreaView.swift in Sources */,
 				5BD4F40D22D6B73E00464447 /* ColorSelectorCell.swift in Sources */,
+				5BFD40052419D55D0037B7A1 /* UICollectionView + Extensions.swift in Sources */,
 				5BCA45902375D56700FA9ABE /* CAGradientLayer + Extension.swift in Sources */,
 				5BDBC2F1241689CB000284E0 /* Bundle + Extensions.swift in Sources */,
 				5BBFBA942418370F00A98FB3 /* KeyboardNotificationInfo.swift in Sources */,

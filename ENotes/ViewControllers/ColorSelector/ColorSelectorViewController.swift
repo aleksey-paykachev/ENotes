@@ -72,8 +72,8 @@ class ColorSelectorViewController: UICollectionViewController {
 		collectionView.heightAnchor.constraint(equalToConstant: colorSelectorLayout.itemSize.height).isActive = true
 		
 		// register two type of cells: for standard colors and for custom one
-		collectionView.register(ColorSelectorCell.self, forCellWithReuseIdentifier: ColorSelectorCell.reuseIdentifier)
-		collectionView.register(CustomColorSelectorCell.self, forCellWithReuseIdentifier: CustomColorSelectorCell.reuseIdentifier)
+		collectionView.registerCell(ofType: ColorSelectorCell.self)
+		collectionView.registerCell(ofType: CustomColorSelectorCell.self)
 	}
 	
 	private func selectCustomColor(color: HSBColor) {
