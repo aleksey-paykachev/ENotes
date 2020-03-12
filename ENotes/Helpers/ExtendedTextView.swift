@@ -8,43 +8,49 @@
 
 import UIKit
 
-// Simple implementation of textview placeholder for demo purposes only.
-// Should not be used inside any real project because of its limitations: hardcoded text font and constraint, overriden delegate, and so on.
-
+/// TextView with a placeholder. Delegate property of UITextView should not be used because
+/// current implementation of placeholder visibility handling relies on delegate internaly.
+///
 class ExtendedTextView: UITextView {
 	
 	/// Placeholder text.
-	var placeholder: String? { didSet { updateUI() } }
+	var placeholder: String? { didSet { setPlaceholderText() } }
+
+	override var text: String! { didSet { updatePlaceholderVisibility() } }
 	
-	private var placeholderLabel: UILabel!
+	private let placeholderLabel = UILabel()
 
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
-		updateUI()
+		setup()
 	}
-	
+
 	override init(frame: CGRect, textContainer: NSTextContainer?) {
 		super.init(frame: frame, textContainer: textContainer)
-		updateUI()
+		setup()
+	}
+	
+	private func setup() {
+		placeholderLabel.font = font
+		placeholderLabel.textColor = .lightGray
+		
+		addSubview(placeholderLabel)
+		placeholderLabel.frame.origin = CGPoint(x: textContainer.lineFragmentPadding,
+												y: textContainerInset.top)
+		
+		delegate = self
+		updatePlaceholderVisibility()
 	}
 
-	private func updateUI() {
-		if let placeholder = placeholder {
-			placeholderLabel = UILabel()
-			placeholderLabel.text = placeholder
-			placeholderLabel.textColor = .lightGray
-			placeholderLabel.sizeToFit()
-			
-			addSubview(placeholderLabel)
-			placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
-			placeholderLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-			placeholderLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 4).isActive = true
+	private func setPlaceholderText() {
+		placeholderLabel.text = placeholder
+		placeholderLabel.sizeToFit()
 
-			delegate = self
-		} else {
-			placeholderLabel = nil
-			delegate = nil
-		}
+		updatePlaceholderVisibility()
+	}
+	
+	private func updatePlaceholderVisibility() {
+		placeholderLabel.isHidden = placeholder == nil || text.isNotEmpty
 	}
 }
 
@@ -52,9 +58,8 @@ class ExtendedTextView: UITextView {
 // MARK: - self delegate
 
 extension ExtendedTextView: UITextViewDelegate {
+
 	func textViewDidChange(_ textView: UITextView) {
-		if placeholder != nil {
-			placeholderLabel.isHidden = !textView.text.isEmpty
-		}
+		updatePlaceholderVisibility()
 	}
 }
