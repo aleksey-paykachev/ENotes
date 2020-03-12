@@ -17,7 +17,7 @@ struct TextNote: Note {
 	}
 
 	// Constants
-	private static let defaultColor = HSBColor.white
+	static let defaultColor = HSBColor.white
 
 	// Variables
 	let uid: String

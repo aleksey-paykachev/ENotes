@@ -46,7 +46,7 @@ class PhotoNotesCollectionViewController: UICollectionViewController {
 		collectionView.backgroundColor = Constants.photoNotesListBackgroundColor
 		collectionView.contentInsetAdjustmentBehavior = .always
 		collectionView.allowsMultipleSelection = false
-		collectionView.registerCell(ofType: PhotoNoteCollectionViewCell.self)
+		collectionView.registerCell(PhotoNoteCollectionViewCell.self)
     }
 
 	override func setEditing(_ editing: Bool, animated: Bool) {
@@ -125,7 +125,7 @@ extension PhotoNotesCollectionViewController {
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-		let cell = collectionView.dequeueCell(ofType: PhotoNoteCollectionViewCell.self, for: indexPath)
+		let cell = collectionView.dequeueCell(PhotoNoteCollectionViewCell.self, for: indexPath)
 		cell.photoNote = notebook.get(by: indexPath.item)
 		cell.isEditMode = isEditing
 		

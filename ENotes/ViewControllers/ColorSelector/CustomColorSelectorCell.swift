@@ -33,8 +33,8 @@ class CustomColorSelectorCell: ColorSelectorCell {
 		addGestureRecognizer(gesture)
 	}
 	
-	override func set(_ color: UIColor?) {
-		let color = color ?? .white
+	override func set(_ color: HSBColor) {
+//		let color = color ?? .white
 		print("Set custom color: \(color)")
 		selectedColorLayer.fillColor = color.cgColor
 	}

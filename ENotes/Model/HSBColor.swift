@@ -16,6 +16,11 @@ import UIKit
 ///
 struct HSBColor: Equatable {
 	static let white = HSBColor(hue: 0, saturation: 0, brightness: 1)
+	static let yellow = UIColor.yellow.hsbColor
+	static let green = UIColor.green.hsbColor
+	static let cyan = UIColor.cyan.hsbColor
+	static let magenta = UIColor.magenta.hsbColor
+	static let red = UIColor.red.hsbColor
 
 	var hue: CGFloat
 	var saturation: CGFloat

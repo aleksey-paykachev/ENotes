@@ -33,11 +33,10 @@ class ColorSelectorCell: UICollectionViewCell {
 	}
 	
 	/// Sets new color for current cell.
-	///
 	/// - Parameter color: New color.
 	///
-	func set(_ color: UIColor) {
-		colorCellView.backgroundColor = color
+	func set(_ color: HSBColor) {
+		colorCellView.backgroundColor = color.uiColor
 	}
 	
 	/// Adds new layer on color cell view.
