@@ -146,12 +146,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5B1697F2234FEF87004115D0 /* SelectedColor */ = {
+		5B1697F2234FEF87004115D0 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
 				5B1697F0234FEF76004115D0 /* SelectedColorView.swift */,
+				5BA85D48230644FE00ED0CF1 /* HueSaturationSelectionAreaView.swift */,
+				5BA85D46230644D100ED0CF1 /* BrightnessSliderView.swift */,
 			);
-			path = SelectedColor;
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		5B3AC721230FB9E50029BDCD /* ViewControllers */ = {
@@ -239,6 +241,7 @@
 				5B812D7322CC40CA0075BC8F /* AppDelegate.swift */,
 				5BBD1A9B22D05A7200BCC111 /* Model */,
 				5B3AC721230FB9E50029BDCD /* ViewControllers */,
+				5BD0DD7D241AFD3800DEF541 /* CommonViews */,
 				5B4089B822D18623006AE52E /* Free Version */,
 				5B500EFC236AF36D00443135 /* DemoData */,
 				5BBD1A9C22D05C2B00BCC111 /* Helpers */,
@@ -264,7 +267,6 @@
 				5BA85D4C2306595A00ED0CF1 /* ColorSelectorViewController.swift */,
 				5BD4F40C22D6B73E00464447 /* ColorSelectorCell.swift */,
 				5BE7E32A235AEE3500701311 /* CustomColorSelectorCell.swift */,
-				5BD4F40A22D6ABB000464447 /* MarkSignView.swift */,
 			);
 			path = ColorSelector;
 			sourceTree = "<group>";
@@ -283,8 +285,8 @@
 		5BBD1A9C22D05C2B00BCC111 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				5BBD1A9D22D05C4800BCC111 /* FileManager + Extension.swift */,
 				5BDBC2EE241687C3000284E0 /* File.swift */,
+				5BBD1A9D22D05C4800BCC111 /* FileManager + Extension.swift */,
 				5BDBC2F0241689CB000284E0 /* Bundle + Extensions.swift */,
 				5B88D14E23B1D73C00CBAC22 /* URL + Extension.swift */,
 				5BCA45932375DB6800FA9ABE /* Date + Extension.swift */,
@@ -300,8 +302,8 @@
 				5B9DA172241AC19B00131590 /* CGPath + Extensions.swift */,
 				5B93A1752417D0C8004BCD14 /* CALayer + Extensions.swift */,
 				5BCA458F2375D56700FA9ABE /* CAGradientLayer + Extension.swift */,
-				5BFCD7E122D7CB8300ACD4E5 /* ExtendedTextView.swift */,
 				5B73018524180E81002A9AE8 /* Collection + Extensions.swift */,
+				5BFCD7E122D7CB8300ACD4E5 /* ExtendedTextView.swift */,
 				5BBFBA932418370F00A98FB3 /* KeyboardNotificationInfo.swift */,
 			);
 			path = Helpers;
@@ -321,11 +323,19 @@
 			children = (
 				5BFCD7E322D7D52700ACD4E5 /* ColorPickerViewController.swift */,
 				5BAC641922D9872F00C8C927 /* ColorPickerViewController.xib */,
-				5B1697F2234FEF87004115D0 /* SelectedColor */,
-				5BE8CB70230AFF14003566B6 /* HueSaturation */,
-				5BE8CB6F230AFF04003566B6 /* Brightness */,
+				5B1697F2234FEF87004115D0 /* Subviews */,
 			);
 			path = ColorPicker;
+			sourceTree = "<group>";
+		};
+		5BD0DD7D241AFD3800DEF541 /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				5BD4F40A22D6ABB000464447 /* MarkSignView.swift */,
+				5BEA1FE922D9C7A6007DDA39 /* CircleSelectorView.swift */,
+				5BABD22522DAB6B1006A36A4 /* RectangularSelectorView.swift */,
+			);
+			path = CommonViews;
 			sourceTree = "<group>";
 		};
 		5BD4F50F23548236000A4F8B /* Note */ = {
@@ -346,24 +356,6 @@
 				5BD4F5132354826E000A4F8B /* NotebookFileDataManager.swift */,
 			);
 			path = Notebook;
-			sourceTree = "<group>";
-		};
-		5BE8CB6F230AFF04003566B6 /* Brightness */ = {
-			isa = PBXGroup;
-			children = (
-				5BA85D46230644D100ED0CF1 /* BrightnessSliderView.swift */,
-				5BABD22522DAB6B1006A36A4 /* RectangularSelectorView.swift */,
-			);
-			path = Brightness;
-			sourceTree = "<group>";
-		};
-		5BE8CB70230AFF14003566B6 /* HueSaturation */ = {
-			isa = PBXGroup;
-			children = (
-				5BA85D48230644FE00ED0CF1 /* HueSaturationSelectionAreaView.swift */,
-				5BEA1FE922D9C7A6007DDA39 /* CircleSelectorView.swift */,
-			);
-			path = HueSaturation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

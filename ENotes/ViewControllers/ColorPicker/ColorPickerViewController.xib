@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,10 +23,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="AoC-bu-Vyl">
-                    <rect key="frame" x="20" y="64" width="374" height="778"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="AoC-bu-Vyl" userLabel="Main Stack">
+                    <rect key="frame" x="20" y="74" width="374" height="768"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="RNB-jX-nSy">
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="RNB-jX-nSy" userLabel="Color and Brightness Stack">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5L6-yK-0Zf" customClass="SelectedColorView" customModule="ENotes" customModuleProvider="target">
@@ -48,14 +46,14 @@
                             </constraints>
                         </stackView>
                         <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="2P6-Yl-oFt" customClass="HueSaturationSelectionAreaView" customModule="ENotes" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="90" width="374" height="628"/>
+                            <rect key="frame" x="0.0" y="84" width="374" height="634"/>
                             <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6v9-Yf-GQR">
-                            <rect key="frame" x="0.0" y="748" width="374" height="30"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6v9-Yf-GQR" userLabel="Action Buttons Stack">
+                            <rect key="frame" x="0.0" y="742" width="374" height="26"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4D-p1-moi">
-                                    <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="187" height="26"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <state key="normal" title="CANCEL_BUTTON">
                                         <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -65,7 +63,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKX-t2-TeD">
-                                    <rect key="frame" x="187" y="0.0" width="187" height="30"/>
+                                    <rect key="frame" x="187" y="0.0" width="187" height="26"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <state key="normal" title="SAVE_BUTTON"/>
                                     <connections>
@@ -80,7 +78,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="AoC-bu-Vyl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="3Jo-Z1-h09"/>
-                <constraint firstItem="AoC-bu-Vyl" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="TMM-yV-w28"/>
+                <constraint firstItem="AoC-bu-Vyl" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="TMM-yV-w28"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="AoC-bu-Vyl" secondAttribute="bottom" constant="20" id="fw8-nr-fPT"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="AoC-bu-Vyl" secondAttribute="trailing" constant="20" id="ieP-03-n8V"/>
             </constraints>
