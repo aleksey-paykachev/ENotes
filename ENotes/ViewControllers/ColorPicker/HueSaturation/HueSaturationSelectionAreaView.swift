@@ -15,7 +15,7 @@ protocol HueSaturationSelectionAreaViewDelegate: class {
 class HueSaturationSelectionAreaView: UIView {
 
 	private var color: HSBColor = .white
-	private let colorPickerSelectorView = CircleSelectorView(frame: .square(size: 30))
+	private let colorPickerSelectorView = CircleSelectorView(frame: .square(30))
 	private let hueGradient = CAGradientLayer()
 	private let saturationGradient = CAGradientLayer()
 	

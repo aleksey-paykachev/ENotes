@@ -64,6 +64,7 @@
 		5BEFA5B922DF42EE00F30A3E /* HSBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEFA5B822DF42EE00F30A3E /* HSBColor.swift */; };
 		5BFCD7E222D7CB8300ACD4E5 /* ExtendedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCD7E122D7CB8300ACD4E5 /* ExtendedTextView.swift */; };
 		5BFCD7E422D7D52700ACD4E5 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCD7E322D7D52700ACD4E5 /* ColorPickerViewController.swift */; };
+		5BFD40032419D2240037B7A1 /* CGSize + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD40022419D2240037B7A1 /* CGSize + Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +128,7 @@
 		5BEFA5B822DF42EE00F30A3E /* HSBColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSBColor.swift; sourceTree = "<group>"; };
 		5BFCD7E122D7CB8300ACD4E5 /* ExtendedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedTextView.swift; sourceTree = "<group>"; };
 		5BFCD7E322D7D52700ACD4E5 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		5BFD40022419D2240037B7A1 /* CGSize + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize + Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,8 +289,9 @@
 				5BABD22722DB465D006A36A4 /* UIColor + Extension.swift */,
 				5BCA45912375D9EC00FA9ABE /* UITableViewCell + Extension.swift */,
 				5BCA45952375E22000FA9ABE /* UICollectionViewCell + Extension.swift */,
-				5BC2FC8A22D80C700051B831 /* CGRect + Extension.swift */,
 				5BABD22922DB4A53006A36A4 /* CGPoint + Extension.swift */,
+				5BFD40022419D2240037B7A1 /* CGSize + Extensions.swift */,
+				5BC2FC8A22D80C700051B831 /* CGRect + Extension.swift */,
 				5B93A1752417D0C8004BCD14 /* CALayer + Extensions.swift */,
 				5BCA458F2375D56700FA9ABE /* CAGradientLayer + Extension.swift */,
 				5BFCD7E122D7CB8300ACD4E5 /* ExtendedTextView.swift */,
@@ -439,6 +442,7 @@
 				5B7DEBDE22E08B2B00509A2E /* TextNotesViewController.swift in Sources */,
 				5BFCD7E222D7CB8300ACD4E5 /* ExtendedTextView.swift in Sources */,
 				5BBA7215241683800049E292 /* DemoDataManager.swift in Sources */,
+				5BFD40032419D2240037B7A1 /* CGSize + Extensions.swift in Sources */,
 				5BABD22622DAB6B1006A36A4 /* RectangularSelectorView.swift in Sources */,
 				5BDC58BA22CDA26900EA9D68 /* Notebook.swift in Sources */,
 				5B1B7AA124180289002F7E4C /* DataManager.swift in Sources */,

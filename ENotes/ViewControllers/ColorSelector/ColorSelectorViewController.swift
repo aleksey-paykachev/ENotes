@@ -11,7 +11,7 @@ import UIKit
 /// Provides user interface for selection of the color.
 class ColorSelectorViewController: UICollectionViewController {
 	
-	private let standardColors: [UIColor] = Constants.standardColors
+	private let standardColors = [UIColor.yellow, .green, .cyan, .magenta, .red]
 	private var selectedCustomColor: HSBColor?
 	
 	/// Currently selected color of the color selector (standard or custom).
@@ -65,6 +65,7 @@ class ColorSelectorViewController: UICollectionViewController {
 		// setup collection view flow layout
 		let colorSelectorLayout = collectionViewLayout as! UICollectionViewFlowLayout
 		colorSelectorLayout.scrollDirection = .horizontal
+		colorSelectorLayout.itemSize = .square(50)
 
 		// set height of the collection view equal to single cell height (one row)
 		collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -85,11 +86,6 @@ class ColorSelectorViewController: UICollectionViewController {
 		if let cell = collectionView.cellForItem(at: indexPath) as? CustomColorSelectorCell {
 			cell.set(selectedCustomColor?.uiColor)
 		}
-	}
-	
-	private struct Constants {
-		static let standardColors: [UIColor] = [.yellow, .green, .cyan, .magenta, .red]
-		static let cellDiameter: CGFloat = 50
 	}
 }
 
@@ -137,15 +133,5 @@ extension ColorSelectorViewController: CustomColorSelectorCellDelegate {
 extension ColorSelectorViewController: ColorPickerDelegate {
 	func didSelectColor(_ color: HSBColor) {
 		selectCustomColor(color: color)
-	}
-}
-
-
-// MARK: - UICollectionViewDelegateFlowLayout
-
-extension ColorSelectorViewController: UICollectionViewDelegateFlowLayout {
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-		return CGSize(width: Constants.cellDiameter, height: Constants.cellDiameter)
 	}
 }

@@ -180,7 +180,7 @@ extension PhotoNotesCollectionViewController: UICollectionViewDelegateFlowLayout
 		let itemsPerColumn = floor(collectionViewWidth / Constants.minimumPhotoNoteImageSideSize)
 		let itemSize = floor(collectionViewWidth / itemsPerColumn)
 		
-		return CGSize(width: itemSize, height: itemSize)
+		return .square(itemSize)
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
