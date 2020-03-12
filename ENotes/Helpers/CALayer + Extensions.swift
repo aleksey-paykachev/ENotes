@@ -53,11 +53,7 @@ extension CALayer {
 	///   - colors: An array of color objects defining the color of each gradient stop.
 	///
 	func setGradient(direction: CAGradientLayer.Direction, colors: [UIColor]) {
-		let gradient = CAGradientLayer()
-		gradient.setDirection(direction)
-		gradient.colors = colors.map { $0.cgColor }
-		gradient.frame = bounds
-
-		addSublayer(gradient)
+		let gradientLayer = CAGradientLayer(direction: direction, colors: colors, frame: bounds)
+		addSublayer(gradientLayer)
 	}
 }

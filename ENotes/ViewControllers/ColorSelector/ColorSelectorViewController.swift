@@ -114,7 +114,7 @@ extension ColorSelectorViewController {
 
 extension ColorSelectorViewController: CustomColorSelectorCellDelegate {
 
-	func colorSelectorCellDidAskForColorPicker() {
+	func customColorCellDidRecieveLongPress() {
 		// show color picker, so user can select any custom color
 		let colorPickerViewController = ColorPickerViewController(color: customColor)
 		colorPickerViewController.delegate = self

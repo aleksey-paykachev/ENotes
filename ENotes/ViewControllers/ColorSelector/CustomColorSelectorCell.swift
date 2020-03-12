@@ -9,11 +9,12 @@
 import UIKit
 
 protocol CustomColorSelectorCellDelegate: class {
-	/// Notifies delegate that custom color cell selector did ask for color picker.
-	func colorSelectorCellDidAskForColorPicker()
+	/// Notifies delegate that custom color cell being long pressed.
+	func customColorCellDidRecieveLongPress()
 }
 
 class CustomColorSelectorCell: ColorSelectorCell {
+	/// Delegate of the custom color cell.
 	weak var delegate: CustomColorSelectorCellDelegate?
 	
 	private let selectedColorLayer = CAShapeLayer()
@@ -25,44 +26,40 @@ class CustomColorSelectorCell: ColorSelectorCell {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
-		setSelectedColorLayer()
-		setColorCellViewHueGradient()
-		
-		// add long press gesture
-		let gesture = UILongPressGestureRecognizer(target: self, action: #selector(cellBeingLongPressed(gesture:)))
-		addGestureRecognizer(gesture)
+		setupSelectedColorLayer()
+		setupColorCellViewHueGradient()
+		setupGestures()
 	}
 	
+	/// Sets new custom color for current cell.
+	/// - Parameter color: New color.
+	///
 	override func set(_ color: HSBColor) {
-//		let color = color ?? .white
-		print("Set custom color: \(color)")
 		selectedColorLayer.fillColor = color.cgColor
 	}
 	
-	private func setSelectedColorLayer() {
-		selectedColorLayer.path = CGPath(ellipseIn: cellBounds.scaled(to: 0.7), transform: nil)
+	private func setupSelectedColorLayer() {
+		selectedColorLayer.path = .circle(in: colorCellView.bounds.scaled(to: 0.7))
 		selectedColorLayer.fillColor = UIColor.white.cgColor
-		selectedColorLayer.strokeColor = UIColor.gray.withAlphaComponent(0.3).cgColor
-		addLayer(selectedColorLayer)
+		selectedColorLayer.strokeColor = UIColor.white.withAlphaComponent(0.7).cgColor
+		selectedColorLayer.lineWidth = 3
+		
+		addSubayerToColorCell(selectedColorLayer)
 	}
 	
-	private func setColorCellViewHueGradient() {
-//		private var hueGradient: CAGradientLayer!
-		let hueGradient = CAGradientLayer()
-		hueGradient.colors = [UIColor.red.cgColor,
-							  UIColor.yellow.cgColor,
-							  UIColor.green.cgColor,
-							  UIColor.cyan.cgColor,
-							  UIColor.blue.cgColor,
-							  UIColor.magenta.cgColor,
-							  UIColor.red.cgColor]
-		hueGradient.setDirection(.fromLeftToRight)
-		addLayer(hueGradient, at: 0)
+	private func setupColorCellViewHueGradient() {
+		let hueGradientLayer = CAGradientLayer(direction: .fromLeftToRight, colors: .hueComponents)
+		addSubayerToColorCell(hueGradientLayer)
+	}
+	
+	private func setupGestures() {
+		let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(cellBeingLongPressed))
+		addGestureRecognizer(longPressGesture)
 	}
 	
 	@objc private func cellBeingLongPressed(gesture: UIGestureRecognizer) {
 		if gesture.state == .began {
-			delegate?.colorSelectorCellDidAskForColorPicker()
+			delegate?.customColorCellDidRecieveLongPress()
 		}
 	}
 }

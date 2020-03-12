@@ -22,6 +22,20 @@ extension CAGradientLayer {
 		case fromBottomToTop
 	}
 	
+	/// Creates and returns gradient layer with supplied parameters.
+	/// - Parameters:
+	///   - direction: The gradient direction.
+	///   - colors: An array of color objects defining the color of each gradient stop.
+	///   - frame: The frame of the gradient layer.
+	///
+	convenience init(direction: Direction, colors: [UIColor], frame: CGRect = .zero) {
+		self.init()
+		
+		setDirection(direction)
+		self.colors = colors.map { $0.cgColor }
+		self.frame = frame
+	}
+	
 	/// Set gradient direction.
 	///
 	/// - Parameter direction: On of the standard gradient directions.

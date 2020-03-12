@@ -51,3 +51,9 @@ extension Optional where Wrapped == UIColor {
 		color = color?.withAlphaComponent(alpha)
 	}
 }
+
+
+extension Array where Element == UIColor {
+	/// Array of colors representing all hue color steps.
+	static let hueComponents: [UIColor] =  [.red, .yellow, .green, .cyan, .blue, .magenta, .red]
+}

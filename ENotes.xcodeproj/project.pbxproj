@@ -34,6 +34,7 @@
 		5B93A1762417D0C8004BCD14 /* CALayer + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B93A1752417D0C8004BCD14 /* CALayer + Extensions.swift */; };
 		5B9774F02311B42C00DE525A /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9774EF2311B42C00DE525A /* ImagePickerController.swift */; };
 		5B99DA86235CAC2F003AE003 /* EndFreeTrialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B99DA85235CAC2F003AE003 /* EndFreeTrialViewController.xib */; };
+		5B9DA173241AC19B00131590 /* CGPath + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9DA172241AC19B00131590 /* CGPath + Extensions.swift */; };
 		5BA85D47230644D100ED0CF1 /* BrightnessSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA85D46230644D100ED0CF1 /* BrightnessSliderView.swift */; };
 		5BA85D49230644FE00ED0CF1 /* HueSaturationSelectionAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA85D48230644FE00ED0CF1 /* HueSaturationSelectionAreaView.swift */; };
 		5BA85D4B230646A300ED0CF1 /* FreeVersionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA85D4A230646A300ED0CF1 /* FreeVersionManager.swift */; };
@@ -99,6 +100,7 @@
 		5B93A1752417D0C8004BCD14 /* CALayer + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer + Extensions.swift"; sourceTree = "<group>"; };
 		5B9774EF2311B42C00DE525A /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		5B99DA85235CAC2F003AE003 /* EndFreeTrialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EndFreeTrialViewController.xib; sourceTree = "<group>"; };
+		5B9DA172241AC19B00131590 /* CGPath + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPath + Extensions.swift"; sourceTree = "<group>"; };
 		5BA85D46230644D100ED0CF1 /* BrightnessSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessSliderView.swift; sourceTree = "<group>"; };
 		5BA85D48230644FE00ED0CF1 /* HueSaturationSelectionAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueSaturationSelectionAreaView.swift; sourceTree = "<group>"; };
 		5BA85D4A230646A300ED0CF1 /* FreeVersionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeVersionManager.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				5BABD22922DB4A53006A36A4 /* CGPoint + Extension.swift */,
 				5BFD40022419D2240037B7A1 /* CGSize + Extensions.swift */,
 				5BC2FC8A22D80C700051B831 /* CGRect + Extension.swift */,
+				5B9DA172241AC19B00131590 /* CGPath + Extensions.swift */,
 				5B93A1752417D0C8004BCD14 /* CALayer + Extensions.swift */,
 				5BCA458F2375D56700FA9ABE /* CAGradientLayer + Extension.swift */,
 				5BFCD7E122D7CB8300ACD4E5 /* ExtendedTextView.swift */,
@@ -453,6 +456,7 @@
 				5BCA45922375D9EC00FA9ABE /* UITableViewCell + Extension.swift in Sources */,
 				5BD4F5142354826E000A4F8B /* NotebookFileDataManager.swift in Sources */,
 				5BC2FC8B22D80C700051B831 /* CGRect + Extension.swift in Sources */,
+				5B9DA173241AC19B00131590 /* CGPath + Extensions.swift in Sources */,
 				5B7055AD22E0B4A700ACF805 /* PhotoNote.swift in Sources */,
 				5BEFA5B922DF42EE00F30A3E /* HSBColor.swift in Sources */,
 				5BA85D47230644D100ED0CF1 /* BrightnessSliderView.swift in Sources */,
