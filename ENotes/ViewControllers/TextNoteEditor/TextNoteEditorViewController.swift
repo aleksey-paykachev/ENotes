@@ -117,8 +117,7 @@ extension TextNoteEditorViewController {
 	
 	private func setupGeneral() {
 		// navigation title
-		let newNoteLocalizedText = NSLocalizedString("New note", comment: "Shows in the navigation bar when user create a new note.")
-		title = mode == .createNew ? newNoteLocalizedText : note.title
+		title = mode == .createNew ? LocalizedString.TextNoteEditor.newNote : note.title
 		
 		// set UILabel leading alignment relative to UITextView
 		removeAfterDateTextLabelLeadingConstraint.constant = noteContentTextView.textContainer.lineFragmentPadding
@@ -133,15 +132,14 @@ extension TextNoteEditorViewController {
 	}
 	
 	private func setupTextInputs() {
-		noteTitleTextField.placeholder = NSLocalizedString("Note name", comment: "Text label placeholder for a note name.")
+		noteTitleTextField.placeholder = LocalizedString.TextNoteEditor.noteTitlePlaceholder
 		noteTitleTextField.delegate = self
 
-		noteContentTextView.placeholder = NSLocalizedString("Note content", comment: "Text label placeholder for a note content.")
+		noteContentTextView.placeholder = LocalizedString.TextNoteEditor.noteContentPlaceholder
 	}
 	
 	private func setupDatePicker() {
-		removeAfterDateTextLabel.text = NSLocalizedString("Remove after date", comment: "Self destruction date of a note. Shows in a label next to date picker.")
-
+		removeAfterDateTextLabel.text = LocalizedString.TextNoteEditor.removeAfterDate
 		selfDestructionDateDatePickerContainerView.clipsToBounds = true
 	}
 	
@@ -184,7 +182,7 @@ extension TextNoteEditorViewController {
 		guard title.isNotEmpty || content.isNotEmpty else { return }
 		
 		if title.isEmpty {
-			title = NSLocalizedString("No title", comment: "Shows as a note title if user hasn't provide one while editing a note.")
+			title = LocalizedString.TextNoteEditor.defaultTitle
 		}
 
 		let color = colorSelectorViewController.selectedColor

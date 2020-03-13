@@ -21,8 +21,8 @@ class EndFreeTrialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		freeTrialEndedDescriptionLabel.text = NSLocalizedString("Free trial limit has been reached.", comment: "Notifies the user that aplication's free trial has been ended.")
-		askForMoneyTitleLabel.text = NSLocalizedString("Where is the money?", comment: "Title of free trial ending notification.")
-		askForMoneySubtitleLabel.text = NSLocalizedString("Where is the money, Lebowski?", comment: "Subtitle of free trial ending notification. Politely asks the user for the money.")
+		freeTrialEndedDescriptionLabel.text = LocalizedString.EndFreeTrial.description
+		askForMoneyTitleLabel.text = LocalizedString.EndFreeTrial.askForMoneyTitle
+		askForMoneySubtitleLabel.text = LocalizedString.EndFreeTrial.askForMoneySubtitle
     }
 }

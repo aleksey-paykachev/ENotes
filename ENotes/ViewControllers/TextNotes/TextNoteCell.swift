@@ -52,15 +52,7 @@ class TextNoteCell: UITableViewCell {
 		titleLabel.text = note.title
 		contentLabel.text = note.content
 		colorView.backgroundColor = note.color.uiColor
-		selfDestructionDateLabel.text = getLocalizedDateText(for: note.selfDestructionDate)
-	}
-	
-	private func getLocalizedDateText(for date: Date?) -> String? {
-		guard let formattedDate = date?.shortFormatString else { return nil }
-		
-		let formattedText = NSLocalizedString("until %@", comment: "Shows user self destruction date of the note in format: 'until %date%'.")
-
-		return String.localizedStringWithFormat(formattedText, formattedDate)
+		selfDestructionDateLabel.text = LocalizedString.TextNote.getFormattedDateText(for: note.selfDestructionDate)
 	}
 	
 	override func prepareForReuse() {

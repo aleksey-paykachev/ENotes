@@ -24,7 +24,7 @@ class TextNotesViewController: UITableViewController {
 		self.notebook = notebook
 		super.init(nibName: nil, bundle: nil)
 		
-		title = NSLocalizedString("Notes", comment: "Text notes list title. Shown both in navigation bar at the top and in the tab bar at the bottom.")
+		title = LocalizedString.TextNotes.title
 		tabBarItem.image = UIImage(named: "tabbar-icon-textnotes")
 	}
 

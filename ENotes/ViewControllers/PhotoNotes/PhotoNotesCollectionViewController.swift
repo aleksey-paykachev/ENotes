@@ -30,7 +30,7 @@ class PhotoNotesCollectionViewController: UICollectionViewController {
 		self.notebook = notebook
 		super.init(collectionViewLayout: UICollectionViewFlowLayout())
 		
-		title = NSLocalizedString("Photo Notes", comment: "Photo notes list title. Shown both in navigation bar at the top and in the tab bar at the bottom.")
+		title = LocalizedString.PhotoNotes.title
 		tabBarItem.image = UIImage(named: "tabbar-icon-photonotes")
 	}
 	
