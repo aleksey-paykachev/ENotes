@@ -53,6 +53,7 @@
 		5BCA45922375D9EC00FA9ABE /* UITableViewCell + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCA45912375D9EC00FA9ABE /* UITableViewCell + Extension.swift */; };
 		5BCA45942375DB6800FA9ABE /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCA45932375DB6800FA9ABE /* Date + Extension.swift */; };
 		5BCA45962375E22000FA9ABE /* UICollectionViewCell + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCA45952375E22000FA9ABE /* UICollectionViewCell + Extension.swift */; };
+		5BD0DD81241B0A9B00DEF541 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0DD80241B0A9B00DEF541 /* LocalizedString.swift */; };
 		5BD4F40B22D6ABB000464447 /* MarkSignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4F40A22D6ABB000464447 /* MarkSignView.swift */; };
 		5BD4F40D22D6B73E00464447 /* ColorSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4F40C22D6B73E00464447 /* ColorSelectorCell.swift */; };
 		5BD4F51223548257000A4F8B /* NotebookDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4F51123548257000A4F8B /* NotebookDataManager.swift */; };
@@ -119,6 +120,7 @@
 		5BCA45912375D9EC00FA9ABE /* UITableViewCell + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell + Extension.swift"; sourceTree = "<group>"; };
 		5BCA45932375DB6800FA9ABE /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
 		5BCA45952375E22000FA9ABE /* UICollectionViewCell + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell + Extension.swift"; sourceTree = "<group>"; };
+		5BD0DD80241B0A9B00DEF541 /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		5BD4F40A22D6ABB000464447 /* MarkSignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkSignView.swift; sourceTree = "<group>"; };
 		5BD4F40C22D6B73E00464447 /* ColorSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorCell.swift; sourceTree = "<group>"; };
 		5BD4F51123548257000A4F8B /* NotebookDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookDataManager.swift; sourceTree = "<group>"; };
@@ -242,13 +244,13 @@
 				5BBD1A9B22D05A7200BCC111 /* Model */,
 				5B3AC721230FB9E50029BDCD /* ViewControllers */,
 				5BD0DD7D241AFD3800DEF541 /* CommonViews */,
+				5BD0DD82241B0AB100DEF541 /* Localization */,
 				5B4089B822D18623006AE52E /* Free Version */,
 				5B500EFC236AF36D00443135 /* DemoData */,
 				5BBD1A9C22D05C2B00BCC111 /* Helpers */,
 				5B3AC722230FBB060029BDCD /* Assets.xcassets */,
 				5B812D7F22CC40CA0075BC8F /* Info.plist */,
 				5B145C11241653EA009357AF /* LaunchScreen.storyboard */,
-				5B0991B8236C6BE30019ABDD /* Localizable.strings */,
 			);
 			path = ENotes;
 			sourceTree = "<group>";
@@ -336,6 +338,15 @@
 				5BABD22522DAB6B1006A36A4 /* RectangularSelectorView.swift */,
 			);
 			path = CommonViews;
+			sourceTree = "<group>";
+		};
+		5BD0DD82241B0AB100DEF541 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				5BD0DD80241B0A9B00DEF541 /* LocalizedString.swift */,
+				5B0991B8236C6BE30019ABDD /* Localizable.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		5BD4F50F23548236000A4F8B /* Note */ = {
@@ -451,6 +462,7 @@
 				5B9DA173241AC19B00131590 /* CGPath + Extensions.swift in Sources */,
 				5B7055AD22E0B4A700ACF805 /* PhotoNote.swift in Sources */,
 				5BEFA5B922DF42EE00F30A3E /* HSBColor.swift in Sources */,
+				5BD0DD81241B0A9B00DEF541 /* LocalizedString.swift in Sources */,
 				5BA85D47230644D100ED0CF1 /* BrightnessSliderView.swift in Sources */,
 				5BEA1FEA22D9C7A6007DDA39 /* CircleSelectorView.swift in Sources */,
 				5BA85D4D2306595A00ED0CF1 /* ColorSelectorViewController.swift in Sources */,

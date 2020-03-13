@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ColorPickerDelegate: class {
-	/// Notifies delegate that user did select a custom color
+	/// Notifies delegate that user did select custom color.
 	func didSelectColor(_ color: HSBColor)
 }
 
@@ -20,7 +20,8 @@ class ColorPickerViewController: UIViewController {
 	@IBOutlet private var brightnessSliderView: BrightnessSliderView!
 	@IBOutlet private var cancelButton: UIButton!
 	@IBOutlet private var saveButton: UIButton!
-
+	
+	/// Color picker delegate.
 	weak var delegate: ColorPickerDelegate?
 
 	private var color: HSBColor
@@ -29,14 +30,16 @@ class ColorPickerViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	init(color: HSBColor?) {
-		self.color = color ?? .white
+	init(color: HSBColor) {
+		self.color = color
 		super.init(nibName: nil, bundle: nil)
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		localizationSetup()
+		
+		setupActionButtons()
+		presentationController?.delegate = self
 		
 		brightnessSliderView.delegate = self
 		hueSaturationSelectionAreaView.delegate = self
@@ -46,12 +49,9 @@ class ColorPickerViewController: UIViewController {
 		brightnessSliderView.set(color: color)
 	}
 	
-	private func localizationSetup() {
-		let cancelButtonText = NSLocalizedString("Cancel", comment: "Cancel action button text of the color picker.")
-		let saveButtonText = NSLocalizedString("Save", comment: "Save action button text of the color picker.")
-		
-		cancelButton.setTitle(cancelButtonText, for: .normal)
-		saveButton.setTitle(saveButtonText, for: .normal)
+	private func setupActionButtons() {
+		cancelButton.setTitle(LocalizedString.ColorPicker.cancelButton, for: .normal)
+		saveButton.setTitle(LocalizedString.ColorPicker.saveButton, for: .normal)
 	}
 	
 	@IBAction func cancelButtonDidPressed() {
@@ -88,5 +88,16 @@ extension ColorPickerViewController: HueSaturationSelectionAreaViewDelegate {
 		
 		selectedColorView.set(color: color)
 		brightnessSliderView.set(color: color)
+	}
+}
+
+
+// MARK: - UIAdaptivePresentationControllerDelegate
+
+extension ColorPickerViewController: UIAdaptivePresentationControllerDelegate {
+	
+	func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+		// treat manual dismiss as color selection
+		delegate?.didSelectColor(color)
 	}
 }
