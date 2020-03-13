@@ -19,6 +19,11 @@ extension CGRect {
 	static func rectangle(width: CGFloat, height: CGFloat) -> CGRect {
 		CGRect(origin: .zero, size: CGSize(width: width, height: height))
 	}
+	
+	/// Center point of the given rect.
+	var center: CGPoint {
+		CGPoint(x: midX, y: midY)
+	}
 
 	/// Scales and returns a new CGRect with the given scale and placed at the center
 	/// of the original CGRect.

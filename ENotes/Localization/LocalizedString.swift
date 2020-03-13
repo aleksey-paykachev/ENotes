@@ -16,7 +16,7 @@ struct LocalizedString {
 	}
 	
 	struct TextNote {
-		static let formattedTextTemplate = NSLocalizedString("until %@", comment: "Shows user self destruction date of the note in format: 'until %date%'.")
+		static let formattedTextTemplate = NSLocalizedString("until %@", comment: "Shows user self destruction date of the note in following template format: 'until %date%'.")
 		
 		static func getFormattedDateText(for date: Date?) -> String? {
 			guard let formattedDate = date?.shortFormatString else { return nil }
