@@ -63,7 +63,7 @@ class HueSaturationSelectionAreaView: UIView {
 	}
 	
 	private func updateGradientsFrames() {
-		// add little insets to gradient layers to prevent overlapping with border
+		// add little insets to gradient layers to prevent overlapping with the border
 		hueGradient.frame = bounds.insetBy(dx: 1, dy: 1)
 		saturationGradient.frame = bounds.insetBy(dx: 1, dy: 1)
 	}
@@ -79,11 +79,11 @@ class HueSaturationSelectionAreaView: UIView {
 	// MARK: - Update UI
 
 	private func updateSelectorPosition() {
-		let radius = colorPickerSelectorView.radius
+		let selectorRadius = colorPickerSelectorView.radius
 
 		colorPickerSelectorView.frame.origin = CGPoint(
-			x: bounds.minX + bounds.width * color.hue - radius,
-			y: bounds.minY + bounds.height * (1.0 - color.saturation) - radius
+			x: bounds.width * color.hue - selectorRadius,
+			y: bounds.height * (1.0 - color.saturation) - selectorRadius
 		)
 	}
 	
@@ -98,8 +98,8 @@ class HueSaturationSelectionAreaView: UIView {
 	private func moveColorPickerSelectorView(to point: CGPoint) {
 		let pointInBounds = point.clamped(in: bounds)
 		
-		color.hue = pointInBounds.x / frame.width
-		color.saturation = 1.0 - pointInBounds.y / frame.height
+		color.hue = pointInBounds.x / bounds.width
+		color.saturation = 1.0 - pointInBounds.y / bounds.height
 		updateSelectorPosition()
 
 		delegate?.hueSaturationDidChanged(hue: color.hue, saturation: color.saturation)

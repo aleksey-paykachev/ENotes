@@ -14,51 +14,52 @@ protocol BrightessSliderViewDelegate: class {
 
 class BrightnessSliderView: UIView {
 
+	private var color: HSBColor = .white
+	private let brightnessGradient = CAGradientLayer(direction: .fromLeftToRight, colors: [])
+	private let sliderSelectorView = RectangularSelectorView(frame: .rectangle(width: 20, height: 60))
+
 	weak var delegate: BrightessSliderViewDelegate?
 
-	private var color = HSBColor.white
-	private let brightnessGradient = CAGradientLayer()
-	private let sliderSelectorView = RectangularSelectorView(frame: .rectangle(width: 20, height: 60))
-	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
-		setupView()
+		setupGradient()
+		setupSelector()
 		setupGestures()
 	}
 	
 	// MARK: - Public API
 	
 	/// Set currently selected color.
-	/// Moves slider and changes gradient according to selected color.
-	
+	/// Changes gradient and moves slider according to selected color.
+	///
 	func set(color: HSBColor) {
 		self.color = color
-		
-		setSelectorPosition(brightness: color.brightness)
-		updateGradient(with: color)
+
+		updateGradient()
+		updateSelectorPosition()
 	}
 	
 	// MARK: - Setup
 	
-	private func setupView() {
-		// gradient
-		setupGradientFrame()
-		brightnessGradient.setDirection(.fromLeftToRight)
+	private func setupGradient() {
 		layer.addSublayer(brightnessGradient)
-		
-		// selector
+		updateGradientFrame()
+	}
+	
+	private func setupSelector() {
 		sliderSelectorView.isOpaque = false
 		addSubview(sliderSelectorView)
 	}
 	
-	private func setupGradientFrame() {
+	private func updateGradientFrame() {
+		// add little insets to gradient layer to prevent overlapping with the border
 		brightnessGradient.frame = bounds.insetBy(dx: 1, dy: 1)
 	}
 	
 	private func setupGestures() {
-		let panBrightnessSliderGesture = UIPanGestureRecognizer(target: self, action: #selector(selectBrightnessByGesture(gesture:)))
-		let tapBrightnessSliderGesture = UITapGestureRecognizer(target: self, action: #selector(selectBrightnessByGesture(gesture:)))
+		let panBrightnessSliderGesture = UIPanGestureRecognizer(target: self, action: #selector(selectBrightnessByGesture))
+		let tapBrightnessSliderGesture = UITapGestureRecognizer(target: self, action: #selector(selectBrightnessByGesture))
 		
 		addGestureRecognizer(panBrightnessSliderGesture)
 		addGestureRecognizer(tapBrightnessSliderGesture)
@@ -66,19 +67,20 @@ class BrightnessSliderView: UIView {
 	
 	// MARK: - Update UI
 	
-	private func setSelectorPosition(brightness: CGFloat) {
-		sliderSelectorView.frame.origin.x = bounds.minX + bounds.width * brightness - sliderSelectorView.bounds.width / 2
+	private func updateSelectorPosition() {
+		let selectorHalfWidth = sliderSelectorView.bounds.width / 2
+		sliderSelectorView.frame.origin.x = bounds.width * color.brightness - selectorHalfWidth
 	}
 	
-	private func updateGradient(with color: HSBColor) {
-		brightnessGradient.colors = [UIColor.black.cgColor, color.cgColor]
+	private func updateGradient() {
+		brightnessGradient.setColors([.black, color.uiColor])
 	}
 
 	private func moveBrightnessSliderValueSelectorView(to point: CGPoint) {
-		let positionInBounds = point.clamped(in: bounds).x
+		let horizontalPositionInBounds = point.clamped(in: bounds).x
 		
-		color.brightness = 1.0 * positionInBounds / frame.width
-		setSelectorPosition(brightness: color.brightness)
+		color.brightness = horizontalPositionInBounds / bounds.width
+		updateSelectorPosition()
 		
 		delegate?.brightnessDidChanged(to: color.brightness)
 	}
@@ -86,6 +88,7 @@ class BrightnessSliderView: UIView {
 	// MARK: Gestures
 	
 	@objc private func selectBrightnessByGesture(gesture: UIGestureRecognizer) {
+
 		switch gesture.state {
 		case .began, .changed, .ended:
 			let selectedPoint = gesture.location(in: self)
@@ -100,7 +103,7 @@ class BrightnessSliderView: UIView {
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		
-		setupGradientFrame()
-		setSelectorPosition(brightness: color.brightness)
+		updateGradientFrame()
+		updateSelectorPosition()
 	}
 }
