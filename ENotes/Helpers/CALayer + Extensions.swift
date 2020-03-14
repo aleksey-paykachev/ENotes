@@ -30,9 +30,9 @@ extension CALayer {
 	/// - Parameters:
 	///   - width: The width of the layer’s border.
 	///   - color: The color of the layer’s border.
-	///   - alpha: The alpha of the layer’s border.
+	///   - alpha: The opacity of the layer’s border. Default value is 1.0 (no opacity).
 	///
-	func setBorder(width: CGFloat, color: UIColor, alpha: CGFloat) {
+	func setBorder(width: CGFloat, color: UIColor, alpha: CGFloat = 1) {
 		borderWidth = width
 		borderColor = color.withAlphaComponent(alpha).cgColor
 	}

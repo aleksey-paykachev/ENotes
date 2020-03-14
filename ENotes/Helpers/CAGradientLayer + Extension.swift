@@ -8,10 +8,6 @@
 
 import UIKit
 
-class Z {
-	let z = CAGradientLayer.Direction.fromLeftToRight
-}
-
 extension CAGradientLayer {
 	
 	/// Gradient direction.
@@ -32,7 +28,7 @@ extension CAGradientLayer {
 		self.init()
 		
 		setDirection(direction)
-		self.colors = colors.map { $0.cgColor }
+		setColors(colors)
 		self.frame = frame
 	}
 	
@@ -55,5 +51,12 @@ extension CAGradientLayer {
 			startPoint = CGPoint(x: 0, y: 1)
 			endPoint = CGPoint(x: 0, y: 0)
 		}
+	}
+	
+	/// Set an array of color objects defining the color of each gradient stop.
+	/// - Parameter colors: Colors defining gradient stops.
+	///
+	func setColors(_ colors: [UIColor]) {
+		self.colors = colors.map { $0.cgColor }
 	}
 }

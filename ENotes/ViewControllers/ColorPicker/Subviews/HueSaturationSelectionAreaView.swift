@@ -12,19 +12,26 @@ protocol HueSaturationSelectionAreaViewDelegate: class {
 	func hueSaturationDidChanged(hue: CGFloat, saturation: CGFloat)
 }
 
+// Two gradient layers are used to draw Hue-Saturation selection area.
+// Hue gradient are drawn from left to right and saturation - from top to bottom above it.
+// Hue gradient contains six step-colors: red, yellow, green, cyan, blue, magenta.
+// More information about HSB-color coding system might be found here:
+// en.wikipedia.org/wiki/HSL_and_HSV
+
 class HueSaturationSelectionAreaView: UIView {
 
 	private var color: HSBColor = .white
 	private let colorPickerSelectorView = CircleSelectorView(frame: .square(30))
-	private let hueGradient = CAGradientLayer()
-	private let saturationGradient = CAGradientLayer()
+	private let hueGradient = CAGradientLayer(direction: .fromLeftToRight, colors: [])
+	private let saturationGradient = CAGradientLayer(direction: .fromTopToBottom, colors: [])
 	
 	weak var delegate: HueSaturationSelectionAreaViewDelegate?
 
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
-		setupView()
+		setupGradients()
+		setupSelector()
 		setupGestures()
 	}
 	
@@ -32,46 +39,38 @@ class HueSaturationSelectionAreaView: UIView {
 	// MARK: - Public API
 	
 	/// Set currently selected color.
-	/// Changes selector position and changes gradients according to selected color.
-
+	/// Changes gradients and selector position according to selected color.
+	///
 	func set(color: HSBColor) {
 		self.color = color
-		
-		setSelectorPosition(hue: color.hue, saturation: color.saturation)
-		updateGradients(with: color.brightness)
+
+		updateGradients()
+		updateSelectorPosition()
 	}
 	
 	// MARK: - Setup
 	
-	// Two gradient layers are used to draw Hue-Saturation selection area.
-	// Hue gradient are drawn from left to right and saturation - from top to bottom above it.
-	// Hue gradient contains six step-colors: red, yellow, green, cyan, blue, magenta.
-	// More information about HSB-color coding system might be found here:
-	// en.wikipedia.org/wiki/HSL_and_HSV
-	
-	private func setupView() {
-		// gradients
-		setupGradientFrames()
-		
-		hueGradient.setDirection(.fromLeftToRight)
+	private func setupGradients() {
 		layer.addSublayer(hueGradient)
-		
-		saturationGradient.setDirection(.fromTopToBottom)
 		layer.addSublayer(saturationGradient)
-		
-		// selector
+
+		updateGradientsFrames()
+	}
+	
+	private func setupSelector() {
 		colorPickerSelectorView.isOpaque = false
 		addSubview(colorPickerSelectorView)
 	}
 	
-	private func setupGradientFrames() {
+	private func updateGradientsFrames() {
+		// add little insets to gradient layers to prevent overlapping with border
 		hueGradient.frame = bounds.insetBy(dx: 1, dy: 1)
 		saturationGradient.frame = bounds.insetBy(dx: 1, dy: 1)
 	}
 	
 	private func setupGestures() {
-		let panSelectionAreaGesture = UIPanGestureRecognizer(target: self, action: #selector(selectColorByGesture(gesture:)))
-		let tapSelectionAreaGesture = UITapGestureRecognizer(target: self, action: #selector(selectColorByGesture(gesture:)))
+		let panSelectionAreaGesture = UIPanGestureRecognizer(target: self, action: #selector(selectColorByGesture))
+		let tapSelectionAreaGesture = UITapGestureRecognizer(target: self, action: #selector(selectColorByGesture))
 		
 		addGestureRecognizer(panSelectionAreaGesture)
 		addGestureRecognizer(tapSelectionAreaGesture)
@@ -79,34 +78,30 @@ class HueSaturationSelectionAreaView: UIView {
 	
 	// MARK: - Update UI
 
-	private func setSelectorPosition(hue: CGFloat, saturation: CGFloat) {
+	private func updateSelectorPosition() {
 		let radius = colorPickerSelectorView.radius
+
 		colorPickerSelectorView.frame.origin = CGPoint(
-			x: bounds.minX + bounds.width * hue - radius,
-			y: bounds.minY + bounds.height * (1.0 - saturation) - radius)
+			x: bounds.minX + bounds.width * color.hue - radius,
+			y: bounds.minY + bounds.height * (1.0 - color.saturation) - radius
+		)
 	}
 	
-	private func updateGradients(with brightness: CGFloat) {
-		hueGradient.colors = [UIColor.red.cgColorWithBrightness(brightness),
-							  UIColor.yellow.cgColorWithBrightness(brightness),
-							  UIColor.green.cgColorWithBrightness(brightness),
-							  UIColor.cyan.cgColorWithBrightness(brightness),
-							  UIColor.blue.cgColorWithBrightness(brightness),
-							  UIColor.magenta.cgColorWithBrightness(brightness),
-							  UIColor.red.cgColorWithBrightness(brightness)]
+	private func updateGradients() {
+		let hueGradientColors = [UIColor].hueComponents.withBrightness(color.brightness)
+		hueGradient.setColors(hueGradientColors)
 		
-		saturationGradient.colors = [UIColor.clear.cgColor,
-									 UIColor.white.cgColorWithBrightness(brightness)]
+		let saturationGradientColors = [.clear, UIColor.white.withBrightness(color.brightness)]
+		saturationGradient.setColors(saturationGradientColors)
 	}
 	
 	private func moveColorPickerSelectorView(to point: CGPoint) {
 		let pointInBounds = point.clamped(in: bounds)
 		
-		color.hue = 1.0 * pointInBounds.x / frame.width
-		color.saturation = 1.0 - 1.0 * pointInBounds.y / frame.height
-		
-		setSelectorPosition(hue: color.hue, saturation: color.saturation)
-		
+		color.hue = pointInBounds.x / frame.width
+		color.saturation = 1.0 - pointInBounds.y / frame.height
+		updateSelectorPosition()
+
 		delegate?.hueSaturationDidChanged(hue: color.hue, saturation: color.saturation)
 	}
 	
@@ -127,7 +122,7 @@ class HueSaturationSelectionAreaView: UIView {
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		
-		setupGradientFrames()
-		setSelectorPosition(hue: color.hue, saturation: color.saturation)
+		updateGradientsFrames()
+		updateSelectorPosition()
 	}
 }

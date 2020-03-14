@@ -33,25 +33,31 @@ class ColorPickerViewController: UIViewController {
 	init(color: HSBColor) {
 		self.color = color
 		super.init(nibName: nil, bundle: nil)
+		setup()
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		setupActionButtons()
+		setupSubviews()
+	}
+	
+	private func setup() {
+		// handle situation when color picker presented as a sheet (not in full screen mode)
 		presentationController?.delegate = self
+	}
+	
+	private func setupSubviews() {
+		// action buttons
+		cancelButton.setTitle(LocalizedString.ColorPicker.cancelButton, for: .normal)
+		saveButton.setTitle(LocalizedString.ColorPicker.saveButton, for: .normal)
 		
-		brightnessSliderView.delegate = self
-		hueSaturationSelectionAreaView.delegate = self
-		
+		// color components selectors
 		selectedColorView.set(color: color)
 		hueSaturationSelectionAreaView.set(color: color)
 		brightnessSliderView.set(color: color)
-	}
-	
-	private func setupActionButtons() {
-		cancelButton.setTitle(LocalizedString.ColorPicker.cancelButton, for: .normal)
-		saveButton.setTitle(LocalizedString.ColorPicker.saveButton, for: .normal)
+		
+		brightnessSliderView.delegate = self
+		hueSaturationSelectionAreaView.delegate = self
 	}
 	
 	@IBAction func cancelButtonDidPressed() {

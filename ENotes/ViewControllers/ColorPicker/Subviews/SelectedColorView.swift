@@ -12,10 +12,12 @@ class SelectedColorView: UIView {
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		
-		layer.borderColor = UIColor.darkGray.cgColor
-		layer.borderWidth = 1
-		layer.cornerRadius = 8
+		setup()
+	}
+	
+	private func setup() {
+		layer.setRadius(8)
+		layer.setBorder(width: 1, color: .darkGray)
 	}
 	
 	func set(color: HSBColor) {
