@@ -1,5 +1,5 @@
 //
-//  PhotoNotesCollectionViewController.swift
+//  PhotoNotesViewController.swift
 //  ENotes
 //
 //  Created by Aleksey on 19/07/2019.
@@ -8,19 +8,13 @@
 
 import UIKit
 
-// Котозаметки - это фотозаметки с котами. Подразумевается, что любой, кто запустит данную программу, первым делом удалит имеющиеся фотозаметки с собаками
-
-class PhotoNotesCollectionViewController: UICollectionViewController {
+class PhotoNotesViewController: UICollectionViewController {
 	
 	private let notebook: Notebook<PhotoNote>
 	
 	lazy private var addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showImagePicker))
 	lazy private var deleteBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deletePhotosButtonWasTapped))
-	lazy private var imagePickerController: ImagePickerController = {
-		let imagePickerController = ImagePickerController()
-		imagePickerController.imagePickerDelegate = self
-		return imagePickerController
-	}()
+	private let imagePickerController = ImagePickerController()
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
@@ -86,7 +80,9 @@ class PhotoNotesCollectionViewController: UICollectionViewController {
 	}
 	
 	@objc private func showImagePicker() {
-		navigationController?.present(imagePickerController, animated: true)
+		imagePickerController.imagePickerDelegate = self
+
+		present(imagePickerController, animated: true)
 	}
 	
 	private func addItem(image: UIImage) {
@@ -115,7 +111,7 @@ class PhotoNotesCollectionViewController: UICollectionViewController {
 
 // MARK: - self dataSource
 
-extension PhotoNotesCollectionViewController {
+extension PhotoNotesViewController {
 	
 	// Data source
 	
@@ -146,7 +142,7 @@ extension PhotoNotesCollectionViewController {
 
 // MARK: - self delegate
 
-extension PhotoNotesCollectionViewController {
+extension PhotoNotesViewController {
 	
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		// In editing mode user can select multiple photo notes. Bottom toolbar are used to show currently avaliable actions for selected notes.
@@ -172,7 +168,7 @@ extension PhotoNotesCollectionViewController {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension PhotoNotesCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension PhotoNotesViewController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		// Calculate appropriate number of items per column and its sizes respecting current collection view width and default minimum photo note size
 		
@@ -197,7 +193,7 @@ extension PhotoNotesCollectionViewController: UICollectionViewDelegateFlowLayout
 
 // MARK: - ImagePickerControllerDelegate
 
-extension PhotoNotesCollectionViewController: ImagePickerControllerDelegate {
+extension PhotoNotesViewController: ImagePickerControllerDelegate {
 	func didPick(_ image: UIImage) {
 		addItem(image: image)
 	}

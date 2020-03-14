@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B0991BA236C6BE30019ABDD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B0991B8236C6BE30019ABDD /* Localizable.strings */; };
-		5B0EF7B522E178FA004DCD71 /* PhotoNotesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0EF7B422E178FA004DCD71 /* PhotoNotesCollectionViewController.swift */; };
+		5B0EF7B522E178FA004DCD71 /* PhotoNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0EF7B422E178FA004DCD71 /* PhotoNotesViewController.swift */; };
 		5B145C12241653EA009357AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B145C11241653EA009357AF /* LaunchScreen.storyboard */; };
 		5B1697F1234FEF76004115D0 /* SelectedColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1697F0234FEF76004115D0 /* SelectedColorView.swift */; };
 		5B1B7AA124180289002F7E4C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B7AA024180289002F7E4C /* DataManager.swift */; };
@@ -73,7 +73,7 @@
 /* Begin PBXFileReference section */
 		5B0991B9236C6BE30019ABDD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5B0991BB236C6C9A0019ABDD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5B0EF7B422E178FA004DCD71 /* PhotoNotesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNotesCollectionViewController.swift; sourceTree = "<group>"; };
+		5B0EF7B422E178FA004DCD71 /* PhotoNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNotesViewController.swift; sourceTree = "<group>"; };
 		5B145C11241653EA009357AF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B1697F0234FEF76004115D0 /* SelectedColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedColorView.swift; sourceTree = "<group>"; };
 		5B1B7AA024180289002F7E4C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 		5B7055B422E0BCB400ACF805 /* PhotoNotes */ = {
 			isa = PBXGroup;
 			children = (
-				5B0EF7B422E178FA004DCD71 /* PhotoNotesCollectionViewController.swift */,
+				5B0EF7B422E178FA004DCD71 /* PhotoNotesViewController.swift */,
 				5B6A541622E2F53500C9205E /* PhotoNoteCollectionViewCell.swift */,
 			);
 			path = PhotoNotes;
@@ -486,7 +486,7 @@
 				5B49988E22D66175002B30AE /* TextNoteEditorViewController.swift in Sources */,
 				5BABD22A22DB4A53006A36A4 /* CGPoint + Extension.swift in Sources */,
 				5BCA45962375E22000FA9ABE /* UICollectionViewCell + Extension.swift in Sources */,
-				5B0EF7B522E178FA004DCD71 /* PhotoNotesCollectionViewController.swift in Sources */,
+				5B0EF7B522E178FA004DCD71 /* PhotoNotesViewController.swift in Sources */,
 				5BC601622380C476003A5343 /* UIView + Extension.swift in Sources */,
 				5B93A1762417D0C8004BCD14 /* CALayer + Extensions.swift in Sources */,
 				5B7DEBE122E08BE000509A2E /* TextNoteCell.swift in Sources */,

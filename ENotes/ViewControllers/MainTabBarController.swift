@@ -20,7 +20,7 @@ class MainTabBarController: UITabBarController {
 		
 		// Photo notes
 		let photoNotebook = DataManager.shared.photoNotebook
-		let photoNotesViewController = PhotoNotesCollectionViewController(notebook: photoNotebook)
+		let photoNotesViewController = PhotoNotesViewController(notebook: photoNotebook)
 		let photoNotesNavigationController = UINavigationController(rootViewController: photoNotesViewController)
 
 		// Tab bar

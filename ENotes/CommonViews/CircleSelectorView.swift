@@ -11,7 +11,7 @@ import UIKit
 class CircleSelectorView: UIView {
 	
 	var radius: CGFloat {
-		return frame.width / 2
+		bounds.width / 2
 	}
 	
 	override func draw(_ rect: CGRect) {
