@@ -177,8 +177,8 @@ extension PhotoNotesViewController {
 
 		} else {
 			let note = notebook.get(by: indexPath.item)
-			let photoViewer = PhotoViewerPageViewController(photoNotebook: notebook, photoNote: note)
-			navigationController?.pushViewController(photoViewer, animated: true)
+			let photoNotesViewer = PhotoNotesViewerViewController(photoNotebook: notebook, photoNote: note)
+			navigationController?.pushViewController(photoNotesViewer, animated: true)
 		}
 	}
 	

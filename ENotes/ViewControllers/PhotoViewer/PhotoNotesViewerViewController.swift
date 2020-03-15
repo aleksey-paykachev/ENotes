@@ -1,5 +1,5 @@
 //
-//  PhotoViewerPageViewController.swift
+//  PhotoNotesViewerViewController.swift
 //  ENotes
 //
 //  Created by Aleksey on 18/07/2019.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// Show multiple photo notes using left-right pagination. Only one note is shown at the time via single photo viewer.
-class PhotoViewerPageViewController: UIPageViewController {
+class PhotoNotesViewerViewController: UIPageViewController {
 	
 	private let photoNotebook: Notebook<PhotoNote>
 	private let photoNote: PhotoNote
@@ -21,9 +21,9 @@ class PhotoViewerPageViewController: UIPageViewController {
 	/// Create and return an instance of photo notes viewer.
 	///
 	/// - Parameters:
-	///   - photoNotebook: Reference to notebook contained photo notes.
+	///   - photoNotebook: Reference to notebook instance containing photo notes to show.
 	///   - photoNote: Currently selected photo note.
-	
+	///
 	init(photoNotebook: Notebook<PhotoNote>, photoNote: PhotoNote) {
 		self.photoNotebook = photoNotebook
 		self.photoNote = photoNote
@@ -39,7 +39,7 @@ class PhotoViewerPageViewController: UIPageViewController {
 	///
 	/// - Parameter viewController: View Controller used to show a single photo note.
 	/// - Returns: Index of a photo note in current notebook or nil if there is no such note.
-	
+	///
 	private func getIndex(of viewController: UIViewController) -> Int? {
 		if let photoNote = (viewController as? SinglePhotoViewerViewController)?.photoNote, let index = photoNotebook.getIndex(by: photoNote) {
 			return index
@@ -52,7 +52,7 @@ class PhotoViewerPageViewController: UIPageViewController {
 
 // MARK: - self dataSource
 
-extension PhotoViewerPageViewController: UIPageViewControllerDataSource {
+extension PhotoNotesViewerViewController: UIPageViewControllerDataSource {
 
 	func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
 		

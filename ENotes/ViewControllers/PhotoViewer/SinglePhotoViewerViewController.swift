@@ -16,7 +16,7 @@ class SinglePhotoViewerViewController: UIViewController {
 	let photoNote: PhotoNote
 
 	private let scrollView = UIScrollView()
-	private var photoImageView: UIImageView!
+	private lazy var photoImageView = UIImageView(image: photoNote.image)
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
@@ -25,11 +25,7 @@ class SinglePhotoViewerViewController: UIViewController {
 	init(photoNote: PhotoNote) {
 		self.photoNote = photoNote
 		super.init(nibName: nil, bundle: nil)
-	}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-		
 		setupScrollView()
 		setupPhotoImageView()
 		zoomAndCenterImage()
@@ -46,10 +42,9 @@ class SinglePhotoViewerViewController: UIViewController {
 	}
 	
 	private func setupPhotoImageView() {
-		photoImageView = UIImageView(image: photoNote.image)
 		scrollView.addSubview(photoImageView)
 		
-		photoImageView.frame.size = photoNote.image?.size ?? .zero
+		photoImageView.bounds.size = photoNote.image?.size ?? .zero
 	}
 	
 	private func zoomAndCenterImage() {
@@ -65,7 +60,7 @@ class SinglePhotoViewerViewController: UIViewController {
 		
 		let insetX = (scrollViewSize.width - photoImageView.frame.width) / 2
 		let insetY = (scrollViewSize.height - photoImageView.frame.height) / 2
-		scrollView.contentInset = UIEdgeInsets(top: insetY, left: insetX, bottom: insetY, right: insetX)
+		scrollView.contentInset = UIEdgeInsets(horizontal: insetX, vertical: insetY)
 	}
 
 	override func viewDidLayoutSubviews() {
@@ -80,6 +75,6 @@ class SinglePhotoViewerViewController: UIViewController {
 extension SinglePhotoViewerViewController: UIScrollViewDelegate {
 	
 	func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-		return photoImageView
+		photoImageView
 	}
 }
