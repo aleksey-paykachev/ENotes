@@ -10,6 +10,10 @@ import UIKit
 
 class RectangularSelectorView: UIView {
 	
+	convenience init(width: CGFloat, height: CGFloat) {
+		self.init(frame: CGRect(x: 0, y: 0, width: width, height: height))
+	}
+	
 	override func draw(_ rect: CGRect) {
 		backgroundColor = nil
 		

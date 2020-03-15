@@ -16,7 +16,7 @@ class BrightnessSliderView: UIView {
 
 	private var color: HSBColor = .white
 	private let brightnessGradient = CAGradientLayer(direction: .fromLeftToRight, colors: [])
-	private let sliderSelectorView = RectangularSelectorView(frame: .rectangle(width: 20, height: 60))
+	private let sliderSelectorView = RectangularSelectorView(width: 20, height: 60)
 
 	weak var delegate: BrightessSliderViewDelegate?
 
