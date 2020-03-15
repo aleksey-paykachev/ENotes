@@ -8,8 +8,12 @@
 
 import Foundation
 
+/// Structure describing file entity.
 struct File {
+	/// File name.
 	let name: String
+	
+	/// File extension.
 	let ext: String
 }
 
@@ -18,6 +22,7 @@ struct File {
 
 extension File: CustomStringConvertible {
 
+	/// Description containing full file name.
 	var description: String {
 		ext.isEmpty ? name : "\(name).\(ext)"
 	}

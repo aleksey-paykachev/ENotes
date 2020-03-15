@@ -10,7 +10,7 @@ import Foundation
 
 extension URL {
 	
-	/// Forms and returns an URL of the given file name and extension relative to current URL
+	/// Forms and returns an URL of the given file name and extension relative to current URL.
 	///
 	/// - Parameters:
 	///   - fileName: File name.
@@ -21,7 +21,7 @@ extension URL {
 		appendingPathComponent(fileName).appendingPathExtension(fileExtension)
 	}
 
-	/// Forms and returns an URL of the given file relative to current URL
+	/// Forms and returns an URL of the given file relative to current URL.
 	/// - Parameter file: Given file.
 	/// - Returns: URL of the file relative to initial URL.
 	///

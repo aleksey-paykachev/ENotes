@@ -21,7 +21,8 @@ extension CGPath {
 	/// - Parameters:
 	///   - center: The center point of the circle.
 	///   - radius: The radius of the circle.
+	///
 	static func circle(center: CGPoint, radius: CGFloat) -> CGPath {
-		circle(in: CGRect(origin: center, size: CGSize(width: radius * 2, height: radius * 2)))
+		circle(in: CGRect(origin: center, size: .square(radius * 2)))
 	}
 }

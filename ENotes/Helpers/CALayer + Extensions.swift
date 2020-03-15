@@ -10,7 +10,7 @@ import UIKit
 
 extension CALayer {
 	
-	/// Set parameters to render the layer’s shadow.
+	/// Sets parameters to render the layer’s shadow.
 	/// - Parameters:
 	///   - radius: The blur radius (in points).
 	///   - color: The color of the layer’s shadow.
@@ -26,7 +26,7 @@ extension CALayer {
 		shadowOpacity = Float(alpha)
 	}
 
-	/// Set parameters to render the layer’s border.
+	/// Sets parameters to render the layer’s border.
 	/// - Parameters:
 	///   - width: The width of the layer’s border.
 	///   - color: The color of the layer’s border.
@@ -37,7 +37,7 @@ extension CALayer {
 		borderColor = color.withAlphaComponent(alpha).cgColor
 	}
 	
-	/// Set parameters to render the layer’s radius.
+	/// Sets parameters to render the layer’s radius.
 	/// - Parameters:
 	///   - radius: The radius of rounded corners for the layer’s background.
 	///   - maskToBounds: Clips sublayers to the layer’s bounds. Default value is true.
@@ -47,7 +47,7 @@ extension CALayer {
 		self.masksToBounds = maskToBounds
 	}
 	
-	/// Set parameters to render the layer’s gradient.
+	/// Sets parameters to render the layer’s gradient.
 	/// - Parameters:
 	///   - direction: The gradient direction.
 	///   - colors: An array of color objects defining the color of each gradient stop.

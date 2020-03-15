@@ -9,14 +9,14 @@
 import UIKit
 
 extension UIEdgeInsets {
-	/// Creates new instanse of UIEdgeInsets with equal insets for all four edges.
+	/// Creates a new instanse of the UIEdgeInsets with equal insets for all four edges.
 	/// - Parameter inset: Inset value.
 	///
 	init(allEdges inset: CGFloat) {
 		self.init(top: inset, left: inset, bottom: inset, right: inset)
 	}
 	
-	/// Creates new instanse of UIEdgeInsets with equal horizontal and vertical insets.
+	/// Creates a new instanse of the UIEdgeInsets with equal horizontal and vertical insets.
 	/// - Parameters:
 	///   - horizontal: The horizontal inset value.
 	///   - vertical: The vertical inset value.

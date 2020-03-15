@@ -10,12 +10,12 @@ import Foundation
 
 extension Array where Element == IndexPath {
 
-	/// All sections of the current indexPath array.
+	/// All sections in the current indexPath array.
 	var sections: [Int] {
 		map { $0.section }
 	}
 
-	/// All items of the current indexPath array.
+	/// All items in the current indexPath array.
 	var items: [Int] {
 		map { $0.item }
 	}

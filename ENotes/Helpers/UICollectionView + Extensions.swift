@@ -31,7 +31,9 @@ extension UICollectionView {
 		return cell
 	}
 	
-	/// Index of first selected item of collection view or nil if were is no selected item.
+	/// Index of the first selected item of the collection view or nil if were is no any
+	/// selected items.
+	///
 	var firstSelectedItemIndex: Int? {
 		indexPathsForSelectedItems?.first?.item
 	}

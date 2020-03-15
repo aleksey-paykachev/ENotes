@@ -10,30 +10,31 @@ import UIKit
 
 extension UIView {
 	
-	/// Constraints current view to the super view with the given insets.
+	/// Constraints current view to the second view with the given insets.
 	///
 	/// - Parameters:
-	///   - superView: Super view which current view are constraints to.
+	///   - secondView: Second view which current view are constraints to.
 	///   - insets: Edge insets.
 	///
-	func constraint(to superView: UIView, with insets: UIEdgeInsets = .zero) {
+	func constraint(to secondView: UIView, with insets: UIEdgeInsets = .zero) {
 		translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint.activate([
-			topAnchor.constraint(equalTo: superView.topAnchor, constant: insets.top),
-			trailingAnchor.constraint(equalTo: superView.trailingAnchor, constant: -insets.right),
-			bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: -insets.bottom),
-			leadingAnchor.constraint(equalTo: superView.leadingAnchor, constant: insets.left)
-			])
+			topAnchor.constraint(equalTo: secondView.topAnchor, constant: insets.top),
+			trailingAnchor.constraint(equalTo: secondView.trailingAnchor, constant: -insets.right),
+			bottomAnchor.constraint(equalTo: secondView.bottomAnchor, constant: -insets.bottom),
+			leadingAnchor.constraint(equalTo: secondView.leadingAnchor, constant: insets.left)
+		])
 	}
 	
-	/// Constraints current view to the super view with the given inset equal to all
+	/// Constraints current view to the second view with the given inset equal for all
 	/// four directions.
 	///
 	/// - Parameters:
-	///   - superView: Super view which current view are constraints to.
+	///   - secondView: Second view which current view are constraints to.
 	///   - inset: Top, left, bottom and right equal edge inset.
-	func constrain(to superView: UIView, withAllEdgesInsets inset: CGFloat) {
-		constraint(to: superView, with: UIEdgeInsets(allEdges: inset))
+	///
+	func constrain(to secondView: UIView, withAllEdgesInsets inset: CGFloat) {
+		constraint(to: secondView, with: UIEdgeInsets(allEdges: inset))
 	}
 }

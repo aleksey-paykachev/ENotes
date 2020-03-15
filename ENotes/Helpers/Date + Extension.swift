@@ -14,6 +14,7 @@ extension Date {
 	var shortFormatString: String {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateStyle = .short
+
 		return dateFormatter.string(from: self)
 	}
 }

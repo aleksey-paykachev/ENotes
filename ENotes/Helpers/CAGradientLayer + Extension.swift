@@ -18,7 +18,7 @@ extension CAGradientLayer {
 		case fromBottomToTop
 	}
 	
-	/// Creates and returns gradient layer with supplied parameters.
+	/// Creates and returns gradient layer with specified parameters.
 	/// - Parameters:
 	///   - direction: The gradient direction.
 	///   - colors: An array of color objects defining the color of each gradient stop.

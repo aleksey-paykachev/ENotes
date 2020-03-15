@@ -10,7 +10,7 @@ import UIKit
 
 extension UIColor {
 	
-	/// HSBColor represantation of current color instance.
+	/// HSBColor represantation of the current color instance.
 	var hsbColor: HSBColor {
 		HSBColor(from: self)
 	}
@@ -45,6 +45,7 @@ extension Optional where Wrapped == UIColor {
 
 
 extension Array where Element == UIColor {
+
 	/// Array of colors representing all hue color steps.
 	static let hueComponents: [UIColor] =  [.red, .yellow, .green, .cyan, .blue, .magenta, .red]
 

@@ -10,6 +10,6 @@ import Foundation
 
 extension FileManager {
 	
-	/// User document directory
+	/// User document directory.
 	static let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
 }
