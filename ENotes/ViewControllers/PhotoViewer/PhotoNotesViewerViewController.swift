@@ -33,6 +33,21 @@ class PhotoNotesViewerViewController: UIPageViewController {
 		let singlePhotoViewerVC = SinglePhotoViewerViewController(photoNote: photoNote)
 		setViewControllers([singlePhotoViewerVC], direction: .forward, animated: true)
 		dataSource = self
+		
+		setupGestures()
+	}
+	
+	private func setupGestures() {
+		let swipeDownGesture = UISwipeGestureRecognizer(target: self, action: #selector(photoDidSwipedDown))
+		swipeDownGesture.direction = .down
+		view.addGestureRecognizer(swipeDownGesture)
+	}
+	
+	@objc private func photoDidSwipedDown(gesture: UIGestureRecognizer) {
+		// hide photo viewer on swipe down gesture
+		if gesture.state == .ended {
+			navigationController?.popViewController(animated: true)
+		}
 	}
 
 	/// Gets an index of a photo note shown by given view controller.
