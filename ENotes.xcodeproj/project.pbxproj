@@ -21,7 +21,7 @@
 		5B6A541522E2CA9400C9205E /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6A541422E2CA9400C9205E /* Note.swift */; };
 		5B6A541722E2F53500C9205E /* PhotoNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6A541622E2F53500C9205E /* PhotoNoteCell.swift */; };
 		5B7055AD22E0B4A700ACF805 /* PhotoNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7055AC22E0B4A700ACF805 /* PhotoNote.swift */; };
-		5B7055AF22E0BBCC00ACF805 /* PhotoViewerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7055AE22E0BBCC00ACF805 /* PhotoViewerPageViewController.swift */; };
+		5B7055AF22E0BBCC00ACF805 /* PhotoNotesViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7055AE22E0BBCC00ACF805 /* PhotoNotesViewerViewController.swift */; };
 		5B7055B222E0BCAA00ACF805 /* SinglePhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7055B022E0BCAA00ACF805 /* SinglePhotoViewerViewController.swift */; };
 		5B73018624180E81002A9AE8 /* Collection + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B73018524180E81002A9AE8 /* Collection + Extensions.swift */; };
 		5B7BB2B82309C91A00978461 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7BB2B72309C91A00978461 /* MainTabBarController.swift */; };
@@ -62,6 +62,7 @@
 		5BDBC2EF241687C3000284E0 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDBC2EE241687C3000284E0 /* File.swift */; };
 		5BDBC2F1241689CB000284E0 /* Bundle + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDBC2F0241689CB000284E0 /* Bundle + Extensions.swift */; };
 		5BDC58BA22CDA26900EA9D68 /* Notebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC58B922CDA26900EA9D68 /* Notebook.swift */; };
+		5BE731EB241E6A5F006C053C /* UIEdgeInsets + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE731EA241E6A5F006C053C /* UIEdgeInsets + Extensions.swift */; };
 		5BE7E32B235AEE3500701311 /* CustomColorSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7E32A235AEE3500701311 /* CustomColorSelectorCell.swift */; };
 		5BEA1FEA22D9C7A6007DDA39 /* CircleSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEA1FE922D9C7A6007DDA39 /* CircleSelectorView.swift */; };
 		5BEFA5B922DF42EE00F30A3E /* HSBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEFA5B822DF42EE00F30A3E /* HSBColor.swift */; };
@@ -87,7 +88,7 @@
 		5B6A541422E2CA9400C9205E /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		5B6A541622E2F53500C9205E /* PhotoNoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNoteCell.swift; sourceTree = "<group>"; };
 		5B7055AC22E0B4A700ACF805 /* PhotoNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNote.swift; sourceTree = "<group>"; };
-		5B7055AE22E0BBCC00ACF805 /* PhotoViewerPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerPageViewController.swift; sourceTree = "<group>"; };
+		5B7055AE22E0BBCC00ACF805 /* PhotoNotesViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNotesViewerViewController.swift; sourceTree = "<group>"; };
 		5B7055B022E0BCAA00ACF805 /* SinglePhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePhotoViewerViewController.swift; sourceTree = "<group>"; };
 		5B73018524180E81002A9AE8 /* Collection + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection + Extensions.swift"; sourceTree = "<group>"; };
 		5B7BB2B72309C91A00978461 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 		5BDBC2EE241687C3000284E0 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		5BDBC2F0241689CB000284E0 /* Bundle + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle + Extensions.swift"; sourceTree = "<group>"; };
 		5BDC58B922CDA26900EA9D68 /* Notebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notebook.swift; sourceTree = "<group>"; };
+		5BE731EA241E6A5F006C053C /* UIEdgeInsets + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets + Extensions.swift"; sourceTree = "<group>"; };
 		5BE7E32A235AEE3500701311 /* CustomColorSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorSelectorCell.swift; sourceTree = "<group>"; };
 		5BEA1FE922D9C7A6007DDA39 /* CircleSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleSelectorView.swift; sourceTree = "<group>"; };
 		5BEFA5B822DF42EE00F30A3E /* HSBColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSBColor.swift; sourceTree = "<group>"; };
@@ -198,7 +200,7 @@
 		5B63F8CF22E326FA009D2A28 /* PhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
-				5B7055AE22E0BBCC00ACF805 /* PhotoViewerPageViewController.swift */,
+				5B7055AE22E0BBCC00ACF805 /* PhotoNotesViewerViewController.swift */,
 				5B7055B022E0BCAA00ACF805 /* SinglePhotoViewerViewController.swift */,
 			);
 			path = PhotoViewer;
@@ -300,6 +302,7 @@
 				5BCA45912375D9EC00FA9ABE /* UITableViewCell + Extension.swift */,
 				5BFD40042419D55D0037B7A1 /* UICollectionView + Extensions.swift */,
 				5BCA45952375E22000FA9ABE /* UICollectionViewCell + Extension.swift */,
+				5BE731EA241E6A5F006C053C /* UIEdgeInsets + Extensions.swift */,
 				5BABD22922DB4A53006A36A4 /* CGPoint + Extension.swift */,
 				5BFD40022419D2240037B7A1 /* CGSize + Extensions.swift */,
 				5BC2FC8A22D80C700051B831 /* CGRect + Extension.swift */,
@@ -477,6 +480,7 @@
 				5BE7E32B235AEE3500701311 /* CustomColorSelectorCell.swift in Sources */,
 				5BBD1A9E22D05C4800BCC111 /* FileManager + Extension.swift in Sources */,
 				5BABD22822DB465D006A36A4 /* UIColor + Extension.swift in Sources */,
+				5BE731EB241E6A5F006C053C /* UIEdgeInsets + Extensions.swift in Sources */,
 				5BA85D4B230646A300ED0CF1 /* FreeVersionManager.swift in Sources */,
 				5B4089BB22D1863C006AE52E /* EndFreeTrialViewController.swift in Sources */,
 				5B6A541522E2CA9400C9205E /* Note.swift in Sources */,
@@ -498,7 +502,7 @@
 				5B1697F1234FEF76004115D0 /* SelectedColorView.swift in Sources */,
 				5B88D14F23B1D73C00CBAC22 /* URL + Extension.swift in Sources */,
 				5BDBC2EF241687C3000284E0 /* File.swift in Sources */,
-				5B7055AF22E0BBCC00ACF805 /* PhotoViewerPageViewController.swift in Sources */,
+				5B7055AF22E0BBCC00ACF805 /* PhotoNotesViewerViewController.swift in Sources */,
 				5B7055B222E0BCAA00ACF805 /* SinglePhotoViewerViewController.swift in Sources */,
 				5B38F21124169472004182CA /* UIImage + Extensions.swift in Sources */,
 				5B812D9422CC412C0075BC8F /* TextNote.swift in Sources */,

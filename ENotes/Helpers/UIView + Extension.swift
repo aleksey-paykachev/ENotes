@@ -34,6 +34,6 @@ extension UIView {
 	///   - superView: Super view which current view are constraints to.
 	///   - inset: Top, left, bottom and right equal edge inset.
 	func constrain(to superView: UIView, withAllEdgesInsets inset: CGFloat) {
-		constraint(to: superView, with: UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset))
+		constraint(to: superView, with: UIEdgeInsets(allEdges: inset))
 	}
 }
