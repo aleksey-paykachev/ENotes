@@ -12,9 +12,17 @@ class PhotoNotesViewController: UICollectionViewController {
 	
 	private let notebook: Notebook<PhotoNote>
 	
-	lazy private var addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showImagePicker))
-	lazy private var deleteBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deletePhotosButtonWasTapped))
+	private let backgroundColor = UIColor(white: 0.95, alpha: 1)
+	private let minimumPhotoNoteImageSideSize: CGFloat = 160
+	
+	private let flowLayout = UICollectionViewFlowLayout()
 	private let imagePickerController = ImagePickerController()
+	private var addBarButtonItem: UIBarButtonItem!
+	private var deleteBarButtonItem: UIBarButtonItem!
+	
+	private var selectedIndexPaths: [IndexPath] {
+		collectionView.indexPathsForSelectedItems ?? []
+	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
@@ -22,32 +30,21 @@ class PhotoNotesViewController: UICollectionViewController {
 	
 	init(notebook: Notebook<PhotoNote>) {
 		self.notebook = notebook
-		super.init(collectionViewLayout: UICollectionViewFlowLayout())
-		
-		title = LocalizedString.PhotoNotes.title
-		tabBarItem.image = UIImage(named: "tabbar-icon-photonotes")
-	}
-	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-		
-		// Navigation bar and toolbar
-		navigationItem.leftBarButtonItem = editButtonItem
-		navigationItem.rightBarButtonItem = addBarButtonItem
-		toolbarItems = [deleteBarButtonItem]
+		super.init(collectionViewLayout: flowLayout)
 
-		// Collection view
-		collectionView.backgroundColor = Constants.photoNotesListBackgroundColor
-		collectionView.contentInsetAdjustmentBehavior = .always
-		collectionView.allowsMultipleSelection = false
-		collectionView.registerCell(PhotoNoteCollectionViewCell.self)
-    }
+		setupCommon()
+		setupNavigationItem()
+		setupToolbar()
+		setupFlowLayout()
+		setupCollectionView()
+	}
 
 	override func setEditing(_ editing: Bool, animated: Bool) {
 		super.setEditing(editing, animated: animated)
 		
-		UIView.animate(withDuration: Constants.switchEditingModeAnimationDuration) {
-			self.collectionView.backgroundColor = self.isEditing ? .gray : Constants.photoNotesListBackgroundColor
+		// animate changing of editing state
+		UIView.animate(withDuration: 0.6) {
+			self.collectionView.backgroundColor = self.isEditing ? .gray : self.backgroundColor
 		}
 		
 		navigationController?.setToolbarHidden(!isEditing, animated: true)
@@ -60,27 +57,66 @@ class PhotoNotesViewController: UICollectionViewController {
 			cell.isEditMode = isEditing
 		}
 
-		if let selectedIndexPaths = collectionView.indexPathsForSelectedItems {
-			selectedIndexPaths.forEach { collectionView.deselectItem(at: $0, animated: false) }
-		}		
+		// deselect all items
+		selectedIndexPaths.forEach { collectionView.deselectItem(at: $0, animated: false) }
+	}
+	
+	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+		super.viewWillTransition(to: size, with: coordinator)
+		
+		collectionViewLayout.invalidateLayout()
+	}
+	
+	// MARK: - Setup
+	
+	private func setupCommon() {
+		title = LocalizedString.PhotoNotes.title
+		tabBarItem.image = UIImage(named: "tabbar-icon-photonotes")
+	}
+	
+	private func setupNavigationItem() {
+		addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showImagePicker))
+		
+		navigationItem.leftBarButtonItem = editButtonItem
+		navigationItem.rightBarButtonItem = addBarButtonItem
+	}
+	
+	private func setupToolbar() {
+		deleteBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deletePhotosButtonWasTapped))
+		
+		toolbarItems = [deleteBarButtonItem]
+	}
+	
+	private func setupFlowLayout() {
+		flowLayout.minimumInteritemSpacing = 0
+		flowLayout.minimumLineSpacing = 0
+	}
+	
+	private func setupCollectionView() {
+		collectionView.backgroundColor = backgroundColor
+		collectionView.contentInsetAdjustmentBehavior = .always
+		collectionView.allowsMultipleSelection = false
+		collectionView.registerCell(PhotoNoteCollectionViewCell.self)
+	}
+	
+	// MARK: - Private methods
+	
+	@objc private func deletePhotosButtonWasTapped() {
+		guard isEditing, selectedIndexPaths.count > 0 else { return }
+
+		selectedIndexPaths.items.sorted(by: >).forEach { notebook.remove(at: $0) }
+		collectionView.deleteItems(at: selectedIndexPaths)
+		
+		updateToolbar()
 	}
 	
 	private func updateToolbar() {
-		let selectedCellsCount = collectionView.indexPathsForSelectedItems?.count ?? 0
-		deleteBarButtonItem.isEnabled = selectedCellsCount > 0
-	}
-	
-	@objc private func deletePhotosButtonWasTapped() {
-		if isEditing, let selectedIndexPaths = collectionView.indexPathsForSelectedItems {
-			selectedIndexPaths.map { $0.item }.sorted().reversed().forEach { notebook.remove(at: $0) }
-			collectionView.deleteItems(at: selectedIndexPaths)
-			
-			updateToolbar()
-		}
+		deleteBarButtonItem.isEnabled = selectedIndexPaths.isNotEmpty
 	}
 	
 	@objc private func showImagePicker() {
 		imagePickerController.imagePickerDelegate = self
+		imagePickerController.modalPresentationStyle = .fullScreen
 
 		present(imagePickerController, animated: true)
 	}
@@ -90,21 +126,9 @@ class PhotoNotesViewController: UICollectionViewController {
 		guard let photoNote = PhotoNote(image: image) else { return }
 
 		notebook.add(photoNote)
-		let newItemIndexPath = IndexPath(item: self.notebook.count - 1, section: 0)
+		let newItemIndexPath = IndexPath(item: notebook.count - 1, section: 0)
 		collectionView.insertItems(at: [newItemIndexPath])
 		collectionView.scrollToItem(at: newItemIndexPath, at: .bottom, animated: true)
-	}
-	
-	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-		super.viewWillTransition(to: size, with: coordinator)
-		
-		collectionViewLayout.invalidateLayout()
-	}
-	
-	private struct Constants {
-		static let photoNotesListBackgroundColor = UIColor(white: 0.95, alpha: 1)
-		static let switchEditingModeAnimationDuration: TimeInterval = 0.8
-		static let minimumPhotoNoteImageSideSize: CGFloat = 200
 	}
 }
 
@@ -116,7 +140,7 @@ extension PhotoNotesViewController {
 	// Data source
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return notebook.count
+		notebook.count
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -131,7 +155,8 @@ extension PhotoNotesViewController {
 	// Reordering
 	
 	override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
-		return isEditing
+		// allow reordering only in editing mode
+		isEditing
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
@@ -145,14 +170,13 @@ extension PhotoNotesViewController {
 extension PhotoNotesViewController {
 	
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		// In editing mode user can select multiple photo notes. Bottom toolbar are used to show currently avaliable actions for selected notes.
-		// In standard (non-editing) mode selection of a photo note creates and shows a new instance of a photo viewer.
+		// In editing mode user can select multiple photo notes. Bottom toolbar are used to show currently avaliable actions for selected notes. In standard (non-editing) mode selection of a note causes showing of a photo viewer.
 
 		if isEditing {
 			updateToolbar()
+
 		} else {
 			let note = notebook.get(by: indexPath.item)
-			
 			let photoViewer = PhotoViewerPageViewController(photoNotebook: notebook, photoNote: note)
 			navigationController?.pushViewController(photoViewer, animated: true)
 		}
@@ -169,24 +193,15 @@ extension PhotoNotesViewController {
 // MARK: - UICollectionViewDelegateFlowLayout
 
 extension PhotoNotesViewController: UICollectionViewDelegateFlowLayout {
+
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		// Calculate appropriate number of items per column and its sizes respecting current collection view width and default minimum photo note size
 		
-		let collectionViewWidth = collectionView.frame.width - collectionView.safeAreaInsets.left - collectionView.safeAreaInsets.right
-		let itemsPerColumn = floor(collectionViewWidth / Constants.minimumPhotoNoteImageSideSize)
+		let collectionViewWidth = collectionView.bounds.width - collectionView.safeAreaInsets.left - collectionView.safeAreaInsets.right
+		let itemsPerColumn = floor(collectionViewWidth / minimumPhotoNoteImageSideSize)
 		let itemSize = floor(collectionViewWidth / itemsPerColumn)
 		
 		return .square(itemSize)
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-
-		return 0
-	}
-
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-		
-		return 0
 	}
 }
 

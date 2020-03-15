@@ -48,6 +48,7 @@
 		5BBD1A9E22D05C4800BCC111 /* FileManager + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD1A9D22D05C4800BCC111 /* FileManager + Extension.swift */; };
 		5BBFBA942418370F00A98FB3 /* KeyboardNotificationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFBA932418370F00A98FB3 /* KeyboardNotificationInfo.swift */; };
 		5BC2FC8B22D80C700051B831 /* CGRect + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC2FC8A22D80C700051B831 /* CGRect + Extension.swift */; };
+		5BC4AACC241DC6BE00954753 /* IndexPath + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4AACB241DC6BE00954753 /* IndexPath + Extensions.swift */; };
 		5BC601622380C476003A5343 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC601612380C476003A5343 /* UIView + Extension.swift */; };
 		5BCA45902375D56700FA9ABE /* CAGradientLayer + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCA458F2375D56700FA9ABE /* CAGradientLayer + Extension.swift */; };
 		5BCA45922375D9EC00FA9ABE /* UITableViewCell + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCA45912375D9EC00FA9ABE /* UITableViewCell + Extension.swift */; };
@@ -115,6 +116,7 @@
 		5BBD1A9D22D05C4800BCC111 /* FileManager + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager + Extension.swift"; sourceTree = "<group>"; };
 		5BBFBA932418370F00A98FB3 /* KeyboardNotificationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotificationInfo.swift; sourceTree = "<group>"; };
 		5BC2FC8A22D80C700051B831 /* CGRect + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect + Extension.swift"; sourceTree = "<group>"; };
+		5BC4AACB241DC6BE00954753 /* IndexPath + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath + Extensions.swift"; sourceTree = "<group>"; };
 		5BC601612380C476003A5343 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		5BCA458F2375D56700FA9ABE /* CAGradientLayer + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer + Extension.swift"; sourceTree = "<group>"; };
 		5BCA45912375D9EC00FA9ABE /* UITableViewCell + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell + Extension.swift"; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				5B93A1752417D0C8004BCD14 /* CALayer + Extensions.swift */,
 				5BCA458F2375D56700FA9ABE /* CAGradientLayer + Extension.swift */,
 				5B73018524180E81002A9AE8 /* Collection + Extensions.swift */,
+				5BC4AACB241DC6BE00954753 /* IndexPath + Extensions.swift */,
 				5BFCD7E122D7CB8300ACD4E5 /* ExtendedTextView.swift */,
 				5BBFBA932418370F00A98FB3 /* KeyboardNotificationInfo.swift */,
 			);
@@ -457,6 +460,7 @@
 				5B1B7AA124180289002F7E4C /* DataManager.swift in Sources */,
 				5BFCD7E422D7D52700ACD4E5 /* ColorPickerViewController.swift in Sources */,
 				5BCA45922375D9EC00FA9ABE /* UITableViewCell + Extension.swift in Sources */,
+				5BC4AACC241DC6BE00954753 /* IndexPath + Extensions.swift in Sources */,
 				5BD4F5142354826E000A4F8B /* NotebookFileDataManager.swift in Sources */,
 				5BC2FC8B22D80C700051B831 /* CGRect + Extension.swift in Sources */,
 				5B9DA173241AC19B00131590 /* CGPath + Extensions.swift in Sources */,
