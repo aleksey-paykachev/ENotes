@@ -47,17 +47,17 @@ class PhotoNotesViewController: UICollectionViewController {
 			self.collectionView.backgroundColor = self.isEditing ? .gray : self.backgroundColor
 		}
 		
+		// update UI elements
 		navigationController?.setToolbarHidden(!isEditing, animated: true)
 		addBarButtonItem.isEnabled = !isEditing
 		deleteBarButtonItem.isEnabled = false
 		
-		collectionView.allowsMultipleSelection = isEditing
-		collectionView.visibleCells.forEach {
-			let cell = $0 as! PhotoNoteCollectionViewCell
+		// update editing state for all visible cells
+		for case let cell as PhotoNoteCell in collectionView.visibleCells {
 			cell.isEditMode = isEditing
 		}
 
-		// deselect all items
+		// deselect all selected cells
 		selectedIndexPaths.forEach { collectionView.deselectItem(at: $0, animated: false) }
 	}
 	
@@ -95,8 +95,8 @@ class PhotoNotesViewController: UICollectionViewController {
 	private func setupCollectionView() {
 		collectionView.backgroundColor = backgroundColor
 		collectionView.contentInsetAdjustmentBehavior = .always
-		collectionView.allowsMultipleSelection = false
-		collectionView.registerCell(PhotoNoteCollectionViewCell.self)
+		collectionView.allowsMultipleSelection = true
+		collectionView.registerCell(PhotoNoteCell.self)
 	}
 	
 	// MARK: - Private methods
@@ -145,7 +145,7 @@ extension PhotoNotesViewController {
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-		let cell = collectionView.dequeueCell(PhotoNoteCollectionViewCell.self, for: indexPath)
+		let cell = collectionView.dequeueCell(PhotoNoteCell.self, for: indexPath)
 		cell.photoNote = notebook.get(by: indexPath.item)
 		cell.isEditMode = isEditing
 		

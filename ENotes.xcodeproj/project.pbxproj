@@ -19,7 +19,7 @@
 		5B500EFA236AF36300443135 /* TextNoteNotebook.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B500EF8236AF36200443135 /* TextNoteNotebook.json */; };
 		5B500EFB236AF36300443135 /* PhotoNoteNotebook.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B500EF9236AF36300443135 /* PhotoNoteNotebook.json */; };
 		5B6A541522E2CA9400C9205E /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6A541422E2CA9400C9205E /* Note.swift */; };
-		5B6A541722E2F53500C9205E /* PhotoNoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6A541622E2F53500C9205E /* PhotoNoteCollectionViewCell.swift */; };
+		5B6A541722E2F53500C9205E /* PhotoNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6A541622E2F53500C9205E /* PhotoNoteCell.swift */; };
 		5B7055AD22E0B4A700ACF805 /* PhotoNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7055AC22E0B4A700ACF805 /* PhotoNote.swift */; };
 		5B7055AF22E0BBCC00ACF805 /* PhotoViewerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7055AE22E0BBCC00ACF805 /* PhotoViewerPageViewController.swift */; };
 		5B7055B222E0BCAA00ACF805 /* SinglePhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7055B022E0BCAA00ACF805 /* SinglePhotoViewerViewController.swift */; };
@@ -85,7 +85,7 @@
 		5B500EF8236AF36200443135 /* TextNoteNotebook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TextNoteNotebook.json; sourceTree = "<group>"; };
 		5B500EF9236AF36300443135 /* PhotoNoteNotebook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PhotoNoteNotebook.json; sourceTree = "<group>"; };
 		5B6A541422E2CA9400C9205E /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
-		5B6A541622E2F53500C9205E /* PhotoNoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNoteCollectionViewCell.swift; sourceTree = "<group>"; };
+		5B6A541622E2F53500C9205E /* PhotoNoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNoteCell.swift; sourceTree = "<group>"; };
 		5B7055AC22E0B4A700ACF805 /* PhotoNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNote.swift; sourceTree = "<group>"; };
 		5B7055AE22E0BBCC00ACF805 /* PhotoViewerPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerPageViewController.swift; sourceTree = "<group>"; };
 		5B7055B022E0BCAA00ACF805 /* SinglePhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePhotoViewerViewController.swift; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				5B0EF7B422E178FA004DCD71 /* PhotoNotesViewController.swift */,
-				5B6A541622E2F53500C9205E /* PhotoNoteCollectionViewCell.swift */,
+				5B6A541622E2F53500C9205E /* PhotoNoteCell.swift */,
 			);
 			path = PhotoNotes;
 			sourceTree = "<group>";
@@ -486,7 +486,7 @@
 				5BCA45902375D56700FA9ABE /* CAGradientLayer + Extension.swift in Sources */,
 				5BDBC2F1241689CB000284E0 /* Bundle + Extensions.swift in Sources */,
 				5BBFBA942418370F00A98FB3 /* KeyboardNotificationInfo.swift in Sources */,
-				5B6A541722E2F53500C9205E /* PhotoNoteCollectionViewCell.swift in Sources */,
+				5B6A541722E2F53500C9205E /* PhotoNoteCell.swift in Sources */,
 				5B49988E22D66175002B30AE /* TextNoteEditorViewController.swift in Sources */,
 				5BABD22A22DB4A53006A36A4 /* CGPoint + Extension.swift in Sources */,
 				5BCA45962375E22000FA9ABE /* UICollectionViewCell + Extension.swift in Sources */,
