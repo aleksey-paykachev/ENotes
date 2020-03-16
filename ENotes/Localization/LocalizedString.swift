@@ -47,6 +47,13 @@ struct LocalizedString {
 		static let title = NSLocalizedString("Photo Notes", comment: "Photo notes list title. Shown both in navigation bar at the top and in the tab bar at the bottom.")
 	}
 	
+	struct ImageSourceSelector {
+		static let title = NSLocalizedString("Please select the source of the photo note image.", comment: "Title of the image source selector. Asks user to choose source type of the photo note image.")
+		static let cameraButton = NSLocalizedString("Camera", comment: "Camera action button text of the image source selector. Allows user to shoot an image from camera.")
+		static let photoLibraryButton = NSLocalizedString("Photo library", comment: "Photo library action button text of the image source selector. Allows user to select an image from photo library.")
+		static let cancelButton = NSLocalizedString("Cancel", comment: "Cancel action button text of the image source selector.")
+	}
+	
 	struct EndFreeTrial {
 		static let description = NSLocalizedString("Free trial limit has been reached.", comment: "Notifies the user that aplication's free trial has been ended.")
 		
