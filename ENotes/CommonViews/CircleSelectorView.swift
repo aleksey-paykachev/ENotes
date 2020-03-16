@@ -8,12 +8,18 @@
 
 import UIKit
 
+/// Circle selector view - circle with inner concentric circle inside.
 class CircleSelectorView: UIView {
 	
+	private let shapeColor: UIColor = .white
+	private let borderColor: UIColor = .darkGray
+	private let lineWidthToOuterRadiusRatio: CGFloat = 0.4
+	
 	convenience init(radius: CGFloat) {
-		self.init(frame: CGRect(x: 0, y: 0, width: radius * 2, height: radius * 2))
+		self.init(frame: CGRect(origin: .zero, size: .square(radius * 2)))
 	}
 	
+	/// Radius value of the outer circle.
 	var radius: CGFloat {
 		bounds.width / 2
 	}
@@ -22,22 +28,18 @@ class CircleSelectorView: UIView {
 		backgroundColor = nil
 
 		let path = getPath()
-		UIColor.white.setStroke()
+		shapeColor.setStroke() // inner shape color
 		path.stroke()
 		
-		layer.shadowColor = UIColor.darkGray.cgColor
-		layer.shadowOffset = .zero
-		layer.shadowRadius = 1
-		layer.shadowOpacity = 0.8
+		layer.setShadow(radius: 1, color: borderColor, alpha: 0.8) // outer border
 	}
 	
 	private func getPath() -> UIBezierPath {
-		let minSide = min(bounds.width, bounds.height)
-		let lineWidth = minSide * 0.2
+		let lineWidth = radius * lineWidthToOuterRadiusRatio
 
-		let radius = (minSide - lineWidth) / 2
-		let center = CGPoint(x: radius + lineWidth / 2, y: radius + lineWidth / 2)
-		let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
+		let pathRadius = radius - lineWidth / 2
+		let center = CGPoint(x: radius, y: radius)
+		let path = UIBezierPath(arcCenter: center, radius: pathRadius, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
 		
 		path.lineWidth = lineWidth
 		
