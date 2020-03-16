@@ -16,7 +16,6 @@ class PhotoNotesViewController: UICollectionViewController {
 	private let minimumPhotoNoteImageSideSize: CGFloat = 160
 	
 	private let flowLayout = UICollectionViewFlowLayout()
-	private let imagePickerController = ImagePickerController()
 	private var addBarButtonItem: UIBarButtonItem!
 	private var deleteBarButtonItem: UIBarButtonItem!
 	
@@ -75,7 +74,7 @@ class PhotoNotesViewController: UICollectionViewController {
 	}
 	
 	private func setupNavigationItem() {
-		addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showImagePicker))
+		addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addPhotoNoteButtonDidPressed))
 		
 		navigationItem.leftBarButtonItem = editButtonItem
 		navigationItem.rightBarButtonItem = addBarButtonItem
@@ -114,11 +113,32 @@ class PhotoNotesViewController: UICollectionViewController {
 		deleteBarButtonItem.isEnabled = selectedIndexPaths.isNotEmpty
 	}
 	
-	@objc private func showImagePicker() {
-		imagePickerController.imagePickerDelegate = self
-		imagePickerController.modalPresentationStyle = .fullScreen
+	@objc private func addPhotoNoteButtonDidPressed() {
+		// check if device have a camera, and if not, show photo library image picker
+		if UIImagePickerController.isSourceTypeAvailable(.camera) == false {
+			let libraryPicker = ImagePickerController(source: .photoLibrary, delegate: self)
+			present(libraryPicker, animated: true)
+			return
+		}
+		
+		// if device do have a camera, show photo note source selector: library or camera
+		let imagePickerSourceSelectorAlertController = UIAlertController(title: "Please select the source of the photo note image.", message: nil, preferredStyle: .actionSheet)
 
-		present(imagePickerController, animated: true)
+		let addImageFromCameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
+			let cameraPicker = ImagePickerController(source: .camera, delegate: self)
+			self.present(cameraPicker, animated: true)
+		}
+		let addImageFromPhotoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { _ in
+			let libraryPicker = ImagePickerController(source: .photoLibrary, delegate: self)
+			self.present(libraryPicker, animated: true)
+		}
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+
+		imagePickerSourceSelectorAlertController.addAction(addImageFromCameraAction)
+		imagePickerSourceSelectorAlertController.addAction(addImageFromPhotoLibraryAction)
+		imagePickerSourceSelectorAlertController.addAction(cancelAction)
+
+		present(imagePickerSourceSelectorAlertController, animated: true)
 	}
 	
 	private func addItem(image: UIImage) {
