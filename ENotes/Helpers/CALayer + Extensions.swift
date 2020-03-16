@@ -14,9 +14,9 @@ extension CALayer {
 	/// - Parameters:
 	///   - radius: The blur radius (in points).
 	///   - color: The color of the layer’s shadow.
-	///   - offsetX: The x offset (in points) of the layer’s shadow.
-	///   - offsetY: The y offset (in points) of the layer’s shadow.
-	///   - alpha: The opacity of the layer’s shadow.
+	///   - offsetX: The x offset (in points) of the layer’s shadow. Default value is 0.
+	///   - offsetY: The y offset (in points) of the layer’s shadow. Default value is 0.
+	///   - alpha: The opacity of the layer’s shadow. Default value is 1.0 (no opacity).
 	///
 	func setShadow(radius: CGFloat, color: UIColor, offsetX: CGFloat = 0, offsetY: CGFloat = 0, alpha: CGFloat = 1) {
 

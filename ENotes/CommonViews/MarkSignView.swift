@@ -8,11 +8,15 @@
 
 import UIKit
 
+/// Mark sign view. Animatable.
 class MarkSignView: UIView {
 
 	private let shapeLayer = CAShapeLayer()
 	private let lineWidth: CGFloat = 5.0
 	private let animationDuration: CFTimeInterval = 0.3
+	
+	private let shapeColor: UIColor = .white
+	private let borderColor: UIColor = .darkGray
 	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
@@ -24,11 +28,18 @@ class MarkSignView: UIView {
 		setup()
 	}
 	
-	func show() {
+	/// Show mark sign.
+	/// - Parameter animated: If true, show mark sign with animation. Default value is true.
+	///
+	func show(animated: Bool = true) {
 		shapeLayer.isHidden = false
-		playAnimation()
+
+		if animated {
+			playAnimation()
+		}
 	}
 	
+	/// Hide mark sign.
 	func hide() {
 		shapeLayer.isHidden = true
 	}
@@ -39,37 +50,30 @@ class MarkSignView: UIView {
 		shapeLayer.lineCap = .round
 		shapeLayer.lineJoin = .round
 
-		shapeLayer.strokeColor = UIColor.white.cgColor
 		shapeLayer.fillColor = nil
-		
-		shapeLayer.shadowColor = UIColor.darkGray.cgColor
-		shapeLayer.shadowOffset = .zero
-		shapeLayer.shadowRadius = 1
-		shapeLayer.shadowOpacity = 1
+		shapeLayer.strokeColor = shapeColor.cgColor // inner shape
+		shapeLayer.setShadow(radius: 1, color: borderColor) // outer border
 		
 		layer.addSublayer(shapeLayer)
 		hide()
 	}
 	
 	private func playAnimation() {
-		let animation = CABasicAnimation(keyPath: "strokeEnd")
+		let animation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeEnd))
 		
 		animation.fromValue = 0.0
 		animation.toValue = 1.0
 		animation.duration = animationDuration
 		
-		animation.fillMode = .forwards
-		animation.isRemovedOnCompletion = true
-
 		shapeLayer.removeAnimation(forKey: "drawLineAnimation")
 		shapeLayer.add(animation, forKey: "drawLineAnimation")
 	}
 	
 	private func getMarkSignPath(in rect: CGRect) -> UIBezierPath {
 		let path = UIBezierPath()
-		path.move(to: CGPoint(x: 0 + lineWidth, y: rect.midY))
+		path.move(to: CGPoint(x: lineWidth, y: rect.midY))
 		path.addLine(to: CGPoint(x: rect.midX, y: rect.maxY - lineWidth))
-		path.addLine(to: CGPoint(x: rect.maxX - lineWidth, y: 0 + lineWidth))
+		path.addLine(to: CGPoint(x: rect.maxX - lineWidth, y: lineWidth))
 
 		return path
 	}
