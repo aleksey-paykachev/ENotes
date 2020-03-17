@@ -1,5 +1,5 @@
 //
-//  EndFreeTrialViewController.swift
+//  EndOfFreeTrialViewController.swift
 //  ENotes
 //
 //  Created by Aleksey on 07/07/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EndFreeTrialViewController: UIViewController {
+class EndOfFreeTrialViewController: UIViewController {
 	
 	@IBOutlet private var freeTrialEndedDescriptionLabel: UILabel!
 	@IBOutlet private var askForMoneyTitleLabel: UILabel!
@@ -21,8 +21,8 @@ class EndFreeTrialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		freeTrialEndedDescriptionLabel.text = LocalizedString.EndFreeTrial.description
-		askForMoneyTitleLabel.text = LocalizedString.EndFreeTrial.askForMoneyTitle
-		askForMoneySubtitleLabel.text = LocalizedString.EndFreeTrial.askForMoneySubtitle
+		freeTrialEndedDescriptionLabel.text = LocalizedString.EndOfFreeTrial.description
+		askForMoneyTitleLabel.text = LocalizedString.EndOfFreeTrial.askForMoneyTitle
+		askForMoneySubtitleLabel.text = LocalizedString.EndOfFreeTrial.askForMoneySubtitle
     }
 }

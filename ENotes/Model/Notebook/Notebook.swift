@@ -110,7 +110,10 @@ class Notebook<T: Note> {
 // Loads and saves entire notebook using data manager provided with notebook class initializer.
 extension Notebook {
 	private func loadNotebook() {
-		notes = dataManager.load()
+		dataManager.load().forEach { note in
+			notes.append(note)
+			postNotification(.addNote)
+		}
 	}
 	
 	private func saveNotebook() {
@@ -124,7 +127,7 @@ extension Notebook {
 extension Notebook {
 	// Notification mechanism are used to notify an instance of FreeVersionManager about note creation or deletion. We can't use static variables to get all notes count, because of generic type of Notebook class.
 
-	private func postNotification(_ notificationType: FreeVersionManager.NotificationType) {
-		NotificationCenter.default.post(name: notificationType.notificationName, object: nil)
+	private func postNotification(_ notificationName: Notification.Name) {
+		NotificationCenter.default.post(name: notificationName, object: nil)
 	}
 }

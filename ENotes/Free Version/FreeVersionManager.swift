@@ -10,54 +10,57 @@ import UIKit
 
 class FreeVersionManager {
 	
-	enum NotificationType {
-		case addNote
-		case removeNote
-		
-		var notificationName: Notification.Name {
-			switch self {
-			case .addNote:
-				return .addNote // Notification.Name(rawValue: "NoteAddedNotification")
-			case .removeNote:
-				return .removeNote // Notification.Name(rawValue: "NoteRemovedNotification")
-			}
-		}
-	}
-	
-	private let numberOfFreeNotesLimit = 21
+	private let numberOfFreeNotesLimit: Int
 	private var currentNotesCount = 0
 	
-	/// Setup version type of software: full or free.
-	init?() {
+	private var freeNotesLeft: Int {
+		numberOfFreeNotesLimit - currentNotesCount
+	}
+	
+	/// Setup version type of software based on build configuration custom flag FREE_VERSION.
+	/// For free version starts observing for total notes count change for all types of
+	/// notebooks, and shows modal window when limit has been reached.
+	/// For paid version returns nil and does nothing.
+	/// - Parameter numberOfFreeNotesLimit: Total number of free notes limit (text and photo).
+	///
+	init?(numberOfFreeNotesLimit: Int) {
 		#if FREE_VERSION
-			startNotesLimitChecker()
+			self.numberOfFreeNotesLimit = numberOfFreeNotesLimit
+			notesLimitChecker()
 		#else
 			return nil
 		#endif
 	}
 	
-	private func startNotesLimitChecker() {
-		print("startNotesLimitChecker()")
+	/// Check if notes limit has been reached, and show modal window if so.
+	func checkForNotesLimitReached() {
+		if freeNotesLeft <= 0 {
+			showEndOfFreeTrialModal()
+		}
+	}
+	
+	private func showEndOfFreeTrialModal() {
+		let rootViewController = UIApplication.shared.keyWindow?.rootViewController
+		
+		if !(rootViewController?.presentedViewController is EndOfFreeTrialViewController) {
+			let endOfFreeTrialViewController = EndOfFreeTrialViewController()
+			endOfFreeTrialViewController.modalPresentationStyle = .fullScreen
+			rootViewController?.present(endOfFreeTrialViewController, animated: true)
+		}
+	}
+	
+	private func notesLimitChecker() {
 		let notificationCenter = NotificationCenter.default
 
 		notificationCenter.addObserver(forName: .addNote, object: nil, queue: .main) { _ in
-
 			self.currentNotesCount += 1
-			print("FREE VERSION: Add new note. Current count: \(self.currentNotesCount)")
-
-			if self.currentNotesCount > self.numberOfFreeNotesLimit {
-//				let appDelegate = UIApplication.shared.delegate
-//				appDelegate?.window??.rootViewController?.present(EndFreeTrialViewController(), animated: true)
-				
-				let rootViewController = UIApplication.shared.keyWindow?.rootViewController
-				rootViewController?.present(EndFreeTrialViewController(), animated: true)
-			}
+			self.checkForNotesLimitReached()
+			App.log("Add new note. Free notes left: \(self.freeNotesLeft)")
 		}
 		
 		notificationCenter.addObserver(forName: .removeNote, object: nil, queue: .main) { _ in
-			
 			self.currentNotesCount -= 1
-			print("FREE VERSION: Remove existing note. Current count: \(self.currentNotesCount)")
+			App.log("Remove existing note. Free notes left: \(self.freeNotesLeft)")
 		}
 	}
 }

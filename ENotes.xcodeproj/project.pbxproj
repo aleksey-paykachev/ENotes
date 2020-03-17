@@ -15,7 +15,7 @@
 		5B1B7AA124180289002F7E4C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B7AA024180289002F7E4C /* DataManager.swift */; };
 		5B38F21124169472004182CA /* UIImage + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38F21024169472004182CA /* UIImage + Extensions.swift */; };
 		5B3AC723230FBB060029BDCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B3AC722230FBB060029BDCD /* Assets.xcassets */; };
-		5B4089BB22D1863C006AE52E /* EndFreeTrialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4089B922D1863C006AE52E /* EndFreeTrialViewController.swift */; };
+		5B4089BB22D1863C006AE52E /* EndOfFreeTrialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4089B922D1863C006AE52E /* EndOfFreeTrialViewController.swift */; };
 		5B49988E22D66175002B30AE /* TextNoteEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B49988D22D66175002B30AE /* TextNoteEditorViewController.swift */; };
 		5B500EFA236AF36300443135 /* TextNoteNotebook.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B500EF8236AF36200443135 /* TextNoteNotebook.json */; };
 		5B500EFB236AF36300443135 /* PhotoNoteNotebook.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B500EF9236AF36300443135 /* PhotoNoteNotebook.json */; };
@@ -34,7 +34,7 @@
 		5B88D14F23B1D73C00CBAC22 /* URL + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B88D14E23B1D73C00CBAC22 /* URL + Extension.swift */; };
 		5B93A1762417D0C8004BCD14 /* CALayer + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B93A1752417D0C8004BCD14 /* CALayer + Extensions.swift */; };
 		5B9774F02311B42C00DE525A /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9774EF2311B42C00DE525A /* ImagePickerController.swift */; };
-		5B99DA86235CAC2F003AE003 /* EndFreeTrialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B99DA85235CAC2F003AE003 /* EndFreeTrialViewController.xib */; };
+		5B99DA86235CAC2F003AE003 /* EndOfFreeTrialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B99DA85235CAC2F003AE003 /* EndOfFreeTrialViewController.xib */; };
 		5B9DA173241AC19B00131590 /* CGPath + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9DA172241AC19B00131590 /* CGPath + Extensions.swift */; };
 		5BA85D47230644D100ED0CF1 /* BrightnessSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA85D46230644D100ED0CF1 /* BrightnessSliderView.swift */; };
 		5BA85D49230644FE00ED0CF1 /* HueSaturationSelectionAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA85D48230644FE00ED0CF1 /* HueSaturationSelectionAreaView.swift */; };
@@ -67,6 +67,7 @@
 		5BE7E32B235AEE3500701311 /* CustomColorSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7E32A235AEE3500701311 /* CustomColorSelectorCell.swift */; };
 		5BEA1FEA22D9C7A6007DDA39 /* CircleSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEA1FE922D9C7A6007DDA39 /* CircleSelectorView.swift */; };
 		5BEFA5B922DF42EE00F30A3E /* HSBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEFA5B822DF42EE00F30A3E /* HSBColor.swift */; };
+		5BF7AA4724210CE400F293AC /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF7AA4624210CE400F293AC /* App.swift */; };
 		5BFCD7E222D7CB8300ACD4E5 /* ExtendedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCD7E122D7CB8300ACD4E5 /* ExtendedTextView.swift */; };
 		5BFCD7E422D7D52700ACD4E5 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCD7E322D7D52700ACD4E5 /* ColorPickerViewController.swift */; };
 		5BFD40032419D2240037B7A1 /* CGSize + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD40022419D2240037B7A1 /* CGSize + Extensions.swift */; };
@@ -83,7 +84,7 @@
 		5B1B7AA024180289002F7E4C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		5B38F21024169472004182CA /* UIImage + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extensions.swift"; sourceTree = "<group>"; };
 		5B3AC722230FBB060029BDCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5B4089B922D1863C006AE52E /* EndFreeTrialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndFreeTrialViewController.swift; sourceTree = "<group>"; };
+		5B4089B922D1863C006AE52E /* EndOfFreeTrialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndOfFreeTrialViewController.swift; sourceTree = "<group>"; };
 		5B49988D22D66175002B30AE /* TextNoteEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNoteEditorViewController.swift; sourceTree = "<group>"; };
 		5B500EF8236AF36200443135 /* TextNoteNotebook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TextNoteNotebook.json; sourceTree = "<group>"; };
 		5B500EF9236AF36300443135 /* PhotoNoteNotebook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PhotoNoteNotebook.json; sourceTree = "<group>"; };
@@ -104,7 +105,7 @@
 		5B88D14E23B1D73C00CBAC22 /* URL + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + Extension.swift"; sourceTree = "<group>"; };
 		5B93A1752417D0C8004BCD14 /* CALayer + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer + Extensions.swift"; sourceTree = "<group>"; };
 		5B9774EF2311B42C00DE525A /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
-		5B99DA85235CAC2F003AE003 /* EndFreeTrialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EndFreeTrialViewController.xib; sourceTree = "<group>"; };
+		5B99DA85235CAC2F003AE003 /* EndOfFreeTrialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EndOfFreeTrialViewController.xib; sourceTree = "<group>"; };
 		5B9DA172241AC19B00131590 /* CGPath + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPath + Extensions.swift"; sourceTree = "<group>"; };
 		5BA85D46230644D100ED0CF1 /* BrightnessSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessSliderView.swift; sourceTree = "<group>"; };
 		5BA85D48230644FE00ED0CF1 /* HueSaturationSelectionAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueSaturationSelectionAreaView.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		5BE7E32A235AEE3500701311 /* CustomColorSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorSelectorCell.swift; sourceTree = "<group>"; };
 		5BEA1FE922D9C7A6007DDA39 /* CircleSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleSelectorView.swift; sourceTree = "<group>"; };
 		5BEFA5B822DF42EE00F30A3E /* HSBColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSBColor.swift; sourceTree = "<group>"; };
+		5BF7AA4624210CE400F293AC /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5BFCD7E122D7CB8300ACD4E5 /* ExtendedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedTextView.swift; sourceTree = "<group>"; };
 		5BFCD7E322D7D52700ACD4E5 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		5BFD40022419D2240037B7A1 /* CGSize + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize + Extensions.swift"; sourceTree = "<group>"; };
@@ -183,8 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				5BA85D4A230646A300ED0CF1 /* FreeVersionManager.swift */,
-				5B4089B922D1863C006AE52E /* EndFreeTrialViewController.swift */,
-				5B99DA85235CAC2F003AE003 /* EndFreeTrialViewController.xib */,
+				5B4089B922D1863C006AE52E /* EndOfFreeTrialViewController.swift */,
+				5B99DA85235CAC2F003AE003 /* EndOfFreeTrialViewController.xib */,
 			);
 			path = "Free Version";
 			sourceTree = "<group>";
@@ -293,6 +295,7 @@
 		5BBD1A9C22D05C2B00BCC111 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5BF7AA4624210CE400F293AC /* App.swift */,
 				5BDBC2EE241687C3000284E0 /* File.swift */,
 				5BBD1A9D22D05C4800BCC111 /* FileManager + Extension.swift */,
 				5BDBC2F0241689CB000284E0 /* Bundle + Extensions.swift */,
@@ -446,7 +449,7 @@
 				5B500EFB236AF36300443135 /* PhotoNoteNotebook.json in Resources */,
 				5B0991BA236C6BE30019ABDD /* Localizable.strings in Resources */,
 				5B7BB2BA2309CB4D00978461 /* TextNoteCell.xib in Resources */,
-				5B99DA86235CAC2F003AE003 /* EndFreeTrialViewController.xib in Resources */,
+				5B99DA86235CAC2F003AE003 /* EndOfFreeTrialViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +465,7 @@
 				5BBA7215241683800049E292 /* DemoDataManager.swift in Sources */,
 				5BFD40032419D2240037B7A1 /* CGSize + Extensions.swift in Sources */,
 				5BABD22622DAB6B1006A36A4 /* RectangularSelectorView.swift in Sources */,
+				5BF7AA4724210CE400F293AC /* App.swift in Sources */,
 				5BDC58BA22CDA26900EA9D68 /* Notebook.swift in Sources */,
 				5B1B7AA124180289002F7E4C /* DataManager.swift in Sources */,
 				5BFCD7E422D7D52700ACD4E5 /* ColorPickerViewController.swift in Sources */,
@@ -486,7 +490,7 @@
 				5BABD22822DB465D006A36A4 /* UIColor + Extension.swift in Sources */,
 				5BE731EB241E6A5F006C053C /* UIEdgeInsets + Extensions.swift in Sources */,
 				5BA85D4B230646A300ED0CF1 /* FreeVersionManager.swift in Sources */,
-				5B4089BB22D1863C006AE52E /* EndFreeTrialViewController.swift in Sources */,
+				5B4089BB22D1863C006AE52E /* EndOfFreeTrialViewController.swift in Sources */,
 				5B6A541522E2CA9400C9205E /* Note.swift in Sources */,
 				5BA85D49230644FE00ED0CF1 /* HueSaturationSelectionAreaView.swift in Sources */,
 				5BD4F40D22D6B73E00464447 /* ColorSelectorCell.swift in Sources */,
@@ -754,7 +758,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.apaykachev.Notes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = FREE_VERSION;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "FREE_VERSION DEBUG";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

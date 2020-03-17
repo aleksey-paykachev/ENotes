@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	
-	let freeVersionManager = FreeVersionManager() // returns nil and does nothing for paid version
+	let freeVersionManager = FreeVersionManager(numberOfFreeNotesLimit: 15) // returns nil and does nothing for paid version
 	var window: UIWindow?
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -25,5 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		window?.makeKeyAndVisible()
 		
 		return true
+	}
+	
+	func applicationDidBecomeActive(_ application: UIApplication) {
+		freeVersionManager?.checkForNotesLimitReached()
 	}
 }

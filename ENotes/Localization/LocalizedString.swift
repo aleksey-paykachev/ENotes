@@ -54,7 +54,7 @@ struct LocalizedString {
 		static let cancelButton = NSLocalizedString("Cancel", comment: "Cancel action button text of the image source selector.")
 	}
 	
-	struct EndFreeTrial {
+	struct EndOfFreeTrial {
 		static let description = NSLocalizedString("Free trial limit has been reached.", comment: "Notifies the user that aplication's free trial has been ended.")
 		
 		static let askForMoneyTitle = NSLocalizedString("Where is the money?", comment: "Title of free trial ending notification.")
