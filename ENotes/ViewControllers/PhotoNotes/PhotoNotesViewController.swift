@@ -19,6 +19,7 @@ class PhotoNotesViewController: UICollectionViewController {
 	private let flowLayout = UICollectionViewFlowLayout()
 	private var addBarButtonItem: UIBarButtonItem!
 	private var deleteBarButtonItem: UIBarButtonItem!
+	private let selectedPhotosCounterLabel = UILabel()
 	
 	private var selectedIndexPaths: [IndexPath] {
 		collectionView.indexPathsForSelectedItems ?? []
@@ -47,11 +48,6 @@ class PhotoNotesViewController: UICollectionViewController {
 			self.collectionView.backgroundColor = self.isEditing ? .gray : self.backgroundColor
 		}
 		
-		// update UI elements
-		navigationController?.setToolbarHidden(!isEditing, animated: true)
-		addBarButtonItem.isEnabled = !isEditing
-		deleteBarButtonItem.isEnabled = false
-		
 		// update editing state for all visible cells
 		for case let cell as PhotoNoteCell in collectionView.visibleCells {
 			cell.isEditMode = isEditing
@@ -59,6 +55,11 @@ class PhotoNotesViewController: UICollectionViewController {
 
 		// deselect all selected cells
 		selectedIndexPaths.forEach { collectionView.deselectItem(at: $0, animated: false) }
+		
+		// update UI elements
+		navigationController?.setToolbarHidden(!isEditing, animated: true)
+		addBarButtonItem.isEnabled = !isEditing
+		updateToolbar()
 	}
 	
 	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -82,9 +83,18 @@ class PhotoNotesViewController: UICollectionViewController {
 	}
 	
 	private func setupToolbar() {
+		// counter label
+		selectedPhotosCounterLabel.textColor = .darkGray
+		let selectedPhotosCounterLabelItem = UIBarButtonItem(customView: selectedPhotosCounterLabel)
+
+		// spacer
+		let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+		// delete button
 		deleteBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deletePhotosButtonWasTapped))
+		deleteBarButtonItem.tintColor = .red
 		
-		toolbarItems = [deleteBarButtonItem]
+		toolbarItems = [selectedPhotosCounterLabelItem, spacer, deleteBarButtonItem]
 	}
 	
 	private func setupFlowLayout() {
@@ -111,6 +121,7 @@ class PhotoNotesViewController: UICollectionViewController {
 	}
 	
 	private func updateToolbar() {
+		selectedPhotosCounterLabel.text = "\(LocalizedString.PhotoNotes.selectedPhotosCounter): \(selectedIndexPaths.count)"
 		deleteBarButtonItem.isEnabled = selectedIndexPaths.isNotEmpty
 	}
 	

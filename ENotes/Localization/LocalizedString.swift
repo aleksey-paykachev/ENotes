@@ -45,6 +45,8 @@ struct LocalizedString {
 	
 	struct PhotoNotes {
 		static let title = NSLocalizedString("Photo Notes", comment: "Photo notes list title. Shown both in navigation bar at the top and in the tab bar at the bottom.")
+		
+		static let selectedPhotosCounter = NSLocalizedString("Selected photos", comment: "Number of selected photo notes in edit mode. Shown in the toolbar at the bottom of photo notes list.")
 	}
 	
 	struct ImageSourceSelector {
