@@ -148,8 +148,7 @@ extension TextNoteEditorViewController {
 		colorSelectorViewController.willMove(toParent: self)
 		addChild(colorSelectorViewController)
 
-		let colorSelectorCollectionView = colorSelectorViewController.collectionView!
-		stackView.addArrangedSubview(colorSelectorCollectionView)
+		stackView.addArrangedSubview(colorSelectorViewController.view)
 
 		colorSelectorViewController.didMove(toParent: self)
 	}

@@ -16,7 +16,8 @@ class ColorSelectorViewController: UICollectionViewController {
 	private var colors: [HSBColor] { standardColors + [customColor] }
 	
 	private let flowLayout = UICollectionViewFlowLayout()
-	
+	private var collectionViewHeightConstraint: NSLayoutConstraint!
+
 	/// Currently selected color (standard or custom) or nil if no color were selected.
 	var selectedColor: HSBColor? {
 		guard let index = collectionView.firstSelectedItemIndex else { return nil }
@@ -56,19 +57,34 @@ class ColorSelectorViewController: UICollectionViewController {
 		// setup collection view
 		collectionView.backgroundColor = .clear
 		collectionView.allowsMultipleSelection = false
+		
+		collectionViewHeightConstraint = collectionView.heightAnchor.constraint(equalToConstant: 0)
+		collectionViewHeightConstraint.isActive = true
 
 		// setup collection view flow layout
-		flowLayout.scrollDirection = .horizontal
+		flowLayout.scrollDirection = .vertical
 		flowLayout.itemSize = .square(50)
-
-		// set height of the collection view equal to single cell height (one row)
-		collectionView.heightAnchor.constraint(equalToConstant: flowLayout.itemSize.height).isActive = true
 		
 		// register two type of cells: for standard colors and for custom one
 		collectionView.registerCell(ColorSelectorCell.self)
 		collectionView.registerCell(CustomColorSelectorCell.self)
 	}
 	
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+
+		// force invalidation of content size to get actual width and height of the collection view
+		collectionView.invalidateIntrinsicContentSize()
+	}
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+
+		// we have to manually set the height constraint constant, to be able to add this collection view inside a scroll view
+		collectionViewHeightConstraint.constant = collectionView.contentSize.height
+	}
+		
 	private func selectCustomColorCell(color: HSBColor) {
 		customColor = color
 		
