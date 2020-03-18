@@ -11,7 +11,7 @@ import UIKit
 /// Provides user interface for selection of the color.
 class ColorSelectorViewController: UICollectionViewController {
 	
-	private let standardColors = [HSBColor.yellow, .green, .cyan, .magenta, .red]
+	private let standardColors = [HSBColor.yellow, .green, .cyan, .blue, .indigo, .magenta, .red, .orange, .brown, .gray, .lightGray]
 	private var customColor = TextNote.defaultColor
 	private var colors: [HSBColor] { standardColors + [customColor] }
 	
@@ -63,6 +63,7 @@ class ColorSelectorViewController: UICollectionViewController {
 
 		// setup collection view flow layout
 		flowLayout.scrollDirection = .vertical
+		flowLayout.minimumInteritemSpacing = 6
 		flowLayout.itemSize = .square(50)
 		
 		// register two type of cells: for standard colors and for custom one

@@ -19,8 +19,14 @@ struct HSBColor: Equatable {
 	static let yellow = UIColor.yellow.hsbColor
 	static let green = UIColor.green.hsbColor
 	static let cyan = UIColor.cyan.hsbColor
+	static let blue = HSBColor(hue: 0.6, saturation: 0.6, brightness: 1)
+	static let indigo = HSBColor(hue: 0.7, saturation: 0.8, brightness: 1)
 	static let magenta = UIColor.magenta.hsbColor
-	static let red = UIColor.red.hsbColor
+	static let red = HSBColor(hue: 0, saturation: 0.8, brightness: 1)
+	static let orange = HSBColor(hue: 0.1, saturation: 0.9, brightness: 1)
+	static let brown = HSBColor(hue: 0.1, saturation: 0.9, brightness: 0.7)
+	static let gray = UIColor.gray.hsbColor
+	static let lightGray = UIColor.lightGray.hsbColor
 
 	var hue: CGFloat
 	var saturation: CGFloat
