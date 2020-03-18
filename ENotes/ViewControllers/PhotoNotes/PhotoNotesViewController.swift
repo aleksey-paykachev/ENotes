@@ -13,7 +13,8 @@ class PhotoNotesViewController: UICollectionViewController {
 	private let notebook: Notebook<PhotoNote>
 	
 	private let backgroundColor = UIColor(white: 0.95, alpha: 1)
-	private let minimumPhotoNoteImageSideSize: CGFloat = 160
+	private let minimumPhotoNoteImageSideSize: CGFloat = 170
+	private let minimumPhotosPerRow: CGFloat = 2
 	
 	private let flowLayout = UICollectionViewFlowLayout()
 	private var addBarButtonItem: UIBarButtonItem!
@@ -220,8 +221,9 @@ extension PhotoNotesViewController: UICollectionViewDelegateFlowLayout {
 		// Calculate appropriate number of items per column and its sizes respecting current collection view width and default minimum photo note size
 		
 		let collectionViewWidth = collectionView.bounds.width - collectionView.safeAreaInsets.left - collectionView.safeAreaInsets.right
-		let itemsPerColumn = floor(collectionViewWidth / minimumPhotoNoteImageSideSize)
-		let itemSize = floor(collectionViewWidth / itemsPerColumn)
+		var itemsPerRow = floor(collectionViewWidth / minimumPhotoNoteImageSideSize)
+		itemsPerRow = max(minimumPhotosPerRow, itemsPerRow)
+		let itemSize = floor(collectionViewWidth / itemsPerRow)
 		
 		return .square(itemSize)
 	}

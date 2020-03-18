@@ -29,7 +29,7 @@ class NotebookFileDataManager<T: Note>: NotebookDataManager<T> {
 			notes = notesJSON?.compactMap(T.parse) ?? []
 			
 		} catch {
-			print("Can't load notes from notebook file. Error: \(error.localizedDescription)")
+			App.log("Can't load notes from notebook file. Error: \(error.localizedDescription)")
 		}
 		
 		return notes
@@ -46,7 +46,7 @@ class NotebookFileDataManager<T: Note>: NotebookDataManager<T> {
 				try data.write(to: self.fileUrl, options: .atomic)
 
 			} catch {
-				print("Can't save notes to notebook file. Error: \(error.localizedDescription)")
+				App.log("Can't save notes to notebook file. Error: \(error.localizedDescription)")
 			}
 		}
 	}

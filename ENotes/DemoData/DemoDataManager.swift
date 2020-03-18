@@ -29,7 +29,7 @@ class DemoDataManager {
 		do {
 			try FileManager.default.copyItem(at: sourceUrl, to: destinationUrl)
 		} catch {
-			print("Could not copy demo data from file \(file)")
+			App.log("Could not copy demo data from file \(file)")
 		}
 	}
 }
