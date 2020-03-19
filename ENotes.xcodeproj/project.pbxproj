@@ -44,6 +44,7 @@
 		5BABD22822DB465D006A36A4 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BABD22722DB465D006A36A4 /* UIColor + Extension.swift */; };
 		5BABD22A22DB4A53006A36A4 /* CGPoint + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BABD22922DB4A53006A36A4 /* CGPoint + Extension.swift */; };
 		5BAC641A22D9872F00C8C927 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BAC641922D9872F00C8C927 /* ColorPickerViewController.xib */; };
+		5BADA907242415B800DA0AA0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BADA909242415B800DA0AA0 /* InfoPlist.strings */; };
 		5BB35337230A0B79005D68AE /* TextNoteEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BB35336230A0B79005D68AE /* TextNoteEditorViewController.xib */; };
 		5BBA7215241683800049E292 /* DemoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA7214241683800049E292 /* DemoDataManager.swift */; };
 		5BBD1A9E22D05C4800BCC111 /* FileManager + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD1A9D22D05C4800BCC111 /* FileManager + Extension.swift */; };
@@ -115,6 +116,8 @@
 		5BABD22722DB465D006A36A4 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		5BABD22922DB4A53006A36A4 /* CGPoint + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint + Extension.swift"; sourceTree = "<group>"; };
 		5BAC641922D9872F00C8C927 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
+		5BADA90A242415BD00DA0AA0 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5BADA90B242415C200DA0AA0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5BB35336230A0B79005D68AE /* TextNoteEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextNoteEditorViewController.xib; sourceTree = "<group>"; };
 		5BBA7214241683800049E292 /* DemoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoDataManager.swift; sourceTree = "<group>"; };
 		5BBD1A9D22D05C4800BCC111 /* FileManager + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager + Extension.swift"; sourceTree = "<group>"; };
@@ -357,6 +360,7 @@
 			children = (
 				5BD0DD80241B0A9B00DEF541 /* LocalizedString.swift */,
 				5B0991B8236C6BE30019ABDD /* Localizable.strings */,
+				5BADA909242415B800DA0AA0 /* InfoPlist.strings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -450,6 +454,7 @@
 				5B0991BA236C6BE30019ABDD /* Localizable.strings in Resources */,
 				5B7BB2BA2309CB4D00978461 /* TextNoteCell.xib in Resources */,
 				5B99DA86235CAC2F003AE003 /* EndOfFreeTrialViewController.xib in Resources */,
+				5BADA907242415B800DA0AA0 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +534,15 @@
 				5B0991BB236C6C9A0019ABDD /* ja */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		5BADA909242415B800DA0AA0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BADA90A242415BD00DA0AA0 /* ja */,
+				5BADA90B242415C200DA0AA0 /* ru */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

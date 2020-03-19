@@ -1,0 +1,8 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "E-Notes";
+/* Bundle name */
+"CFBundleName" = "ENotes";
+/* Privacy - Camera Usage Description */
+"NSCameraUsageDescription" = "E-Noteはカメラにアクセスする必要があります。";
+/* Privacy - Photo Library Usage Description */
+"NSPhotoLibraryUsageDescription" = "E-Noteは写真ライブラリにアクセスする必要があります。";

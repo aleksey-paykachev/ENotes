@@ -1,3 +1,51 @@
-/* Text label placeholder for a note name. */
-"Note name" = "JAPANISEEE NOte NaMe";
+/* Camera action button text of the image source selector. Allows user to shoot an image from camera. */
+"Camera" = "カメラ";
 
+/* Cancel action button text of the color picker.
+   Cancel action button text of the image source selector. */
+"Cancel" = "キャンセル";
+
+/* Notifies the user that aplication's free trial has been ended. */
+"Free trial limit has been reached." = "無料トライアルの制限に達しました。";
+
+/* Shows in the navigation bar when user create a new note. */
+"New note" = "新しいメモ";
+
+/* Shows as a note title if user hasn't provide one while editing a note. */
+"No title" = "無題";
+
+/* Text label placeholder for a note content. */
+"Note content" = "メモの内容";
+
+/* Text label placeholder for a note title. */
+"Note title" = "メモのタイトル";
+
+/* Text notes list title. Shown both in navigation bar at the top and in the tab bar at the bottom. */
+"Notes" = "ノート";
+
+/* Photo library action button text of the image source selector. Allows user to select an image from photo library. */
+"Photo library" = "フォトライブラリー";
+
+/* Photo notes list title. Shown both in navigation bar at the top and in the tab bar at the bottom. */
+"Photo Notes" = "写真メモ";
+
+/* Title of the image source selector. Asks user to choose source type of the photo note image. */
+"Please select the source of the photo note image." = "写真メモ画像のソースを選択してください。";
+
+/* Self destruction date of a note. Shows in a label next to date picker. */
+"Remove after date" = "日付の後削除";
+
+/* Save action button text of the color picker. */
+"Save" = "セーブ";
+
+/* Number of selected photo notes in edit mode. Shown in the toolbar at the bottom of photo notes list. */
+"Selected photos" = "選択した写真";
+
+/* Shows user self destruction date of the note in following template format: 'until %date%'. */
+"until %@" = "%@ まで";
+
+/* Subtitle of free trial ending notification. Politely asks the user for the money. */
+"Where is the money, Lebowski?" = "お金だけがあなたの名誉を回復することができます。 そして、カットオフ指。";
+
+/* Title of free trial ending notification. */
+"Where is the money?" = "あなたは武士の名誉を汚しました。";

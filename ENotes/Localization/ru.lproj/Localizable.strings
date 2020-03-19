@@ -1,4 +1,51 @@
-/* Text label placeholder for a note name. */
-"Note name" = "Название заметки";
+/* Camera action button text of the image source selector. Allows user to shoot an image from camera. */
+"Camera" = "Камера";
 
-"Cancel" = "Отмена";
+/* Cancel action button text of the color picker.
+   Cancel action button text of the image source selector. */
+"Cancel" = "Отменить";
+
+/* Notifies the user that aplication's free trial has been ended. */
+"Free trial limit has been reached." = "Превышен бесплатный лимит создания заметок.";
+
+/* Shows in the navigation bar when user create a new note. */
+"New note" = "Новая заметка";
+
+/* Shows as a note title if user hasn't provide one while editing a note. */
+"No title" = "Заголовок отсутствует";
+
+/* Text label placeholder for a note content. */
+"Note content" = "Содержание заметки";
+
+/* Text label placeholder for a note title. */
+"Note title" = "Заголовок";
+
+/* Text notes list title. Shown both in navigation bar at the top and in the tab bar at the bottom. */
+"Notes" = "Заметки";
+
+/* Photo library action button text of the image source selector. Allows user to select an image from photo library. */
+"Photo library" = "Фотобиблиотека";
+
+/* Photo notes list title. Shown both in navigation bar at the top and in the tab bar at the bottom. */
+"Photo Notes" = "Котозаметки"; // Фотозаметки
+
+/* Title of the image source selector. Asks user to choose source type of the photo note image. */
+"Please select the source of the photo note image." = "Пожалуйста, выберите источник котозаметки.";
+
+/* Self destruction date of a note. Shows in a label next to date picker. */
+"Remove after date" = "Удалить после даты";
+
+/* Save action button text of the color picker. */
+"Save" = "Сохранить";
+
+/* Number of selected photo notes in edit mode. Shown in the toolbar at the bottom of photo notes list. */
+"Selected photos" = "Выбрано фотографий";
+
+/* Shows user self destruction date of the note in following template format: 'until %date%'. */
+"until %@" = "до %@";
+
+/* Subtitle of free trial ending notification. Politely asks the user for the money. */
+"Where is the money, Lebowski?" = "Думал, я с тобой шутки шутить буду?";
+
+/* Title of free trial ending notification. */
+"Where is the money?" = "Где деньги?";
