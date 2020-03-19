@@ -118,6 +118,8 @@
 		5BAC641922D9872F00C8C927 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
 		5BADA90A242415BD00DA0AA0 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5BADA90B242415C200DA0AA0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5BADA90C2424192300DA0AA0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5BADA90D2424192B00DA0AA0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5BB35336230A0B79005D68AE /* TextNoteEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextNoteEditorViewController.xib; sourceTree = "<group>"; };
 		5BBA7214241683800049E292 /* DemoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoDataManager.swift; sourceTree = "<group>"; };
 		5BBD1A9D22D05C4800BCC111 /* FileManager + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager + Extension.swift"; sourceTree = "<group>"; };
@@ -532,6 +534,7 @@
 			children = (
 				5B0991B9236C6BE30019ABDD /* ru */,
 				5B0991BB236C6C9A0019ABDD /* ja */,
+				5BADA90C2424192300DA0AA0 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 			children = (
 				5BADA90A242415BD00DA0AA0 /* ja */,
 				5BADA90B242415C200DA0AA0 /* ru */,
+				5BADA90D2424192B00DA0AA0 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

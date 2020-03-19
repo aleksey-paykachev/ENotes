@@ -1,0 +1,51 @@
+/* Camera action button text of the image source selector. Allows user to shoot an image from camera. */
+"Camera" = "Camera";
+
+/* Cancel action button text of the color picker.
+   Cancel action button text of the image source selector. */
+"Cancel" = "Cancel";
+
+/* Notifies the user that aplication's free trial has been ended. */
+"Free trial limit has been reached." = "Free trial limit has been reached.";
+
+/* Shows in the navigation bar when user create a new note. */
+"New note" = "New note";
+
+/* Shows as a note title if user hasn't provide one while editing a note. */
+"No title" = "No title";
+
+/* Text label placeholder for a note content. */
+"Note content" = "Note content";
+
+/* Text label placeholder for a note title. */
+"Note title" = "Note title";
+
+/* Text notes list title. Shown both in navigation bar at the top and in the tab bar at the bottom. */
+"Notes" = "Notes";
+
+/* Photo library action button text of the image source selector. Allows user to select an image from photo library. */
+"Photo library" = "Photo library";
+
+/* Photo notes list title. Shown both in navigation bar at the top and in the tab bar at the bottom. */
+"Photo Notes" = "Photo Notes";
+
+/* Title of the image source selector. Asks user to choose source type of the photo note image. */
+"Please select the source of the photo note image." = "Please select the source of the photo note image.";
+
+/* Self destruction date of a note. Shows in a label next to date picker. */
+"Remove after date" = "Remove after date";
+
+/* Save action button text of the color picker. */
+"Save" = "Save";
+
+/* Number of selected photo notes in edit mode. Shown in the toolbar at the bottom of photo notes list. */
+"Selected photos" = "Selected photos";
+
+/* Shows user self destruction date of the note in following template format: 'until %date%'. */
+"until %@" = "until %@";
+
+/* Subtitle of free trial ending notification. Politely asks the user for the money. */
+"Where is the money, Lebowski?" = "Where is the money, Lebowski?";
+
+/* Title of free trial ending notification. */
+"Where is the money?" = "Where is the money?";
