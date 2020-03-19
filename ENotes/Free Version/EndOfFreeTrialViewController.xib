@@ -30,7 +30,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="E-Note with baseball bat" translatesAutoresizingMaskIntoConstraints="NO" id="ZFk-G1-tZB">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="E-Note end of free trial" translatesAutoresizingMaskIntoConstraints="NO" id="ZFk-G1-tZB">
                             <rect key="frame" x="0.0" y="39" width="354" height="607.5"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="End_of_free_trial_title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unJ-oJ-Art">
@@ -60,6 +60,6 @@
         </view>
     </objects>
     <resources>
-        <image name="E-Note with baseball bat" width="617.5" height="657"/>
+        <image name="E-Note end of free trial" width="682" height="657"/>
     </resources>
 </document>
