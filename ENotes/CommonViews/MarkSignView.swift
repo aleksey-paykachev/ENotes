@@ -13,7 +13,7 @@ class MarkSignView: UIView {
 
 	private let shapeLayer = CAShapeLayer()
 	private let lineWidth: CGFloat = 5.0
-	private let animationDuration: CFTimeInterval = 0.3
+	private let animationDuration: CFTimeInterval = 0.35
 	
 	private let shapeColor: UIColor = .white
 	private let borderColor: UIColor = .darkGray

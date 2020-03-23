@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	
-	let freeVersionManager = FreeVersionManager(numberOfFreeNotesLimit: 15) // returns nil and does nothing for paid version
+	let freeVersionManager = FreeVersionManager(numberOfFreeNotesLimit: 18) // returns nil and does nothing for paid version
 	var window: UIWindow?
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
