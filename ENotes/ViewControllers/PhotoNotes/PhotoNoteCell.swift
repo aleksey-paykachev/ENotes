@@ -18,7 +18,14 @@ class PhotoNoteCell: UICollectionViewCell {
 	private let deselectedStateColor = UIColor.gray.withAlphaComponent(0.4)
 
 	var photoNote: PhotoNote? { didSet { updateUI() } }
-	var isEditMode: Bool = false { didSet { setEditMode() } }
+	
+	var isEditMode: Bool = false {
+		didSet {
+			if isEditMode != oldValue {
+				setEditMode()
+			}
+		}
+	}
 
 	override var isSelected: Bool {
 		didSet {
